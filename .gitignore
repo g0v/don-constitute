@@ -1,1 +1,15 @@
 .sass-cache
+
+#############
+## Fire.app
+#############
+
+.sass-cache/
+.livescript-cache/
+fire_app_log.txt
+
+#############
+## Sublime Text
+#############
+
+.editorconfig
