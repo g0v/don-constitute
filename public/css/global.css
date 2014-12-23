@@ -21,6 +21,7 @@ body.ui.dimmable {
 html, body {
   overflow: hidden;
   background-color: #efefef;
+  background-color: #e4e8e1;
 }
 
 p {
@@ -57,6 +58,7 @@ a, a:link {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+  margin: 0;
 }
 #topbar .item {
   color: white;
@@ -66,4 +68,45 @@ a, a:link {
   width: 1.2rem;
   margin: -1rem 0.5rem -0.1rem 0;
   display: inline;
+}
+
+#event #header {
+  position: relative;
+  min-height: 15rem;
+  background-color: #d8d0b0;
+  background-color: #efefef;
+  background-color: #333322;
+  text-align: center;
+}
+#event #header .background .image {
+  height: 15rem;
+  display: inline;
+}
+#event #header .cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.5));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.5));
+}
+#event #header .cover .title {
+  position: absolute;
+  width: 100%;
+  bottom: 1rem;
+}
+#event #header .cover .title .header {
+  color: white;
+}
+#event #header .cover .title .small {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+#event #header .cover .title .label {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
