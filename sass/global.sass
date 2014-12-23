@@ -18,6 +18,7 @@ body.ui.dimmable
 html, body
   overflow: hidden
   background-color: #efefef
+  background-color: #E4E8E1
 
 p
   line-height: 1.5em
@@ -44,6 +45,7 @@ a, a:link
 #topbar
   background-color: #AA987B
   +border-radius(0)
+  margin: 0
   .item
     color: #fff
     font-size: 1.2rem
@@ -51,5 +53,37 @@ a, a:link
     width: 1.2rem
     margin: -1rem 0.5rem -0.1rem 0
     display: inline
-  .logo.text
+
+#event
+  #header
+    position: relative
+    min-height: 15rem
+    background-color: #D8D0B0
+    background-color: #efefef
+    background-color: #332
+    text-align: center
+    .background
+      .image
+        height: 15rem
+        display: inline
+    .cover
+      position: absolute
+      top: 0
+      bottom: 0
+      width: 100%
+      +background-image(linear-gradient(rgba(#000,0.1), rgba(#000,0.1) 60%, rgba(#000,0.5)))
+      .title
+        position: absolute
+        width: 100%
+        bottom: 1rem
+        .header
+          color: #fff
+        .small
+          font-size: 1.5rem
+          margin-left: 1rem
+        .label
+          background-color: rgba(#000,0.5)
+          padding: 0.5rem 1rem
+          +border-radius(0.5rem)
+
 
