@@ -52,19 +52,38 @@ a, a:link {
 
 #topbar {
   background-color: #aa987b;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  margin: 0;
 }
-#topbar .item {
+#topbar .ui.menu {
+  background-color: #aa987b;
+  margin-bottom: 0;
+}
+#topbar .ui.menu .item {
   color: white;
   font-size: 1rem;
 }
-#topbar .logo.image {
+#topbar .ui.menu .logo.image {
   width: 1rem;
   margin: -1rem 0.5rem -0.1rem 0;
   display: inline;
+}
+
+#bottombar {
+  background-color: #d8d0b0;
+}
+#bottombar .ui.menu {
+  background-color: #d8d0b0;
+}
+
+.menu.bar {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 #event #header {
@@ -95,20 +114,21 @@ a, a:link {
 #event #header .cover .title {
   position: absolute;
   width: 100%;
-  bottom: 1.5rem;
+  bottom: 2rem;
 }
 #event #header .cover .title .header {
+  display: inline-block;
   color: white;
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
-#event #header .cover .title .icon {
+#event #header .cover .title .header .icon {
   margin: 0;
 }
-#event #header .cover .title .small {
+#event #header .cover .title .header .small {
   font-size: 1rem;
   margin-left: 1rem;
 }
-#event #header .cover .title .label {
+#event #header .cover .title .header .label {
   background-color: #aa987b;
   background-color: #98c0b7;
   background-color: #779933;
@@ -124,6 +144,9 @@ a, a:link {
 }
 #event #content .description {
   padding: 1rem;
+}
+#event #content .description p {
+  font-size: 1.2rem;
 }
 #event #content .event.meta {
   margin: 0;
@@ -148,10 +171,10 @@ a, a:link {
 #event #content #log .icon.yellow {
   text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
 }
-#event #content #log .sample .key {
+#event #content #log #sample .key {
   text-align: center;
 }
-#event #content #log .sample .value {
+#event #content #log #sample .value {
   font-size: 0.8rem;
   text-align: center;
   margin-top: 0.5rem;
@@ -159,6 +182,30 @@ a, a:link {
 #event #content #log #pilot {
   margin-bottom: 0;
 }
-#event #content #log #filter {
-  margin-top: 0;
+#event #content #log #list .entry {
+  position: relative;
+  margin-left: 5rem;
+  margin-right: 6rem;
+}
+#event #content #log #list .entry .rating {
+  position: absolute;
+  left: -5rem;
+  top: 1rem;
+}
+#event #content #log #list .entry .tag {
+  float: right;
+  margin: -0.2rem 0 -1rem 1rem;
+}
+#event #content #log #list .entry .tag .ui.label {
+  margin-bottom: 0.5rem;
+}
+#event #content #log #list .entry .action {
+  position: absolute;
+  right: -6rem;
+  top: 0.5rem;
+}
+#event #content #footer {
+  padding: 1rem;
+  background-color: #31343d;
+  color: #e4e8e1;
 }

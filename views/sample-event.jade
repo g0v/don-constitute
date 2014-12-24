@@ -12,17 +12,23 @@ block content
     header#header
       .background
         img.ui.image(src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10397046_743166745732737_6981759218115780785_o.jpg")
-        img.ui.image(src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1801143_743167149066030_4365130757095527117_o.jpg")
         img.ui.image(src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/10298306_743166935732718_5677566081269997932_o.jpg")
+        img.ui.image(src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1801143_743167149066030_4365130757095527117_o.jpg")
       .cover
         .title
-          h1.ui.header
+          h1.header
+            | 憲政草根論壇
+            | x
+            | 司改會
+          //-h1.header
             span.label 憲政草根論壇
             span.x
               i.icon.remove
             span.label 司改會
             //-span.small 2014 Augest 09 
     section#content
+      article.description
+        p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
       article.event.meta.ui.two.column.stackable.divided.grid
         .column
           p.item
@@ -41,11 +47,39 @@ block content
           p.item
             span.key 參加者組成
             span.value 多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。
-      article.description
-        p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
       article#log
         .ui.horizontal.divider 紀錄
-        .sample.ui.five.column.stackable.divided.grid
+        #pilot.ui.secondary.pointing.menu
+          a.item 感受到的國家/體制問題
+            .ui.red.label 10
+          a.item 主張的價值與改革方向
+            .ui.green.label 10
+          .right.menu
+            .item.ui.button 全部展開
+            .item.ui.button 全部收合
+            .item.ui.simple.dropdown 依發言順序
+              i.icon.dropdown
+              .menu
+                .item 依發言順序
+                .item 依重要性
+                .item 依同意度
+        #filter.ui.secondary.menu
+          a.item 憲法
+            .ui.small.label 10
+          a.item 法制
+            .ui.small.label 10
+        #list
+          include entry
+          include entry
+          include entry
+          include entry
+          include entry
+          include entry
+          include entry
+          include entry
+          include entry
+        .ui.divider
+        #sample.ui.five.column.stackable.divided.grid
           .column
             .key
               i.icon.remove.red
@@ -75,39 +109,24 @@ block content
               i.icon.star.yellow
             p.value 全場多數人支持認同
 
-        #pilot.ui.menu
-          a.item 感受到的國家/體制問題
-            .ui.label 10
-          a.item 主張的價值與改革方向
-            .ui.label 10
-          .right.menu
-            .item.ui.button 全部展開
-            .item.ui.button 全部收合
-            .item.ui.simple.dropdown 依發言順序
-              i.icon.dropdown
-              .menu
-                .item 依發言順序
-                .item 依重要性
-                .item 依同意度
-        #filter.ui.secondary.menu
-          a.item 分類標籤
-            .ui.label 10
-        #list
-          .entry
-            .meta
-              i.icon.star.yellow
-              i.icon.star.yellow
-              i.icon.star.yellow
-            .content
-            .action
- 
-
+      section#footer
+        .tag 涉及主題：
+        .share 分享這次活動：
+          .ui.icon.facebook.small.button
+            i.icon.facebook
+          .ui.icon.twitter.small.button
+            i.icon.twitter
+          .ui.icon.google.plus.small.button
+            i.icon.google.plus
+        .host 籌備團隊：
+        .link 活動照片：
+        .download 檔案下載：
+        .related 類似的場次：
 
 
 block script
   script.
 
-        ★★★ 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
 
         ★★☆ 罷免門檻過高：成本高、侵害隱私權、無法宣傳、沒有公務協助、投票時要雙重檢核太嚴格
 

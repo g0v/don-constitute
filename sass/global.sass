@@ -42,15 +42,28 @@ a, a:link
 
 #topbar
   background-color: #AA987B
+  .ui.menu
+    background-color: #AA987B
+    margin-bottom: 0
+    .item
+      color: #fff
+      font-size: 1rem
+    .logo.image
+      width: 1rem
+      margin: -1rem 0.5rem -0.1rem 0
+      display: inline
+
+#bottombar
+  background-color: #D8D0B0
+  .ui.menu
+    background-color: #D8D0B0
+
+.menu.bar
+  max-width: 1200px
+  margin-left: auto
+  margin-right: auto
   +border-radius(0)
-  margin: 0
-  .item
-    color: #fff
-    font-size: 1rem
-  .logo.image
-    width: 1rem
-    margin: -1rem 0.5rem -0.1rem 0
-    display: inline
+  +box-shadow(none)
 
 #event
   #header
@@ -78,27 +91,30 @@ a, a:link
       .title
         position: absolute
         width: 100%
-        bottom: 1.5rem
+        bottom: 2rem
         .header
+          display: inline-block
           color: #fff
-          font-size: 1.5rem
-        .icon
-          margin: 0
-        .small
-          font-size: 1rem
-          margin-left: 1rem
-        .label
-          background-color: rgba(#AA987B,1)
-          background-color: rgba(#98C0B7,1)
-          background-color: hsla(80deg,50%,40%,1)
-          background-color: rgba(#5EA092,1)
-          padding: 0.5rem 1rem
-          +border-radius(0.5rem)
+          font-size: 3rem
+          .icon
+            margin: 0
+          .small
+            font-size: 1rem
+            margin-left: 1rem
+          .label
+            background-color: rgba(#AA987B,1)
+            background-color: rgba(#98C0B7,1)
+            background-color: hsla(80deg,50%,40%,1)
+            background-color: rgba(#5EA092,1)
+            padding: 0.5rem 1rem
+            +border-radius(0.5rem)
   #content
     max-width: 1200px
     margin: 0 auto
     .description
       padding: 1rem
+      p
+        font-size: 1.2rem
     .event.meta
       //padding: 0 1rem
       margin: 0
@@ -122,7 +138,7 @@ a, a:link
           opacity: 0.5
         &.yellow
           +text-shadow(rgba(#000,.5) 0 0 1px)
-      .sample
+      #sample
         .key
           text-align: center
         .value
@@ -131,9 +147,30 @@ a, a:link
           margin-top: .5rem
       #pilot
         margin-bottom: 0
+        //margin-top: -1rem
       #filter
-        margin-top: 0
+        //margin-top: 0
+      #list
+        .entry
+          position: relative
+          margin-left: 5rem
+          margin-right: 6rem
+          .rating
+            position: absolute
+            left: -5rem
+            top: 1rem
+          .content
+          .tag
+            float: right
+            margin: -0.2rem 0 -1rem 1rem
+            .ui.label
+              margin-bottom: 0.5rem
+          .action
+            position: absolute
+            right: -6rem
+            top: 0.5rem
 
-
-
-
+    #footer
+      padding: 1rem
+      background-color: rgba(#31343D,1)
+      color: #E4E8E1
