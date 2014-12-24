@@ -2,9 +2,12 @@
 @import compass/css3
 
 html
-  font-size: 18px
   font-family: 'Noto Sans', 'Noto Sans T Chinese', '微軟正黑體', sans-serif
   color: #333
+
+html, body, div, nav, section, article, header, footer, h1, h2, h3, h4, p
+  font-size: 20px
+  //font-weight: bold
 
 html, body, div, nav, section, article, header, footer, h1, h2, h3, h4
   margin: 0
@@ -12,13 +15,8 @@ html, body, div, nav, section, article, header, footer, h1, h2, h3, h4
   line-height: 1em
   +box-sizing(border-box)
 
-body.ui.dimmable
-  position: static
-
 html, body
-  overflow: hidden
   background-color: #efefef
-  background-color: #E4E8E1
 
 p
   line-height: 1.5em
@@ -48,21 +46,26 @@ a, a:link
   margin: 0
   .item
     color: #fff
-    font-size: 1.2rem
+    font-size: 1rem
   .logo.image
-    width: 1.2rem
+    width: 1rem
     margin: -1rem 0.5rem -0.1rem 0
     display: inline
 
 #event
   #header
     position: relative
-    min-height: 15rem
-    background-color: #D8D0B0
-    background-color: #efefef
-    background-color: #332
+    //background-color: #D8D0B0
+    //background-color: #efefef
+    +background(image-url("/img/bg-grass.png") repeat-x center bottom, hsl(80deg,40%,30%))
+    +background(image-url("/img/bg-grass.png") repeat-x center bottom, rgba(#5EA092,1))
+    +background(image-url("/img/bg-grass.png") repeat-x center bottom, rgba(#31343D,1))
     text-align: center
     .background
+      height: 15rem
+      text-overflow: clip
+      white-space: nowrap
+      //overflow-x: hidden
       .image
         height: 15rem
         display: inline
@@ -75,15 +78,62 @@ a, a:link
       .title
         position: absolute
         width: 100%
-        bottom: 1rem
+        bottom: 1.5rem
         .header
           color: #fff
-        .small
           font-size: 1.5rem
+        .icon
+          margin: 0
+        .small
+          font-size: 1rem
           margin-left: 1rem
         .label
-          background-color: rgba(#000,0.5)
+          background-color: rgba(#AA987B,1)
+          background-color: rgba(#98C0B7,1)
+          background-color: hsla(80deg,50%,40%,1)
+          background-color: rgba(#5EA092,1)
           padding: 0.5rem 1rem
           +border-radius(0.5rem)
+  #content
+    max-width: 1200px
+    margin: 0 auto
+    .description
+      padding: 1rem
+    .event.meta
+      //padding: 0 1rem
+      margin: 0
+      background-color: #E4E8E1
+      background-color: rgba(#98C0B7,0.5)
+      .item
+        //font-size: 0.8rem
+        //.label
+        //  background-color: rgba(#D8D0B0,1)
+        //  background-color: rgba(#efefef,1)
+        .key
+          font-weight: bold
+        .value
+          margin-left: 1rem
+    #log
+      .icon
+        margin: 0
+        &.red
+          +text-shadow(rgba(#000,.5) 0 0 1px)
+        &.gray
+          opacity: 0.5
+        &.yellow
+          +text-shadow(rgba(#000,.5) 0 0 1px)
+      .sample
+        .key
+          text-align: center
+        .value
+          font-size: 0.8rem
+          text-align: center
+          margin-top: .5rem
+      #pilot
+        margin-bottom: 0
+      #filter
+        margin-top: 0
+
+
 
 
