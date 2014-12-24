@@ -69,9 +69,9 @@ a, a:link {
 
 #event #header {
   position: relative;
-  background: url('/public/img/img/bg-grass.png') repeat-x center bottom, #576b2e;
-  background: url('/public/img/img/bg-grass.png') repeat-x center bottom, #5ea092;
-  background: url('/public/img/img/bg-grass.png') repeat-x center bottom, #31343d;
+  background: url('/public/img/bg-grass.png?1419418593') repeat-x center bottom, #576b2e;
+  background: url('/public/img/bg-grass.png?1419418593') repeat-x center bottom, #5ea092;
+  background: url('/public/img/bg-grass.png?1419418593') repeat-x center bottom, #31343d;
   text-align: center;
 }
 #event #header .background {
