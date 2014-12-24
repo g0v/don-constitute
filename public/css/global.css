@@ -114,29 +114,12 @@ a, a:link {
 #event #header .cover .title {
   position: absolute;
   width: 100%;
-  bottom: 2rem;
+  bottom: 1.5rem;
 }
 #event #header .cover .title .header {
-  display: inline-block;
   color: white;
   font-size: 3rem;
-}
-#event #header .cover .title .header .icon {
-  margin: 0;
-}
-#event #header .cover .title .header .small {
-  font-size: 1rem;
-  margin-left: 1rem;
-}
-#event #header .cover .title .header .label {
-  background-color: #aa987b;
-  background-color: #98c0b7;
-  background-color: #779933;
-  background-color: #5ea092;
-  padding: 0.5rem 1rem;
-  -moz-border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  border-radius: 0.5rem;
+  letter-spacing: 0.1rem;
 }
 #event #content {
   max-width: 1200px;
@@ -181,6 +164,10 @@ a, a:link {
 }
 #event #content #log #pilot {
   margin-bottom: 0;
+  margin-top: 1rem;
+}
+#event #content #log #filter {
+  margin: 1rem 0;
 }
 #event #content #log #list .entry {
   position: relative;
@@ -205,7 +192,25 @@ a, a:link {
   top: 0.5rem;
 }
 #event #content #footer {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   background-color: #31343d;
   color: #e4e8e1;
+}
+#event #content #footer .section {
+  margin-right: 1rem;
+  display: inline-block;
+  min-height: 3rem;
+}
+#event #content #footer .text {
+  margin-right: 1rem;
+}
+#event #content #footer .links .button {
+  margin-bottom: 0.5rem;
+}
+#event #content #footer .social {
+  padding-top: 0.8rem;
+}
+#event #content #footer .social .button {
+  position: relative;
+  top: -0.8rem;
 }
