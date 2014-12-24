@@ -1,8 +1,11 @@
 @charset "UTF-8";
 html {
-  font-size: 18px;
   font-family: "Noto Sans", "Noto Sans T Chinese", "微軟正黑體", sans-serif;
   color: #333333;
+}
+
+html, body, div, nav, section, article, header, footer, h1, h2, h3, h4, p {
+  font-size: 20px;
 }
 
 html, body, div, nav, section, article, header, footer, h1, h2, h3, h4 {
@@ -14,14 +17,8 @@ html, body, div, nav, section, article, header, footer, h1, h2, h3, h4 {
   box-sizing: border-box;
 }
 
-body.ui.dimmable {
-  position: static;
-}
-
 html, body {
-  overflow: hidden;
   background-color: #efefef;
-  background-color: #e4e8e1;
 }
 
 p {
@@ -62,21 +59,25 @@ a, a:link {
 }
 #topbar .item {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 #topbar .logo.image {
-  width: 1.2rem;
+  width: 1rem;
   margin: -1rem 0.5rem -0.1rem 0;
   display: inline;
 }
 
 #event #header {
   position: relative;
-  min-height: 15rem;
-  background-color: #d8d0b0;
-  background-color: #efefef;
-  background-color: #333322;
+  background: url(/img/bg-grass.png) repeat-x center bottom, #576b2e;
+  background: url(/img/bg-grass.png) repeat-x center bottom, #5ea092;
+  background: url(/img/bg-grass.png) repeat-x center bottom, #31343d;
   text-align: center;
+}
+#event #header .background {
+  height: 15rem;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 #event #header .background .image {
   height: 15rem;
@@ -94,19 +95,70 @@ a, a:link {
 #event #header .cover .title {
   position: absolute;
   width: 100%;
-  bottom: 1rem;
+  bottom: 1.5rem;
 }
 #event #header .cover .title .header {
   color: white;
+  font-size: 1.5rem;
+}
+#event #header .cover .title .icon {
+  margin: 0;
 }
 #event #header .cover .title .small {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-left: 1rem;
 }
 #event #header .cover .title .label {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #aa987b;
+  background-color: #98c0b7;
+  background-color: #779933;
+  background-color: #5ea092;
   padding: 0.5rem 1rem;
   -moz-border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   border-radius: 0.5rem;
+}
+#event #content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#event #content .description {
+  padding: 1rem;
+}
+#event #content .event.meta {
+  margin: 0;
+  background-color: #e4e8e1;
+  background-color: rgba(152, 192, 183, 0.5);
+}
+#event #content .event.meta .item .key {
+  font-weight: bold;
+}
+#event #content .event.meta .item .value {
+  margin-left: 1rem;
+}
+#event #content #log .icon {
+  margin: 0;
+}
+#event #content #log .icon.red {
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+}
+#event #content #log .icon.gray {
+  opacity: 0.5;
+}
+#event #content #log .icon.yellow {
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+}
+#event #content #log .sample .key {
+  text-align: center;
+}
+#event #content #log .sample .value {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+#event #content #log #pilot {
+  margin-bottom: 0;
+}
+#event #content #log #filter {
+  margin-top: 0;
 }
