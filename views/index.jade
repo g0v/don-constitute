@@ -6,24 +6,37 @@ block title
 
 block body
 
-  nav#topbar.ui.borderless.menu
-    a.item(href="index")
-      img.logo.image(src="img/logo-white.png")
-      span.logo.text 公民憲政推動聯盟
-    .right.menu
-      a.item(href="")
-        i.icon.announcement
-        | 新聞
-      a.item(href="sample-event")
-        i.icon.leaf
-        | 草根論壇遍地開花
-      a.item(href="")
-        i.icon.plus
-        | 加入合作
+  nav#topbar
+    .ui.borderless.menu.bar
+      a.item(href="index")
+        img.logo.image(src="img/logo-white.png")
+        span.logo.text 公民憲政推動聯盟
+      .right.menu
+        a.item(href="")
+          i.icon.announcement
+          | 新聞
+        a.item(href="sample-event")
+          i.icon.leaf
+          | 草根論壇遍地開花
+        a.item(href="")
+          i.icon.plus
+          | 加入合作
 
   block content
 
-  footer
+  footer#bottombar
+    .ui.borderless.menu.bar
+      a.item
+        i.icon.info.circle
+        | 憲動盟成員列表
+      a.item
+        i.icon.info.circle
+        | 本站程式碼與授權
+      .right.menu
+        .ui.button.item 公民憲政推動聯盟
+          i.icon.facebook
+        .ui.button.item 草根一堆人
+          i.icon.facebook.square
 
 block script
   script.
