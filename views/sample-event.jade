@@ -48,7 +48,7 @@ block content
             span.key 參加者組成
             span.value 多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。
       article#log
-        .ui.horizontal.divider 紀錄
+        //-.ui.horizontal.divider 紀錄
         #pilot.ui.secondary.pointing.menu
           a.item 感受到的國家/體制問題
             .ui.red.label 10
@@ -63,11 +63,16 @@ block content
                 .item 依發言順序
                 .item 依重要性
                 .item 依同意度
-        #filter.ui.secondary.menu
+        //-#filter.ui.secondary.menu
           a.item 憲法
             .ui.small.label 10
           a.item 法制
             .ui.small.label 10
+        #filter.ui.tag.labels
+          a.ui.label 憲法
+            .detail 5
+          a.ui.label 選制
+            .detail 5
         #list
           include entry
           include entry
@@ -79,49 +84,68 @@ block content
           include entry
           include entry
         .ui.divider
-        #sample.ui.five.column.stackable.divided.grid
-          .column
-            .key
-              i.icon.remove.red
-            p.value 有人強烈反對該項發言並提出不同見解
-          .column
-            .key
-              i.icon.empty.star.gray
-              i.icon.empty.star.gray
-              i.icon.empty.star.gray
-            p.value 無人贊同
-          .column
-            .key
-              i.icon.star.yellow
-              i.icon.empty.star.gray
-              i.icon.empty.star.gray
-            p.value 僅少數人支持認同
-          .column
-            .key
-              i.icon.star.yellow
-              i.icon.star.yellow
-              i.icon.empty.star.gray
-            p.value 約半數人支持認同
-          .column
-            .key
-              i.icon.star.yellow
-              i.icon.star.yellow
-              i.icon.star.yellow
-            p.value 全場多數人支持認同
+        #sample.ui.five.column.stackable.grid
+          .equal.height.divided.row
+            .column
+              .key
+                i.icon.remove.red
+              p.value 有人強烈反對該項發言並提出不同見解
+            .column
+              .key
+                i.icon.empty.star.gray
+                i.icon.empty.star.gray
+                i.icon.empty.star.gray
+              p.value 無人贊同
+            .column
+              .key
+                i.icon.star.yellow
+                i.icon.empty.star.gray
+                i.icon.empty.star.gray
+              p.value 僅少數人支持認同
+            .column
+              .key
+                i.icon.star.yellow
+                i.icon.star.yellow
+                i.icon.empty.star.gray
+              p.value 約半數人支持認同
+            .column
+              .key
+                i.icon.star.yellow
+                i.icon.star.yellow
+                i.icon.star.yellow
+              p.value 全場多數人支持認同
+        .ui.divider
 
       section#footer
-        .tag 涉及主題：
-        .share 分享這次活動：
-          .ui.icon.facebook.small.button
+        .section.ui.black.labels
+          span.text 草根生長地點
+          a.ui.label 台北市
+        .section.ui.tag.black.labels
+          span.text 討論內容
+          a.ui.label 憲政體制
+          a.ui.label 選舉制度
+        .section
+          span.text 工作團隊
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+        .section.links
+          .ui.black.icon.right.labeled.button 當天活動照片與海報快照
+            i.icon.share
+          .ui.black.icon.right.labeled.button 140829 草根論壇#00 會議手冊
+            i.icon.file.text
+        //-.related 類似的場次：
+        .section.social
+          span.text 分享活動至
+          .ui.facebook.icon.small.button
             i.icon.facebook
-          .ui.icon.twitter.small.button
+          .ui.twitter.icon.small.button
             i.icon.twitter
-          .ui.icon.google.plus.small.button
+          .ui.google.plus.icon.small.button
             i.icon.google.plus
-        .host 籌備團隊：
-        .link 活動照片：
-        .download 檔案下載：
-        .related 類似的場次：
 
 
 block script
