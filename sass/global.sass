@@ -135,7 +135,7 @@ a, a:link
         &.red
           +text-shadow(rgba(#000,.5) 0 0 1px)
         &.gray
-          opacity: 0.5
+          color: rgba(#000, .5)
         &.yellow
           +text-shadow(rgba(#000,.5) 0 0 1px)
       #sample
@@ -155,21 +155,50 @@ a, a:link
           position: relative
           margin-left: 5rem
           margin-right: 6rem
-          .rating
-            position: absolute
-            left: -5rem
-            top: 1rem
-          .content
-          .tag
-            float: right
-            margin: -0.2rem 0 -1rem 1rem
-            .ui.label
-              margin-bottom: 0.5rem
-          .action
-            position: absolute
-            right: -6rem
-            top: 0.5rem
-
+          margin-bottom: 1rem
+          //&.problem
+          //  background-color: rgba(#5bbd72, 1)
+          //&.claim
+          //  background-color: rgba(#d95c5c, 1)
+          .segment
+            margin-bottom: 0
+            .rating
+              position: absolute
+              left: -5rem
+              top: 1rem
+            .content
+              font-size: 1.2rem
+              //font-weight: bold
+              margin-top: -0.2em
+              margin-bottom: 0
+              color: #000
+            .tag
+              float: right
+              margin: -0.2rem 0 -1rem 1rem
+              .ui.label
+                margin-bottom: 0.5rem
+            .action
+              position: absolute
+              right: -6rem
+              top: 0.6rem
+          .detail
+            //display: none
+            //margin-bottom: 1rem
+            .comment
+              padding: 0 1rem
+              margin: 0
+              background-color: #E4E8E1
+              .item:first-child
+                padding-top: 0.5rem
+              .item:last-child
+                padding-bottom: 0.5rem
+              .agree
+              .disagree
+              .block
+            .subentry
+              margin-right: -6rem
+              .entry:first-child
+                margin-top: 1rem
     #footer
       padding: 1rem 1rem 0 1rem
       background-color: rgba(#31343D,1)

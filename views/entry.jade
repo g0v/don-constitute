@@ -1,15 +1,43 @@
-.entry.ui.segment
-  .rating
-    i.icon.star.yellow
-    i.icon.star.yellow
-    i.icon.star.yellow
-  .tag.ui.labels
-    .ui.label 憲法
-    .ui.label 選制
-  .content
-    p 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
-  .action
-    .ui.icon.small.button
-      i.icon.chevron.down
-    .ui.icon.small.button
-      i.icon.right.arrow
+.entry
+  .ui.segment.red
+    .rating
+      i.icon.star.yellow
+      i.icon.star.yellow
+      i.icon.star.empty.gray
+      i.icon.remove.red
+    .tag.ui.black.labels
+      .ui.label 憲法
+      .ui.label 選制
+    p.content 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
+    .action
+      .ui.icon.small.button
+        i.icon.chevron.down
+      a.ui.icon.small.button(href="",target="_blank")
+        i.icon.right.arrow
+  .detail
+    .comment.ui.divided.list
+      .agree.item
+          i.icon.thumbs.up.outline
+          | 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
+      .disagree.item
+          i.icon.thumbs.down.outline
+          | 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
+      .block.item
+          i.icon.remove.red
+          | 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
+    .subentry
+      .entry
+        .ui.segment.green
+          .rating
+            i.icon.star.yellow
+            i.icon.star.yellow
+            i.icon.star.yellow
+          .tag.ui.black.labels
+            .ui.label 憲法
+            .ui.label 選制
+          p.content 總統有權無責(他可以任意作他想作的，大家不能怎麼樣)
+          .action
+            .ui.icon.small.button
+              i.icon.chevron.down
+            a.ui.icon.small.button(href="",target="_blank")
+              i.icon.right.arrow
