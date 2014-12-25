@@ -1,0 +1,251 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <!-- Favicon-->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <!-- For iOS (TODO)-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="apple-touch-icon-precomposed" href="img/app-icon/icon-60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/app-icon/icon-76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/app-icon/icon-60@2x.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/app-icon/icon-76@2x.png"/>
+    <!-- jquery-->
+    <script type="text/javascript" src="assets/jquery-2.1.3.min.js"></script>
+    <!-- semantic ui-->
+    <link rel="stylesheet" type="text/css" href="assets/semantic-ui/1.4.0/semantic.min.css"/>
+    <script type="text/javascript" src="assets/semantic-ui/1.4.0/semantic.min.js"></script>
+    <!-- handlebars-->
+    <script type="text/javascript" src="assets/handlebars-v2.0.0.js"></script>
+    <!-- underscore-->
+    <script type="text/javascript" src="assets/underscore-min.js"></script>
+    <!-- csv parser-->
+    <!--script(type="text/javascript",src="assets/csv.js")-->
+    <!-- custom-->
+    <link rel="stylesheet" href="css/global.css"/>
+    <script type="text/javascript" src="js/global.js"></script>
+    <!-- for mobile, responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>範例活動 | 公民憲政推動聯盟 (憲動盟)</title>
+  </head>
+  <body>
+    <nav id="topbar">
+      <div class="ui borderless menu bar"><a href="index" class="item"><img src="img/logo-white.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a>
+        <div class="right menu"><a href="" class="item"><i class="icon announcement"></i>新聞</a><a href="sample-event" class="item"><i class="icon leaf"></i>草根論壇遍地開花</a><a href="" class="item"><i class="icon plus"></i>加入合作</a></div>
+      </div>
+    </nav>
+    <div id="event">
+      <header id="header">
+        <div class="background"><img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10397046_743166745732737_6981759218115780785_o.jpg" class="ui image"/><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/10298306_743166935732718_5677566081269997932_o.jpg" class="ui image"/><img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1801143_743167149066030_4365130757095527117_o.jpg" class="ui image"/></div>
+        <div class="cover">
+          <div class="title">
+            <h1 class="header">
+              憲政草根論壇
+              x
+              司改會
+            </h1>
+          </div>
+        </div>
+      </header>
+      <section id="content">
+        <article class="event meta ui two column stackable divided grid">
+          <div class="column">
+            <p class="item"><span class="key">主辦</span><span class="value">民間司法改革基金會</span></p>
+            <p class="item"><span class="key">時間</span><span class="value">2014年08月29日 星期五 下午13:00~17:00</span></p>
+            <p class="item"><span class="key">地點</span><span class="value">司改會辦公室 (台北市中山區松江路90巷3號7樓)</span></p>
+          </div>
+          <div class="column">
+            <p class="item"><span class="key">參加人數</span><span class="value">18人</span></p>
+            <p class="item"><span class="key">參加者組成</span><span class="value">多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。</span></p>
+          </div>
+        </article>
+        <article class="description">
+          <p>今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。</p>
+        </article>
+        <article id="log">
+          <div id="pilot" class="ui secondary pointing menu"><a class="item">所有論點
+              <div class="ui black label"></div></a><a class="item">感受到的問題
+              <div class="ui red label"></div></a><a class="item">主張的價值與改革方向
+              <div class="ui green label"></div></a>
+            <div class="right menu">
+              <div class="item ui button">全部展開</div>
+              <div class="item ui button">全部收合</div>
+              <div class="item ui simple dropdown">依發言順序<i class="icon dropdown"></i>
+                <div class="menu">
+                  <div class="item">依發言順序</div>
+                  <div class="item">依重要性</div>
+                  <div class="item">依同意度</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="filter" class="ui tag black labels"></div>
+          <div id="list">
+          </div>
+          <div class="ui divider"></div>
+          <div id="sample" class="ui five column stackable grid">
+            <div class="equal height divided row">
+              <div class="column">
+                <div class="key"><i class="icon remove red"></i></div>
+                <p class="value">有人強烈反對該項發言並提出不同見解</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon empty star gray"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <p class="value">無人贊同</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon star yellow"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <p class="value">僅少數人支持認同</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon empty star gray"></i></div>
+                <p class="value">約半數人支持認同</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon star yellow"></i></div>
+                <p class="value">全場多數人支持認同</p>
+              </div>
+            </div>
+          </div>
+          <div class="ui divider"></div>
+        </article>
+        <section id="footer">
+          <div class="section ui black labels"><span class="text">草根生長地點</span><a class="ui label">台北市</a></div>
+          <div class="section ui tag black labels"><span class="text">討論內容</span><a class="ui label">憲政體制</a><a class="ui label">選舉制度</a></div>
+          <div class="section"><span class="text">工作團隊</span><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&amp;oe=54FBFCEB&amp;__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0" class="ui avatar image"/><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&amp;oe=54FC4AD5&amp;__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234" class="ui avatar image"/><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&amp;oe=54FBFCEB&amp;__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0" class="ui avatar image"/><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&amp;oe=54FC4AD5&amp;__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234" class="ui avatar image"/><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&amp;oe=54FBFCEB&amp;__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0" class="ui avatar image"/><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&amp;oe=54FC4AD5&amp;__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234" class="ui avatar image"/></div>
+          <div class="section links"><a target="_blank" href="https://www.facebook.com/media/set/?set=oa.1566445763589708&amp;type=1" class="ui black icon right labeled button">當天活動照片與海報快照<i class="icon share"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphTS1HTDZEZ0hKRnc/view?usp=sharing" class="ui black icon right labeled button">140829 草根論壇#00 會議手冊<i class="icon file text"></i></a></div>
+          <div class="section social"><span class="text">分享活動至</span>
+            <div class="ui facebook icon small button"><i class="icon facebook"></i></div>
+            <div class="ui twitter icon small button"><i class="icon twitter"></i></div>
+            <div class="ui google plus icon small button"><i class="icon google plus"></i></div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <footer id="bottombar">
+      <div class="ui borderless menu bar"><a class="item"><i class="icon info circle"></i>憲動盟成員列表</a><a class="item"><i class="icon info circle"></i>本站程式碼與授權</a>
+        <div class="right menu"><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">公民憲政推動聯盟<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
+      </div>
+    </footer>
+    <script>
+      $(document).ready(function(){
+      
+        // step 0: setup
+        
+        var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui black labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+        var entry_template = Handlebars.compile(entry_template_source);
+        
+        var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
+        var entry_tag_template = Handlebars.compile(entry_tag_template_source);
+        
+        var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
+        var entry_comment_template = Handlebars.compile(entry_comment_template_source);
+        
+        var star_element_template = '<i class="icon star yellow"></i>';
+        var empty_star_element_template = '<i class="icon star empty gray"></i>';
+        var block_element_template = '<i class="icon remove red"></i>';
+        
+        // step 1: get data and render projects
+        
+        $.getJSON("json/entry-list.json", function(entries){
+        
+          $.each(entries, function(entry_index, entry){
+          
+            var entry_id = entry.id || "";
+            var entry_content = entry.content || "";
+            var entry_parent = entry.parent[0] || "";
+            
+            var entry_class = entry.class[0] || "";
+            var entry_color = "";
+            if(entry_class == "問題"){
+              entry_color = "red";
+            }else if(entry_class == "主張"){
+              entry_color = "green";
+            };
+            
+            var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent};
+            var $entry_element = $(entry_template(context));
+            
+            var entry_tags = entry.tag || [];
+            $.each(entry_tags, function(tag_index, tag){
+              var context = {tag: tag};
+              var $tag_element = $(entry_tag_template(context));
+              $entry_element.find('.tag').append($tag_element);
+            });
+            
+            var entry_ratings = entry.rating || [];
+            $.each(entry_ratings, function(rating_index, rating){
+              var rating_count = parseInt(rating);
+              var rating_elememt_template = '';
+              if(rating_count >= 0){
+                _(rating_count).times(function(){
+                  rating_elememt_template += star_element_template;
+                });
+                _(3-rating_count).times(function(){
+                  rating_elememt_template += empty_star_element_template;
+                });
+              }else if(rating_count == -1){
+                rating_elememt_template = block_element_template;
+              };
+              var $rating_elememt = $(rating_elememt_template);
+              $entry_element.find('.rating').append($rating_elememt);
+            });
+            
+            var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
+            $.each([ "info", "agree", "disagree", "block" ], function( index, value ){
+              $.each(entry[value], function(comment_index, comment){
+                var context = {type: value, icon: comment_icon_settings[value], description: comment};
+                var $comment_element = $(entry_comment_template(context));
+                $entry_element.find('.comment').append($comment_element);
+              });
+            });
+            
+            $('#list').append($entry_element);
+            
+          });
+        }).done(function(){
+        
+          // step 2-1: build filters
+          
+          var filter_tag_template_source = '<a class="ui label">{{tag}}<div class="detail">{{count}}</div></a>';
+          var filter_tag_template = Handlebars.compile(filter_tag_template_source);
+          var tag_list = {};
+          $.each($('.entry .tag .label'), function(){
+            if(!tag_list[$(this).text()]){
+              tag_list[$(this).text()] = 1;
+            }else{
+              tag_list[$(this).text()] += 1;
+            }
+          });
+          $.each(tag_list, function(key, value){
+            var context = {tag: key, count: value};
+            var $tag_element = $(filter_tag_template(context));
+            $('#filter').append($tag_element);
+          });
+          
+          $('#pilot .black.label').text($('.entry').length);
+          $('#pilot .red.label').text($('.entry>.red.segment').length);
+          $('#pilot .green.label').text($('.entry>.green.segment').length);
+          
+          // step 2-2: add interactions
+          
+          var tag_filter = "";
+          
+          $('#filter .label').on('click tap', function(){
+            tag_filter = $(this).contents().filter(function() {
+              return this.nodeType == 3;
+            }).text();
+            $('#list .entry').hide();
+            $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').show();
+            console.log(tag_filter);
+            //$('#list .entry').not($(this).has('.tag .label:contains("'+tag_filter+'")')).hide();
+          });
+          
+        });
+        
+      });
+      
+    </script>
+  </body>
+</html>
