@@ -51,11 +51,11 @@ block content
         //-.ui.horizontal.divider 紀錄
         #pilot.ui.secondary.pointing.menu
           a.item 所有論點
-            .ui.label 10
-          a.item 感受到的國家/體制問題
-            .ui.red.label 10
+            .ui.black.label
+          a.item 感受到的問題
+            .ui.red.label
           a.item 主張的價值與改革方向
-            .ui.green.label 10
+            .ui.green.label
           .right.menu
             .item.ui.button 全部展開
             .item.ui.button 全部收合
@@ -70,21 +70,9 @@ block content
             .ui.small.label 10
           a.item 法制
             .ui.small.label 10
-        #filter.ui.tag.labels
-          a.ui.label 憲法
-            .detail 5
-          a.ui.label 選制
-            .detail 5
+        #filter.ui.tag.black.labels
         #list
-          include entry
-          include entry
-          include entry
-          include entry
-          include entry
-          include entry
-          include entry
-          include entry
-          include entry
+          //-include entry
         .ui.divider
         #sample.ui.five.column.stackable.grid
           .equal.height.divided.row
@@ -153,28 +141,120 @@ block content
 block script
   script.
 
-        ★★☆ 改內閣制，讓總統變虛位元首
+    $(document).ready(function(){
 
-        ★★★ 使國會發揮監督總統的功能，例如國會組成改變、要求總統到立院報告
+      // step 0: setup
 
-        →★★☆ 改成聯立制
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui black labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template = Handlebars.compile(entry_template_source);
 
-        →★★★ 去除5%門檻
+      var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
+      var entry_tag_template = Handlebars.compile(entry_tag_template_source);
 
-        →★☆☆ 更改選區劃定方式恢復成大選區
+      var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
+      var entry_comment_template = Handlebars.compile(entry_comment_template_source);
 
-        →★★★ 給予小黨補助金
+      var star_element_template = '<i class="icon star yellow"></i>';
+      var empty_star_element_template = '<i class="icon star empty gray"></i>';
+      var block_element_template = '<i class="icon remove red"></i>';
 
-        →★★☆ 增加弱勢族群的代表
+      // step 1: get data and render projects
 
-        ★☆☆ 革命、佔領總統府
+      $.getJSON("json/entry-list.json", function(entries){
 
-        →X 但後續要如何？不一定會成功。成本太高
+        $.each(entries, function(entry_index, entry){
 
-        ★★★ 競選繼位總統候選人的選票上加註警語：「他選第二任了喔！」
+          var entry_id = entry.id || "";
+          var entry_content = entry.content || "";
+          var entry_parent = entry.parent[0] || "";
 
-        ★☆☆ 不投票運動（讓投票率極低）：讓當選總統得票低得可笑；且選制改為絕對多數制
+          var entry_class = entry.class[0] || "";
+          var entry_color = "";
+          if(entry_class == "問題"){
+            entry_color = "red";
+          }else if(entry_class == "主張"){
+            entry_color = "green";
+          };
 
-        ★☆☆ 鼓勵公民參選總統運動：作為社會運動手段。
+          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent};
+          var $entry_element = $(entry_template(context));
 
- 
+          var entry_tags = entry.tag || [];
+          $.each(entry_tags, function(tag_index, tag){
+            var context = {tag: tag};
+            var $tag_element = $(entry_tag_template(context));
+            $entry_element.find('.tag').append($tag_element);
+          });
+
+          var entry_ratings = entry.rating || [];
+          $.each(entry_ratings, function(rating_index, rating){
+            var rating_count = parseInt(rating);
+            var rating_elememt_template = '';
+            if(rating_count >= 0){
+              _(rating_count).times(function(){
+                rating_elememt_template += star_element_template;
+              });
+              _(3-rating_count).times(function(){
+                rating_elememt_template += empty_star_element_template;
+              });
+            }else if(rating_count == -1){
+              rating_elememt_template = block_element_template;
+            };
+            var $rating_elememt = $(rating_elememt_template);
+            $entry_element.find('.rating').append($rating_elememt);
+          });
+
+          var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
+          $.each([ "info", "agree", "disagree", "block" ], function( index, value ){
+            $.each(entry[value], function(comment_index, comment){
+              var context = {type: value, icon: comment_icon_settings[value], description: comment};
+              var $comment_element = $(entry_comment_template(context));
+              $entry_element.find('.comment').append($comment_element);
+            });
+          });
+
+          $('#list').append($entry_element);
+
+        });
+      }).done(function(){
+
+        // step 2-1: build filters
+
+        var filter_tag_template_source = '<a class="ui label">{{tag}}<div class="detail">{{count}}</div></a>';
+        var filter_tag_template = Handlebars.compile(filter_tag_template_source);
+        var tag_list = {};
+        $.each($('.entry .tag .label'), function(){
+          if(!tag_list[$(this).text()]){
+            tag_list[$(this).text()] = 1;
+          }else{
+            tag_list[$(this).text()] += 1;
+          }
+        });
+        $.each(tag_list, function(key, value){
+          var context = {tag: key, count: value};
+          var $tag_element = $(filter_tag_template(context));
+          $('#filter').append($tag_element);
+        });
+
+        $('#pilot .black.label').text($('.entry').length);
+        $('#pilot .red.label').text($('.entry>.red.segment').length);
+        $('#pilot .green.label').text($('.entry>.green.segment').length);
+
+        // step 2-2: add interactions
+
+        var tag_filter = "";
+
+        $('#filter .label').on('click tap', function(){
+          tag_filter = $(this).contents().filter(function() {
+            return this.nodeType == 3;
+          }).text();
+          $('#list .entry').hide();
+          $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').show();
+          console.log(tag_filter);
+          //$('#list .entry').not($(this).has('.tag .label:contains("'+tag_filter+'")')).hide();
+        });
+
+      });
+
+    });
+
