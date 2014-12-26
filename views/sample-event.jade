@@ -60,12 +60,13 @@ block content
           .right.menu
             .item.ui.button.expand 全部展開
             .item.ui.button.collapse 全部收合
-            .item.ui.simple.dropdown 依發言順序
+            .item.ui.simple.dropdown.sort
+              span.current 依發言順序
               i.icon.dropdown
               .menu
-                .item 依發言順序
-                .item 依重要性
-                .item 依同意度
+                .item.timestamp 依發言順序
+                //-.item 依重要性
+                .item.agreement 依同意度
         //-#filter.ui.secondary.menu
           a.item 憲法
             .ui.small.label 10
@@ -146,7 +147,7 @@ block script
 
       // step 0: setup
 
-      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
       var entry_template = Handlebars.compile(entry_template_source);
 
       var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -177,7 +178,7 @@ block script
             entry_color = "green";
           };
 
-          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent};
+          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating[0]};
           var $entry_element = $(entry_template(context));
 
           var entry_tags = entry.tag || [];
@@ -290,6 +291,19 @@ block script
         $('#pilot .collapse.button').on('click tap', function(){
           $('#list .entry .detail').slideUp();
           $('#list .entry .expand.button').not('disabled').removeClass('active');
+        });
+
+        $('#pilot .sort .timestamp').on('click tap', function(){
+          $('#list>.entry').sort(function(a,b) {
+            return parseInt($(a).data('id')) - parseInt($(b).data('id'));
+          }).appendTo('#list');
+          $('#pilot .sort .current').text($(this).text());
+        });
+        $('#pilot .sort .agreement').on('click tap', function(){
+          $('#list>.entry').sort(function(a,b) {
+            return parseInt($(b).data('agreement')) - parseInt($(a).data('agreement'));
+          }).appendTo('#list');
+          $('#pilot .sort .current').text($(this).text());
         });
 
       });
