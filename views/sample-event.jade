@@ -51,15 +51,15 @@ block content
         //-.ui.horizontal.divider 紀錄
         //-#pilot.ui.menu
         #pilot.ui.secondary.pointing.menu
-          a.item(name="segment").active 所有論點
+          a.filter.item(name="segment").active 所有論點
             .ui.black.label
-          a.item(name="red") 感受到的問題
+          a.filter.item(name="red") 感受到的問題
             .ui.red.label
-          a.item(name="green") 主張的價值與改革方向
+          a.filter.item(name="green") 主張的價值與改革方向
             .ui.green.label
           .right.menu
-            .item.ui.button 全部展開
-            .item.ui.button 全部收合
+            .item.ui.button.expand 全部展開
+            .item.ui.button.collapse 全部收合
             .item.ui.simple.dropdown 依發言順序
               i.icon.dropdown
               .menu
@@ -146,7 +146,7 @@ block script
 
       // step 0: setup
 
-      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
       var entry_template = Handlebars.compile(entry_template_source);
 
       var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -263,12 +263,12 @@ block script
           $('#filter .label').removeClass('black');
           $(this).addClass('black');
           $('#pilot .item').removeClass('active');
-          $('.entry .tag .label').removeClass("black");
-          $('.entry .tag .label:contains("'+tag_filter+'")').addClass("black");
+          $('#list .entry .tag .label').removeClass("black");
+          $('#list .entry .tag .label:contains("'+tag_filter+'")').addClass("black");
         });
 
         var class_filter = "";
-        $('#pilot .item').on('click tap', function(){
+        $('#pilot .filter.item').on('click tap', function(){
           class_filter = $(this).attr('name');
           $('#list .entry').hide();
           $('#list .entry').has('.ui.'+class_filter).show();
@@ -278,12 +278,19 @@ block script
           $('.entry .tag .label').removeClass("black");
         });
 
-        //$('.entry').filter('.comment .item, .subentry .entry').find('.action .chevron').parent('.button').addClass('disabled');
-        $('.action .chevron').parent('.button').on('click tap', function(){
+        $('#list .entry').has('.comment .item, .subentry .entry').children('.segment').children('.action').children('.expand.button').removeClass('disabled').addClass('active');
+        $('#list .entry .expand.button').on('click tap', function(){
           $(this).parents('.entry').find('.detail').slideToggle();
-          //$(this).toggleClass('active');
+          $(this).toggleClass('active');
         });
-
+        $('#pilot .expand.button').on('click tap', function(){
+          $('#list .entry .detail').slideDown();
+          $('#list .entry .expand.button').not('disabled').addClass('active');
+        });
+        $('#pilot .collapse.button').on('click tap', function(){
+          $('#list .entry .detail').slideUp();
+          $('#list .entry .expand.button').not('disabled').removeClass('active');
+        });
 
       });
 
