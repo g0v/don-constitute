@@ -64,9 +64,9 @@
           <p>今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。</p>
         </article>
         <article id="log">
-          <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有論點
-              <div class="ui black label"></div></a><a name="red" class="filter item">感受到的問題
-              <div class="ui red label"></div></a><a name="green" class="filter item">主張的價值與改革方向
+          <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
+              <div class="ui black label"></div></a><a name="red" class="filter item">問題
+              <div class="ui red label"></div></a><a name="green" class="filter item">主張
               <div class="ui green label"></div></a>
             <div class="right menu">
               <div class="item ui button expand">全部展開</div>
@@ -244,8 +244,8 @@
             tag_filter = $(this).contents().filter(function() {
               return this.nodeType == 3;
             }).text();
-            $('#list .entry').hide();
-            $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').show();
+            $('#list .entry').slideUp();
+            $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').slideDown();
             $('#filter .label').removeClass('black');
             $(this).addClass('black');
             $('#pilot .item').removeClass('active');
@@ -256,8 +256,8 @@
           var class_filter = "";
           $('#pilot .filter.item').on('click tap', function(){
             class_filter = $(this).attr('name');
-            $('#list .entry').hide();
-            $('#list .entry').has('.ui.'+class_filter).show();
+            $('#list .entry').slideUp();
+            $('#list .entry').has('.ui.'+class_filter).slideDown();
             $('#pilot .item').removeClass('active');
             $(this).addClass('active');
             $('#filter .label').removeClass('black');
