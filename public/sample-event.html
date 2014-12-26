@@ -64,13 +64,13 @@
           <p>今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。</p>
         </article>
         <article id="log">
-          <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="item active">所有論點
-              <div class="ui black label"></div></a><a name="red" class="item">感受到的問題
-              <div class="ui red label"></div></a><a name="green" class="item">主張的價值與改革方向
+          <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有論點
+              <div class="ui black label"></div></a><a name="red" class="filter item">感受到的問題
+              <div class="ui red label"></div></a><a name="green" class="filter item">主張的價值與改革方向
               <div class="ui green label"></div></a>
             <div class="right menu">
-              <div class="item ui button">全部展開</div>
-              <div class="item ui button">全部收合</div>
+              <div class="item ui button expand">全部展開</div>
+              <div class="item ui button collapse">全部收合</div>
               <div class="item ui simple dropdown">依發言順序<i class="icon dropdown"></i>
                 <div class="menu">
                   <div class="item">依發言順序</div>
@@ -133,7 +133,7 @@
       
         // step 0: setup
         
-        var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+        var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
         var entry_template = Handlebars.compile(entry_template_source);
         
         var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -250,12 +250,12 @@
             $('#filter .label').removeClass('black');
             $(this).addClass('black');
             $('#pilot .item').removeClass('active');
-            $('.entry .tag .label').removeClass("black");
-            $('.entry .tag .label:contains("'+tag_filter+'")').addClass("black");
+            $('#list .entry .tag .label').removeClass("black");
+            $('#list .entry .tag .label:contains("'+tag_filter+'")').addClass("black");
           });
           
           var class_filter = "";
-          $('#pilot .item').on('click tap', function(){
+          $('#pilot .filter.item').on('click tap', function(){
             class_filter = $(this).attr('name');
             $('#list .entry').hide();
             $('#list .entry').has('.ui.'+class_filter).show();
@@ -265,12 +265,19 @@
             $('.entry .tag .label').removeClass("black");
           });
           
-          //$('.entry').filter('.comment .item, .subentry .entry').find('.action .chevron').parent('.button').addClass('disabled');
-          $('.action .chevron').parent('.button').on('click tap', function(){
+          $('#list .entry').has('.comment .item, .subentry .entry').children('.segment').children('.action').children('.expand.button').removeClass('disabled').addClass('active');
+          $('#list .entry .expand.button').on('click tap', function(){
             $(this).parents('.entry').find('.detail').slideToggle();
-            //$(this).toggleClass('active');
+            $(this).toggleClass('active');
           });
-          
+          $('#pilot .expand.button').on('click tap', function(){
+            $('#list .entry .detail').slideDown();
+            $('#list .entry .expand.button').not('disabled').addClass('active');
+          });
+          $('#pilot .collapse.button').on('click tap', function(){
+            $('#list .entry .detail').slideUp();
+            $('#list .entry .expand.button').not('disabled').removeClass('active');
+          });
           
         });
         
