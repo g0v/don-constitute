@@ -49,12 +49,13 @@ block content
         p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
       article#log
         //-.ui.horizontal.divider 紀錄
+        //-#pilot.ui.menu
         #pilot.ui.secondary.pointing.menu
-          a.item 所有論點
+          a.item(name="segment").active 所有論點
             .ui.black.label
-          a.item 感受到的問題
+          a.item(name="red") 感受到的問題
             .ui.red.label
-          a.item 主張的價值與改革方向
+          a.item(name="green") 主張的價值與改革方向
             .ui.green.label
           .right.menu
             .item.ui.button 全部展開
@@ -70,7 +71,7 @@ block content
             .ui.small.label 10
           a.item 法制
             .ui.small.label 10
-        #filter.ui.tag.black.labels
+        #filter.tag.ui.labels
         #list
           //-include entry
         .ui.divider
@@ -145,7 +146,7 @@ block script
 
       // step 0: setup
 
-      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui black labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
       var entry_template = Handlebars.compile(entry_template_source);
 
       var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -218,7 +219,17 @@ block script
         });
       }).done(function(){
 
-        // step 2-1: build filters
+        // step 2: build parent-child relationship
+
+        var children_entries = $('#list .entry').filter(function(index){
+          return $(this).attr('data-parent').length > 0;
+        });
+        $.each(children_entries, function(index, entry){
+          var parent_id = $(this).attr('data-parent');
+          $(this).appendTo('[data-id="'+parent_id+'"]>.detail>.subentry');
+        });
+
+        // step 3-1: build filters
 
         var filter_tag_template_source = '<a class="ui label">{{tag}}<div class="detail">{{count}}</div></a>';
         var filter_tag_template = Handlebars.compile(filter_tag_template_source);
@@ -240,19 +251,39 @@ block script
         $('#pilot .red.label').text($('.entry>.red.segment').length);
         $('#pilot .green.label').text($('.entry>.green.segment').length);
 
-        // step 2-2: add interactions
+        // step 3-2: add interactions
 
         var tag_filter = "";
-
         $('#filter .label').on('click tap', function(){
           tag_filter = $(this).contents().filter(function() {
             return this.nodeType == 3;
           }).text();
           $('#list .entry').hide();
           $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').show();
-          console.log(tag_filter);
-          //$('#list .entry').not($(this).has('.tag .label:contains("'+tag_filter+'")')).hide();
+          $('#filter .label').removeClass('black');
+          $(this).addClass('black');
+          $('#pilot .item').removeClass('active');
+          $('.entry .tag .label').removeClass("black");
+          $('.entry .tag .label:contains("'+tag_filter+'")').addClass("black");
         });
+
+        var class_filter = "";
+        $('#pilot .item').on('click tap', function(){
+          class_filter = $(this).attr('name');
+          $('#list .entry').hide();
+          $('#list .entry').has('.ui.'+class_filter).show();
+          $('#pilot .item').removeClass('active');
+          $(this).addClass('active');
+          $('#filter .label').removeClass('black');
+          $('.entry .tag .label').removeClass("black");
+        });
+
+        //$('.entry').filter('.comment .item, .subentry .entry').find('.action .chevron').parent('.button').addClass('disabled');
+        $('.action .chevron').parent('.button').on('click tap', function(){
+          $(this).parents('.entry').find('.detail').slideToggle();
+          //$(this).toggleClass('active');
+        });
+
 
       });
 
