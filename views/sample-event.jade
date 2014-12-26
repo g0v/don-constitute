@@ -51,11 +51,11 @@ block content
         //-.ui.horizontal.divider 紀錄
         //-#pilot.ui.menu
         #pilot.ui.secondary.pointing.menu
-          a.filter.item(name="segment").active 所有論點
+          a.filter.item(name="segment").active 所有
             .ui.black.label
-          a.filter.item(name="red") 感受到的問題
+          a.filter.item(name="red") 問題
             .ui.red.label
-          a.filter.item(name="green") 主張的價值與改革方向
+          a.filter.item(name="green") 主張
             .ui.green.label
           .right.menu
             .item.ui.button.expand 全部展開
@@ -259,8 +259,8 @@ block script
           tag_filter = $(this).contents().filter(function() {
             return this.nodeType == 3;
           }).text();
-          $('#list .entry').hide();
-          $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').show();
+          $('#list .entry').slideUp();
+          $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').slideDown();
           $('#filter .label').removeClass('black');
           $(this).addClass('black');
           $('#pilot .item').removeClass('active');
@@ -271,8 +271,8 @@ block script
         var class_filter = "";
         $('#pilot .filter.item').on('click tap', function(){
           class_filter = $(this).attr('name');
-          $('#list .entry').hide();
-          $('#list .entry').has('.ui.'+class_filter).show();
+          $('#list .entry').slideUp();
+          $('#list .entry').has('.ui.'+class_filter).slideDown();
           $('#pilot .item').removeClass('active');
           $(this).addClass('active');
           $('#filter .label').removeClass('black');
