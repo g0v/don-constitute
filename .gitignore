@@ -1,9 +1,11 @@
+.sass-cache
+
 #############
 ## Fire.app
 #############
 
-.livescript-cache
-.sass-cache
+.sass-cache/
+.livescript-cache/
 fire_app_log.txt
 
 #############
