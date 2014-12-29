@@ -32,7 +32,11 @@
   <body>
     <nav id="topbar">
       <div class="ui borderless menu bar"><a href="index" class="item"><img src="img/logo-white.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a>
-        <div class="right menu"><a href="" class="item"><i class="icon announcement"></i>新聞</a><a href="" class="item"><i class="icon plane"></i>目標與計畫</a><a href="sample-event" class="item"><i class="icon leaf"></i>草根論壇遍地開花</a><a href="" class="item"><i class="icon plus"></i>加入合作</a></div>
+        <div class="right menu"><a href="" class="item"><i class="icon announcement"></i>新聞</a><a href="" class="item"><i class="icon plane"></i>目標與計畫</a><a href="sample-event" class="item"><i class="icon leaf"></i>草根論壇遍地開花</a><a href="" class="item"><i class="icon plus"></i>加入合作</a>
+          <div class="item expand collapse">
+            <div class="ui icon button brown active"><i class="icon chevron down"></i></div>
+          </div>
+        </div>
       </div>
     </nav>
     <div id="event">
@@ -290,6 +294,21 @@
             }).appendTo('#list');
             $('#pilot .sort .current').text($(this).text());
           });
+          
+          // step 4 collapse header section for reading
+          
+          $('#pilot, #filter').on('click tap', function(){
+            $('#topbar .expand.collapse .button').removeClass('active');
+            $('#event').find('#header, #content>.meta, #content>.description').slideUp();
+          });
+          
+          $('#topbar .expand.collapse .button').on('click tap', function(){
+            $('#topbar .expand.collapse .button').toggleClass('active');
+            $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
+          });
+          
+          // step 5 mark current page
+          $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
           
         });
         
