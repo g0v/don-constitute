@@ -286,7 +286,7 @@ block script
 
         $('#list .entry').has('.comment .item, .subentry .entry').children('.segment').children('.action').children('.expand.button').removeClass('disabled').addClass('active');
         $('#list .entry .expand.button').on('click tap', function(){
-          $(this).parents('.entry').find('.detail').slideToggle();
+          $(this).closest('.entry').find('.detail').slideToggle();
           $(this).toggleClass('active');
         });
         $('#pilot .expand.button').on('click tap', function(){
