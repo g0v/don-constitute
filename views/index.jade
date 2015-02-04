@@ -1,49 +1,14 @@
-extends _template
+extends level-one
 
 block head
+  meta(name="description",content="...")
 
 block title
+  | 首頁 
 
-block body
-
-  nav#topbar
-    .ui.borderless.menu.bar
-      a.item(href="index")
-        img.logo.image(src="img/logo-white.png")
-        span.logo.text 公民憲政推動聯盟
-      .right.menu
-        a.item(href="")
-          i.icon.announcement
-          | 新聞
-        a.item(href="")
-          //-i.icon.rocket
-          //-i.icon.flag
-          i.icon.plane
-          | 目標與計畫
-        a.item(href="sample-event")
-          i.icon.leaf
-          | 草根論壇遍地開花
-        a.item(href="")
-          i.icon.plus
-          | 加入合作
-        block topbar
-
-  block content
-
-  footer#bottombar
-    .ui.borderless.menu.bar
-      a.item
-        i.icon.info
-        | 憲動盟成員列表
-      a.item
-        i.icon.code
-        | 本站程式碼與授權
-      .right.menu
-        a.ui.button.item(target="_blank",href="https://www.facebook.com/newtw.org") 公民憲政推動聯盟
-          i.icon.facebook
-        a.ui.button.item(target="_blank",href="https://www.facebook.com/groups/1563332767234341/") 草根一堆人
-          i.icon.facebook.square
+block content
 
 block script
   script.
+    $("#topbar a[href*='index']").addClass("active");
 

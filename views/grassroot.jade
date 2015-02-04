@@ -1,0 +1,308 @@
+extends level-one
+
+block head
+
+block title
+  | 憲政草根論壇 x 
+  block subtitle
+
+block topbar
+  .item.expand.collapse
+    .ui.icon.button.brown.active
+      i.icon.chevron.down
+
+block content
+
+  #event
+
+    header#header
+
+      .background
+
+        block header-images
+
+      .cover
+        .title
+          h1.header
+            block header-title
+
+    section#content
+      article.event.meta.ui.two.column.stackable.divided.grid
+        block meta
+
+      article.description
+        block main-article
+
+      article#log
+        //-.ui.horizontal.divider 紀錄
+        //-#pilot.ui.menu
+        #pilot.ui.secondary.pointing.menu
+          a.filter.item(name="segment").active 所有
+            .ui.black.label
+          a.filter.item(name="red") 問題
+            .ui.red.label
+          a.filter.item(name="green") 主張
+            .ui.green.label
+          a.filter.item(name="blue") 彙整
+            .ui.blue.label
+          .right.menu
+            .item.ui.button.expand 全部展開
+            .item.ui.button.collapse 全部收合
+            .item.ui.simple.dropdown.sort
+              span.current 依發言順序
+              i.icon.dropdown
+              .menu
+                .item.timestamp 依發言順序
+                .item.agreement 依同意度
+        #filter.tag.ui.labels
+        #list
+        .ui.divider
+      section#footer
+        .section.ui.black.labels
+          span.text 草根生長地點
+          a.ui.label 台北市
+        .section.ui.tag.black.labels
+          span.text 討論內容
+          a.ui.label 憲政體制
+          a.ui.label 選舉制度
+        .section
+          span.text 工作團隊
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+        .section.links
+          a.ui.black.icon.right.labeled.button(target="_blank",href="https://www.facebook.com/media/set/?set=oa.1566445763589708&type=1") 當天活動照片與海報快照
+            i.icon.share
+          a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphTS1HTDZEZ0hKRnc/view?usp=sharing") 140829 草根論壇#00 會議手冊
+            i.icon.file.text
+        //-.related 類似的場次：
+        .section.social
+          span.text 分享活動至
+          .ui.facebook.icon.small.button
+            i.icon.facebook
+          .ui.twitter.icon.small.button
+            i.icon.twitter
+          .ui.google.plus.icon.small.button
+            i.icon.google.plus
+
+block script
+  script.
+
+    $(document).ready(function(){
+
+      // step 0: setup
+
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template = Handlebars.compile(entry_template_source);
+
+      var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
+      var entry_tag_template = Handlebars.compile(entry_tag_template_source);
+
+      var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
+      var entry_comment_template = Handlebars.compile(entry_comment_template_source);
+
+      var star_element_template = '<i class="icon star yellow"></i>';
+      var empty_star_element_template = '<i class="icon star empty gray"></i>';
+      var block_element_template = '<i class="icon remove red"></i>';
+
+      // step 1: get data and render projects
+
+      var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
+      var gsheet_url ='https://docs.google.com/spreadsheets/d/1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4/pubhtml';
+      var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
+      var tabletop;
+      var log;
+
+      var renderPage = function(data, tabletop){
+        //compile_json(data);
+        //console.log(data);
+        //console.log(log);
+        log = tabletop.sheets('log').all();
+
+        $.each(log, function(entry_index, entry){
+          if(entry_index < 2){
+            return;
+          }
+
+          var entry_id = entry_index || "";
+          var entry_content = entry['發言內容本文'] || "";
+          var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
+
+          var entry_class = entry['發言類型'] || "";
+          var entry_rating = entry['同意強度'] || "";
+          var entry_rating_count = parseInt(entry['同意強度']) || 0;
+
+          var entry_color = "";
+          if(entry_class == "問題與診斷"){
+            entry_color = "red";
+          }else if(entry_class == "主張與方案"){
+            entry_color = "green";
+          }else if(entry_class == "意見彙整"){
+            entry_color = "blue";
+          }else if(entry_class == "主持"){
+            entry_color = "";
+          }else if(entry_class == "導讀"){
+            entry_color = "";
+          }else if(entry_class == "自我介紹"){
+            entry_color = "";
+          };
+
+          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating};
+          var $entry_element = $(entry_template(context));
+
+          var entry_tags = entry['關鍵字'].split(",") || [];
+          $.each(entry_tags, function(tag_index, tag){
+            tag = tag.trim();
+            var context = {tag: tag};
+            var $tag_element = $(entry_tag_template(context));
+            $entry_element.find('.tag').append($tag_element);
+          });
+
+          var rating_elememt_template = '';
+          _(entry_rating_count).times(function(){
+            rating_elememt_template += star_element_template;
+          });
+          console.log('stop');
+          _(3-entry_rating_count).times(function(){
+            rating_elememt_template += empty_star_element_template;
+          });
+
+          var entry_oppose = entry['反對意見'] || "";
+          if(entry_oppose.length > 0){
+            rating_elememt_template += block_element_template;
+          };
+
+          var $rating_elememt = $(rating_elememt_template);
+          $entry_element.find('.rating').append($rating_elememt);
+
+          //var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
+          //$.each([ "info", "agree", "disagree", "block" ], function( index, value ){
+          //  $.each(entry[value], function(comment_index, comment){
+          //    var context = {type: value, icon: comment_icon_settings[value], description: comment};
+          //    var $comment_element = $(entry_comment_template(context));
+          //    $entry_element.find('.comment').append($comment_element);
+          //  });
+          //});
+
+          $('#list').append($entry_element);
+        });
+
+        // step 2: build parent-child relationship
+
+        var children_entries = $('#list .entry').filter(function(index){
+          return $(this).attr('data-parent').length > 0;
+        });
+        $.each(children_entries, function(index, entry){
+          var parent_id = $(this).attr('data-parent');
+          $(this).appendTo('[data-id="'+parent_id+'"]>.detail>.subentry');
+        });
+
+        // step 3-1: build filters
+
+        var filter_tag_template_source = '<a class="ui label">{{tag}}<div class="detail">{{count}}</div></a>';
+        var filter_tag_template = Handlebars.compile(filter_tag_template_source);
+        var tag_list = {};
+        $.each($('.entry .tag .label'), function(){
+          if($(this).text().length == 0){
+            return;
+          }else if(!tag_list[$(this).text()]){
+            tag_list[$(this).text()] = 1;
+          }else{
+            tag_list[$(this).text()] += 1;
+          }
+        });
+        $.each(tag_list, function(key, value){
+          var context = {tag: key, count: value};
+          var $tag_element = $(filter_tag_template(context));
+          $('#filter').append($tag_element);
+        });
+
+        $('#pilot .black.label').text($('.entry').length);
+        $('#pilot .red.label').text($('.entry>.red.segment').length);
+        $('#pilot .green.label').text($('.entry>.green.segment').length);
+        $('#pilot .blue.label').text($('.entry>.blue.segment').length);
+
+        // step 3-2: add interactions
+
+        var tag_filter = "";
+        $('#filter .label').on('click tap', function(){
+          tag_filter = $(this).contents().filter(function() {
+            return this.nodeType == 3;
+          }).text();
+          $('#list .entry').slideUp();
+          $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').slideDown();
+          $('#filter .label').removeClass('black');
+          $(this).addClass('black');
+          $('#pilot .item').removeClass('active');
+          $('#list .entry .tag .label').removeClass("black");
+          $('#list .entry .tag .label:contains("'+tag_filter+'")').addClass("black");
+        });
+
+        var class_filter = "";
+        $('#pilot .filter.item').on('click tap', function(){
+          class_filter = $(this).attr('name');
+          $('#list .entry').slideUp();
+          $('#list .entry').has('.ui.'+class_filter).slideDown();
+          $('#pilot .item').removeClass('active');
+          $(this).addClass('active');
+          $('#filter .label').removeClass('black');
+          $('.entry .tag .label').removeClass("black");
+        });
+
+        $('#list .entry').has('.comment .item, .subentry .entry').children('.segment').children('.action').children('.expand.button').removeClass('disabled').addClass('active');
+        $('#list .entry .expand.button').on('click tap', function(){
+          $(this).closest('.entry').find('.detail').slideToggle();
+          $(this).toggleClass('active');
+        });
+        $('#pilot .expand.button').on('click tap', function(){
+          $('#list .entry .detail').slideDown();
+          $('#list .entry .expand.button').not('disabled').addClass('active');
+        });
+        $('#pilot .collapse.button').on('click tap', function(){
+          $('#list .entry .detail').slideUp();
+          $('#list .entry .expand.button').not('disabled').removeClass('active');
+        });
+
+        $('#pilot .sort .timestamp').on('click tap', function(){
+          $('#list>.entry').sort(function(a,b) {
+            return parseInt($(a).data('id')) - parseInt($(b).data('id'));
+          }).appendTo('#list');
+          $('#pilot .sort .current').text($(this).text());
+        });
+        $('#pilot .sort .agreement').on('click tap', function(){
+          $('#list>.entry').sort(function(a,b) {
+            return parseInt($(b).data('agreement')) - parseInt($(a).data('agreement'));
+          }).appendTo('#list');
+          $('#pilot .sort .current').text($(this).text());
+        });
+
+        // step 4 collapse header section for reading
+
+        $('#pilot, #filter').on('click tap', function(){
+          $('#topbar .expand.collapse .button').removeClass('active');
+          $('#event').find('#header, #content>.meta, #content>.description').slideUp();
+        });
+
+        $('#topbar .expand.collapse .button').on('click tap', function(){
+          $('#topbar .expand.collapse .button').toggleClass('active');
+          $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
+        });
+
+        // step 5 mark current page
+        $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+
+      }
+
+      tabletop = Tabletop.init({
+      //Tabletop.init({
+        key: gsheet_url,
+        callback: renderPage,
+        //simpleSheet: true,
+      });
+
+    });
+
+
