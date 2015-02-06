@@ -34,7 +34,7 @@
   </head>
   <body>
     <nav id="topbar">
-      <div class="ui borderless menu bar"><a href="index" class="item"><img src="img/logo-white.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a>
+      <div class="ui borderless menu bar horizontal wrap"><a href="index" class="item"><img src="img/logo-white.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a>
         <div class="right menu"><a href="" class="item"><i class="icon announcement"></i>新聞</a><a href="" class="item"><i class="icon plane"></i>目標與計畫</a><a href="sample-event" class="item"><i class="icon leaf"></i>草根論壇遍地開花</a><a href="" class="item"><i class="icon plus"></i>加入合作</a>
           <div class="item expand collapse">
             <div class="ui icon button brown active"><i class="icon chevron down"></i></div>
@@ -53,26 +53,21 @@
           </div>
         </div>
       </header>
-      <section id="content">
+      <section id="content" class="horizontal wrap">
         <article class="event meta ui two column stackable divided grid">
         </article>
         <article class="description">
         </article>
         <article id="log">
           <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
-              <div class="ui black label"></div></a><a name="red" class="filter item">問題
+              <div class="ui black label"></div></a><a name="teal" class="filter item">導讀
+              <div class="ui teal label"></div></a><a name="red" class="filter item">問題
               <div class="ui red label"></div></a><a name="green" class="filter item">主張
               <div class="ui green label"></div></a><a name="blue" class="filter item">彙整
               <div class="ui blue label"></div></a>
             <div class="right menu">
               <div class="item ui button expand">全部展開</div>
               <div class="item ui button collapse">全部收合</div>
-              <div class="item ui simple dropdown sort"><span class="current">依發言順序</span><i class="icon dropdown"></i>
-                <div class="menu">
-                  <div class="item timestamp">依發言順序</div>
-                  <div class="item agreement">依同意度</div>
-                </div>
-              </div>
             </div>
           </div>
           <div id="filter" class="tag ui labels"></div>
@@ -80,20 +75,14 @@
           <div class="ui divider"></div>
         </article>
         <section id="footer">
-          <div class="section ui black labels"><span class="text">草根生長地點</span><a class="ui label">台北市</a></div>
-          <div class="section ui tag black labels"><span class="text">討論內容</span><a class="ui label">空污</a></div>
-          <div class="section ui black labels"><span class="text">工作團隊</span>
-            <div class="ui label">怡碧</div>
-            <div class="ui label">志勳</div>
-            <div class="ui label">家華</div>
-            <div class="ui label">仲庭</div>
-          </div>
-          <div class="section links"><a target="_blank" href="https://www.facebook.com/media/set/?set=oa.1584804161753868&amp;type=1" class="ui black icon right labeled button">活動照片<i class="icon share"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphclg1VlNpdTd4U3M/view" class="ui black icon right labeled button">會議手冊<i class="icon file text"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphTm1VTFRiWkZZUGs/view" class="ui black icon right labeled button">議題資料<i class="icon file text"></i></a></div>
+          <div class="section social"><span class="text">分享活動至</span><span class="text">
+              <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
+              <div data-action="share" data-annotation="bubble" class="g-plus"></div></span><span class="text"><a href="https://twitter.com/share" data-hashtags="憲政草根論壇" class="twitter-share-button">Tweet</a></span></div>
         </section>
       </section>
     </div>
     <footer id="bottombar">
-      <div class="ui borderless menu bar"><a class="item"><i class="icon info"></i>關於憲動盟</a><a target="_blank" href="https://github.com/g0v/don-constitute" class="item"><i class="icon code"></i>關於本站</a>
+      <div class="ui borderless menu bar horizontal wrap"><a class="item"><i class="icon info"></i>關於憲動盟</a><a target="_blank" href="https://github.com/g0v/don-constitute" class="item"><i class="icon code"></i>關於本站</a>
         <div class="right menu"><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">公民憲政推動聯盟<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
       </div>
     </footer>
@@ -117,9 +106,8 @@
         
         // step 1: get data and render projects
         
-        var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
-        var gsheet_url ='https://docs.google.com/spreadsheets/d/1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4/pubhtml';
-        var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
+        //var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
+        //var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
         var tabletop;
         var log;
         
@@ -149,9 +137,9 @@
               entry_color = "green";
             }else if(entry_class == "意見彙整"){
               entry_color = "blue";
-            }else if(entry_class == "主持"){
-              entry_color = "";
             }else if(entry_class == "導讀"){
+              entry_color = "teal";
+            }else if(entry_class == "主持"){
               entry_color = "";
             }else if(entry_class == "自我介紹"){
               entry_color = "";
@@ -160,13 +148,15 @@
             var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating};
             var $entry_element = $(entry_template(context));
             
-            var entry_tags = entry['關鍵字'].split(",") || [];
-            $.each(entry_tags, function(tag_index, tag){
-              tag = tag.trim();
-              var context = {tag: tag};
-              var $tag_element = $(entry_tag_template(context));
-              $entry_element.find('.tag').append($tag_element);
-            });
+            if (entry['關鍵字'].length > 0) {
+              var entry_tags = entry['關鍵字'].split(",") || [];
+              $.each(entry_tags, function(tag_index, tag){
+                tag = tag.trim();
+                var context = {tag: tag};
+                var $tag_element = $(entry_tag_template(context));
+                $entry_element.find('.tag').append($tag_element);
+              });
+            }
             
             var rating_elememt_template = '';
             _(entry_rating_count).times(function(){
@@ -230,6 +220,8 @@
           $('#pilot .red.label').text($('.entry>.red.segment').length);
           $('#pilot .green.label').text($('.entry>.green.segment').length);
           $('#pilot .blue.label').text($('.entry>.blue.segment').length);
+          $('#pilot .teal.label').text($('.entry>.teal.segment').length);
+          $('#pilot .yellow.label').text($('.entry>.yellow.segment').length);
           
           // step 3-2: add interactions
           
@@ -303,15 +295,26 @@
         }
         
         tabletop = Tabletop.init({
-        //Tabletop.init({
           key: gsheet_url,
           callback: renderPage,
-          //simpleSheet: true,
         });
         
       });
       
+    </script>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
       
     </script>
+    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer">{lang: 'zh-TW'}</script>
   </body>
 </html>
