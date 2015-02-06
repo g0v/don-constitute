@@ -69,7 +69,7 @@ a, a:link
   margin-left: auto
   margin-right: auto
 
-#event
+#event, #list
   #header
     position: relative
     //background-color: #D8D0B0
@@ -79,13 +79,8 @@ a, a:link
     +background(image-url("https://raw.githubusercontent.com/g0v/don-constitute/gh-pages/public/img/bg-grass.png") repeat-x center bottom, rgba(#31343D,1))
     text-align: center
     .background
-      height: 15rem
       text-overflow: clip
       white-space: nowrap
-      //overflow-x: hidden
-      .image
-        height: 15rem
-        display: inline
     .cover
       position: absolute
       top: 0
@@ -100,18 +95,32 @@ a, a:link
           color: #fff
           font-size: 3rem
           letter-spacing: 0.1rem
-          //.icon
-          //  margin: 0
-          //.small
-          //  font-size: 1rem
-          //  margin-left: 1rem
-          //.label
-          //  background-color: rgba(#AA987B,1)
-          //  background-color: rgba(#98C0B7,1)
-          //  background-color: hsla(80deg,50%,40%,1)
-          //  background-color: rgba(#5EA092,1)
-          //  padding: 0.5rem 1rem
-          //  +border-radius(0.5rem)
+
+#list
+  #header
+    .background
+      height: 10rem
+  #content
+    padding: 1rem 0
+    h2
+      margin-bottom: 0.5rem
+      .button
+        margin-top: -0.3em
+      .label
+        top: -0.1em
+        margin-left: 0.5em
+      a
+        padding: 0.5rem 0 
+        display: block
+
+#event
+  #header
+    .background
+      height: 15rem
+      //overflow-x: hidden
+      .image
+        height: 15rem
+        display: inline
   #content
     .description
       padding: 1rem
@@ -131,6 +140,8 @@ a, a:link
           font-weight: bold
         .value
           margin-left: 1rem
+          .label
+            margin-left: 1em
     #log
       .icon
         margin: 0
