@@ -193,6 +193,11 @@ a, a:link {
   margin-bottom: 0;
   color: black;
 }
+#event #content #log #list .entry .segment .nickname {
+  font-size: 80%;
+  font-style: italic;
+  color: #999999;
+}
 #event #content #log #list .entry .segment .tag {
   float: right;
   margin: -0.2rem 0 -1rem 1rem;
