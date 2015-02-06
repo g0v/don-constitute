@@ -26,7 +26,7 @@ block content
           h1.header
             block header-title
 
-    section#content
+    section#content.horizontal.wrap
       article.event.meta.ui.two.column.stackable.divided.grid
         block meta
 
@@ -39,6 +39,8 @@ block content
         #pilot.ui.secondary.pointing.menu
           a.filter.item(name="segment").active 所有
             .ui.black.label
+          a.filter.item(name="teal") 導讀
+            .ui.teal.label
           a.filter.item(name="red") 問題
             .ui.red.label
           a.filter.item(name="green") 主張
@@ -48,7 +50,7 @@ block content
           .right.menu
             .item.ui.button.expand 全部展開
             .item.ui.button.collapse 全部收合
-            .item.ui.simple.dropdown.sort
+            //-.item.ui.simple.dropdown.sort
               span.current 依發言順序
               i.icon.dropdown
               .menu
@@ -58,36 +60,20 @@ block content
         #list
         .ui.divider
       section#footer
-        .section.ui.black.labels
-          span.text 草根生長地點
-          a.ui.label 台北市
-        .section.ui.tag.black.labels
-          span.text 討論內容
-          a.ui.label 空污
-        .section.ui.black.labels
-          span.text 工作團隊
-          .ui.label 怡碧
-          .ui.label 志勳
-          .ui.label 家華
-          .ui.label 仲庭
-        .section.links
-          a.ui.black.icon.right.labeled.button(target="_blank",href="https://www.facebook.com/media/set/?set=oa.1584804161753868&type=1") 活動照片
-            i.icon.share
-          a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphclg1VlNpdTd4U3M/view") 會議手冊
-            i.icon.file.text
-          a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphTm1VTFRiWkZZUGs/view") 議題資料
-            i.icon.file.text
-        //-.related 類似的場次：
-        //-.section.social
+        block footer
+        .section.social
           span.text 分享活動至
-          .ui.facebook.icon.small.button
-            i.icon.facebook
-          .ui.twitter.icon.small.button
-            i.icon.twitter
-          .ui.google.plus.icon.small.button
-            i.icon.google.plus
+          span.text
+            .fb-share-button(data-layout="button_count")
+          span.text
+            .g-plus(data-action="share",data-annotation="bubble")
+          span.text
+            a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
 
 block script
+
+  block subscript
+
   script.
 
     $(document).ready(function(){
@@ -109,9 +95,8 @@ block script
 
       // step 1: get data and render projects
 
-      var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
-      var gsheet_url ='https://docs.google.com/spreadsheets/d/1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4/pubhtml';
-      var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
+      //var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
+      //var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
       var tabletop;
       var log;
 
@@ -141,9 +126,9 @@ block script
             entry_color = "green";
           }else if(entry_class == "意見彙整"){
             entry_color = "blue";
-          }else if(entry_class == "主持"){
-            entry_color = "";
           }else if(entry_class == "導讀"){
+            entry_color = "teal";
+          }else if(entry_class == "主持"){
             entry_color = "";
           }else if(entry_class == "自我介紹"){
             entry_color = "";
@@ -152,13 +137,15 @@ block script
           var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating};
           var $entry_element = $(entry_template(context));
 
-          var entry_tags = entry['關鍵字'].split(",") || [];
-          $.each(entry_tags, function(tag_index, tag){
-            tag = tag.trim();
-            var context = {tag: tag};
-            var $tag_element = $(entry_tag_template(context));
-            $entry_element.find('.tag').append($tag_element);
-          });
+          if (entry['關鍵字'].length > 0) {
+            var entry_tags = entry['關鍵字'].split(",") || [];
+            $.each(entry_tags, function(tag_index, tag){
+              tag = tag.trim();
+              var context = {tag: tag};
+              var $tag_element = $(entry_tag_template(context));
+              $entry_element.find('.tag').append($tag_element);
+            });
+          }
 
           var rating_elememt_template = '';
           _(entry_rating_count).times(function(){
@@ -222,6 +209,8 @@ block script
         $('#pilot .red.label').text($('.entry>.red.segment').length);
         $('#pilot .green.label').text($('.entry>.green.segment').length);
         $('#pilot .blue.label').text($('.entry>.blue.segment').length);
+        $('#pilot .teal.label').text($('.entry>.teal.segment').length);
+        $('#pilot .yellow.label').text($('.entry>.yellow.segment').length);
 
         // step 3-2: add interactions
 
@@ -295,12 +284,9 @@ block script
       }
 
       tabletop = Tabletop.init({
-      //Tabletop.init({
         key: gsheet_url,
         callback: renderPage,
-        //simpleSheet: true,
       });
 
     });
-
 

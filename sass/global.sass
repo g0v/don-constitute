@@ -59,13 +59,15 @@ a, a:link
     background-color: #D8D0B0
 
 .menu.bar
-  max-width: 1200px
-  margin-left: auto
-  margin-right: auto
   +border-radius(0)
   +box-shadow(none)
   .item:first-child, .item:last-child
     +border-radius(0)
+
+.horizontal.wrap
+  max-width: 1200px
+  margin-left: auto
+  margin-right: auto
 
 #event
   #header
@@ -111,8 +113,6 @@ a, a:link
           //  padding: 0.5rem 1rem
           //  +border-radius(0.5rem)
   #content
-    max-width: 1200px
-    margin: 0 auto
     .description
       padding: 1rem
       p
@@ -202,7 +202,7 @@ a, a:link
               .entry:first-child
                 margin-top: 1rem
     #footer
-      padding: 1rem 1rem 0 1rem
+      padding: 1rem
       background-color: rgba(#31343D,1)
       color: #E4E8E1
       .section

@@ -1,0 +1,25 @@
+extends level-one
+
+block head
+
+block title
+  | 草根論壇遍地開花
+
+block topbar
+
+block content
+  #list
+    header#header
+    section#content
+      .ui.two.column.stackable.grid
+        .column
+          .ui.segment
+            h2 憲政草根論壇 x 司改會
+        .column
+          .ui.segment
+            h2 憲政草根論壇 x 地球公民基金會
+
+block script
+  script.
+    $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+
