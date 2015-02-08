@@ -1,11 +1,9 @@
-extends level-one
+extends index
 
 block head
 
 block title
-  | 草根論壇
-  block subtitle
-  | | 
+  | 草根論壇#0 政府體制與選制
 
 block topbar
   .item.expand.collapse
@@ -17,48 +15,68 @@ block content
   #event
 
     header#header
-
       .background
-
-        block header-images
-
+        img.ui.image(src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10397046_743166745732737_6981759218115780785_o.jpg")
+        img.ui.image(src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/10298306_743166935732718_5677566081269997932_o.jpg")
+        img.ui.image(src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1801143_743167149066030_4365130757095527117_o.jpg")
       .cover
         .title
-          h1.header 草根論壇
-            block header-title
-
+          h1.header 草根論壇#0 政府體制與選制
+          //-h1.header
+            span.label 憲政草根論壇
+            span.x
+              i.icon.remove
+            span.label 司改會
+            //-span.small 2014 Augest 09 
     section#content.horizontal.wrap
       article.event.meta.ui.two.column.stackable.divided.grid
-        block meta
-
+        .column
+          p.item
+            span.key 主辦
+            span.value 民間司法改革基金會
+          p.item
+            span.key 時間
+            span.value 2014/08/29 星期五 13:00~17:00
+          p.item
+            span.key 地點
+            span.value 司改會辦公室 (台北市中山區松江路90巷3號7樓)
+        .column
+          p.item
+            span.key 參加人數
+            span.value 18人
+          p.item
+            span.key 參加者組成
+            span.value 多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。
       article.description
-        block main-article
-
+        p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
       article#log
         //-.ui.horizontal.divider 紀錄
         //-#pilot.ui.menu
         #pilot.ui.secondary.pointing.menu
           a.filter.item(name="segment").active 所有
             .ui.black.label
-          a.filter.item(name="teal") 導讀
-            .ui.teal.label
           a.filter.item(name="red") 問題
             .ui.red.label
           a.filter.item(name="green") 主張
             .ui.green.label
-          a.filter.item(name="blue") 彙整
-            .ui.blue.label
           .right.menu
             .item.ui.button.expand 全部展開
             .item.ui.button.collapse 全部收合
-            //-.item.ui.simple.dropdown.sort
+            .item.ui.simple.dropdown.sort
               span.current 依發言順序
               i.icon.dropdown
               .menu
                 .item.timestamp 依發言順序
+                //-.item 依重要性
                 .item.agreement 依同意度
+        //-#filter.ui.secondary.menu
+          a.item 憲法
+            .ui.small.label 10
+          a.item 法制
+            .ui.small.label 10
         #filter.tag.ui.labels
         #list
+          //include entry
         .ui.divider
         #sample.ui.five.column.stackable.grid
           .equal.height.divided.row
@@ -91,8 +109,25 @@ block content
                 i.icon.star.yellow
               p.value 全場多數人支持認同
         .ui.divider
+
       section#footer
-        block footer
+        //-.section.ui.black.labels
+          span.text 草根生長地點
+          a.ui.label 台北市
+        //-.section.ui.tag.black.labels
+          span.text 討論內容
+          a.ui.label 憲政體制
+          a.ui.label 選舉制度
+        .section
+          span.text 工作團隊
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+        .section.links
+          a.ui.black.icon.right.labeled.button(target="_blank",href="https://www.facebook.com/media/set/?set=oa.1566445763589708&type=1") 活動照片
+            i.icon.share
+          a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphTS1HTDZEZ0hKRnc/view?usp=sharing") 會議手冊
+            i.icon.file.text
+        //-.related 類似的場次：
         .section.social
           span.text 分享活動至
           span.text
@@ -103,17 +138,14 @@ block content
             a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
 
 block script
-
-  block subscript
-
   script.
 
     $(document).ready(function(){
 
       // step 0: setup
 
-      //-var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}<span class="nickname"> — {{nickname}}</span></p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
-      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}<span class="nickname"> — {{nickname}}</span></p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      //-var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
       var entry_template = Handlebars.compile(entry_template_source);
 
       var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -128,97 +160,63 @@ block script
 
       // step 1: get data and render projects
 
-      //var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
-      //var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
-      var tabletop;
-      var log;
+      $.getJSON("json/entry-list.json", function(entries){
 
-      var renderPage = function(data, tabletop){
-        //compile_json(data);
-        //console.log(data);
-        //console.log(log);
-        log = tabletop.sheets('log').all();
+        $.each(entries, function(entry_index, entry){
 
-        $.each(log, function(entry_index, entry){
-          if(entry_index < 1){
-            return;
-          }
+          var entry_id = entry.id || "";
+          var entry_content = entry.content || "";
+          var entry_parent = entry.parent[0] || "";
 
-          var entry_id = entry_index || "";
-          var entry_content = entry['發言內容本文'] || "";
-          var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
-
-          var entry_class = entry['發言類型'] || "";
-          var entry_rating = entry['同意強度'] || "";
-          var entry_rating_count = 0;
-          if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成"){
-            entry_rating_count = 3;
-          }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成"){
-            entry_rating_count = 2;
-          }else if(entry_class == "少數贊成"){
-            entry_rating_count = 1;
-          }
-          var entry_speaker = entry['發言人'] || "";
-
+          var entry_class = entry.class[0] || "";
           var entry_color = "";
-          if(entry_class == "問題與診斷"){
+          if(entry_class == "問題"){
             entry_color = "red";
-          }else if(entry_class == "主張與方案"){
+          }else if(entry_class == "主張"){
             entry_color = "green";
-          }else if(entry_class == "意見彙整"){
-            entry_color = "blue";
-          }else if(entry_class == "導讀"){
-            entry_color = "teal";
-          }else if(entry_class == "主持"){
-            entry_color = "";
-          }else if(entry_class == "自我介紹"){
-            entry_color = "";
           };
 
-          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry_rating_count, nickname: entry_speaker};
+          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating[0]};
           var $entry_element = $(entry_template(context));
 
-          if (entry['關鍵字'].length > 0) {
-            var entry_tags = entry['關鍵字'].split(",") || [];
-            $.each(entry_tags, function(tag_index, tag){
-              tag = tag.trim();
-              var context = {tag: tag};
-              var $tag_element = $(entry_tag_template(context));
-              $entry_element.find('.tag').append($tag_element);
+          var entry_tags = entry.tag || [];
+          $.each(entry_tags, function(tag_index, tag){
+            var context = {tag: tag};
+            var $tag_element = $(entry_tag_template(context));
+            $entry_element.find('.tag').append($tag_element);
+          });
+
+          var entry_ratings = entry.rating || [];
+          $.each(entry_ratings, function(rating_index, rating){
+            var rating_count = parseInt(rating);
+            var rating_elememt_template = '';
+            if(rating_count >= 0){
+              _(rating_count).times(function(){
+                rating_elememt_template += star_element_template;
+              });
+              _(3-rating_count).times(function(){
+                rating_elememt_template += empty_star_element_template;
+              });
+            }else if(rating_count == -1){
+              rating_elememt_template = block_element_template;
+            };
+            var $rating_elememt = $(rating_elememt_template);
+            $entry_element.find('.rating').append($rating_elememt);
+          });
+
+          var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
+          $.each([ "info", "agree", "disagree", "block" ], function( index, value ){
+            $.each(entry[value], function(comment_index, comment){
+              var context = {type: value, icon: comment_icon_settings[value], description: comment};
+              var $comment_element = $(entry_comment_template(context));
+              $entry_element.find('.comment').append($comment_element);
             });
-          }
-
-          var rating_elememt_template = '';
-          if(entry_rating.length > 0){
-            _(entry_rating_count).times(function(){
-              rating_elememt_template += star_element_template;
-            });
-            _(3-entry_rating_count).times(function(){
-              rating_elememt_template += empty_star_element_template;
-            });
-          }
-
-          var entry_oppose = entry['反對意見'] || "";
-          if(entry_oppose.length > 0){
-            if(entry_oppose != "無"){
-              rating_elememt_template += block_element_template;
-            }
-          };
-
-          var $rating_elememt = $(rating_elememt_template);
-          $entry_element.find('.rating').append($rating_elememt);
-
-          //var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
-          //$.each([ "info", "agree", "disagree", "block" ], function( index, value ){
-          //  $.each(entry[value], function(comment_index, comment){
-          //    var context = {type: value, icon: comment_icon_settings[value], description: comment};
-          //    var $comment_element = $(entry_comment_template(context));
-          //    $entry_element.find('.comment').append($comment_element);
-          //  });
-          //});
+          });
 
           $('#list').append($entry_element);
+
         });
+      }).done(function(){
 
         // step 2: build parent-child relationship
 
@@ -236,9 +234,7 @@ block script
         var filter_tag_template = Handlebars.compile(filter_tag_template_source);
         var tag_list = {};
         $.each($('.entry .tag .label'), function(){
-          if($(this).text().length == 0){
-            return;
-          }else if(!tag_list[$(this).text()]){
+          if(!tag_list[$(this).text()]){
             tag_list[$(this).text()] = 1;
           }else{
             tag_list[$(this).text()] += 1;
@@ -253,9 +249,6 @@ block script
         $('#pilot .black.label').text($('.entry').length);
         $('#pilot .red.label').text($('.entry>.red.segment').length);
         $('#pilot .green.label').text($('.entry>.green.segment').length);
-        $('#pilot .blue.label').text($('.entry>.blue.segment').length);
-        $('#pilot .teal.label').text($('.entry>.teal.segment').length);
-        $('#pilot .yellow.label').text($('.entry>.yellow.segment').length);
 
         // step 3-2: add interactions
 
@@ -326,11 +319,6 @@ block script
         // step 5 mark current page
         $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
 
-      }
-
-      tabletop = Tabletop.init({
-        key: gsheet_url,
-        callback: renderPage,
       });
 
     });
