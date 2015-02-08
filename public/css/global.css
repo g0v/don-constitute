@@ -203,7 +203,7 @@ a, a:link {
 #event #content #log #list .entry {
   position: relative;
   margin-left: 5rem;
-  margin-right: 6rem;
+  margin-right: 3rem;
   margin-top: 1rem;
 }
 #event #content #log #list .entry .segment {
@@ -234,7 +234,7 @@ a, a:link {
 }
 #event #content #log #list .entry .segment .action {
   position: absolute;
-  right: -6rem;
+  right: -3rem;
   top: 0.6rem;
 }
 #event #content #log #list .entry .detail .comment {
