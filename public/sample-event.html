@@ -30,7 +30,7 @@
     <!-- for mobile, responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="..."/>
-    <title>憲政草根論壇 x 地球公民基金會 | 公民憲政推動聯盟 (憲動盟)</title>
+    <title>草根論壇地球公民基金會 | | 公民憲政推動聯盟 (憲動盟)</title>
   </head>
   <body>
     <nav id="topbar">
@@ -47,7 +47,7 @@
         <div class="background"><img src="https://scontent-a-sjc.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10885279_763701757012569_716917036908782847_n.jpg?oh=abbc7a74b548d7e2075981e113d58c97&amp;oe=554A0948" class="ui image"/><img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/10846187_763702290345849_8129334834182105454_n.jpg?oh=362f2d77357738a3a87b3eed035f2e47&amp;oe=55491A30&amp;__gda__=1432104198_fe9b184748adbc424db0c0da46026f46" class="ui image"/><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10410151_763702280345850_7424350990609295964_n.jpg?oh=445b87dcff31eeede08b2a1fc1097579&amp;oe=5558299B&amp;__gda__=1433219569_da0d3dc5417aeed66a63a1ad4785652d" class="ui image"/></div>
         <div class="cover">
           <div class="title">
-            <h1 class="header">憲政草根論壇 x 地球公民基金會</h1>
+            <h1 class="header">草根論壇憲政草根論壇 x 地球公民基金會</h1>
           </div>
         </div>
       </header>
@@ -130,7 +130,8 @@
       
         // step 0: setup
         
-        var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}<span class="nickname"> — {{nickname}}</span></p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+        //-var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}<span class="nickname"> — {{nickname}}</span></p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
+        var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}<span class="nickname"> — {{nickname}}</span></p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
         var entry_template = Handlebars.compile(entry_template_source);
         
         var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
@@ -157,7 +158,7 @@
           log = tabletop.sheets('log').all();
           
           $.each(log, function(entry_index, entry){
-            if(entry_index < 2){
+            if(entry_index < 1){
               return;
             }
             
@@ -167,7 +168,14 @@
             
             var entry_class = entry['發言類型'] || "";
             var entry_rating = entry['同意強度'] || "";
-            var entry_rating_count = parseInt(entry['同意強度']) || 0;
+            var entry_rating_count = 0;
+            if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成"){
+              entry_rating_count = 3;
+            }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成"){
+              entry_rating_count = 2;
+            }else if(entry_class == "少數贊成"){
+              entry_rating_count = 1;
+            }
             var entry_speaker = entry['發言人'] || "";
             
             var entry_color = "";
@@ -185,7 +193,7 @@
               entry_color = "";
             };
             
-            var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating, nickname: entry_speaker};
+            var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry_rating_count, nickname: entry_speaker};
             var $entry_element = $(entry_template(context));
             
             if (entry['關鍵字'].length > 0) {
@@ -199,16 +207,20 @@
             }
             
             var rating_elememt_template = '';
-            _(entry_rating_count).times(function(){
-              rating_elememt_template += star_element_template;
-            });
-            _(3-entry_rating_count).times(function(){
-              rating_elememt_template += empty_star_element_template;
-            });
+            if(entry_rating.length > 0){
+              _(entry_rating_count).times(function(){
+                rating_elememt_template += star_element_template;
+              });
+              _(3-entry_rating_count).times(function(){
+                rating_elememt_template += empty_star_element_template;
+              });
+            }
             
             var entry_oppose = entry['反對意見'] || "";
             if(entry_oppose.length > 0){
-              rating_elememt_template += block_element_template;
+              if(entry_oppose != "無"){
+                rating_elememt_template += block_element_template;
+              }
             };
             
             var $rating_elememt = $(rating_elememt_template);
