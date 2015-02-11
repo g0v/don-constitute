@@ -81,7 +81,7 @@
               <div class="item ui button collapse">全部收合</div>
             </div>
           </div>
-          <div id="filter" class="tag ui labels"></div>
+          <div id="filter" class="tag ui labels collapsed"></div>
           <div id="list"></div>
           <div class="ui divider"></div>
           <div id="sample" class="ui five column stackable grid">
@@ -287,6 +287,10 @@
             $('#filter').append($tag_element);
           });
           
+          $('#filter .label').sort(function(a,b) {
+            return parseInt($(b).find('.detail').text()) - parseInt($(a).find('.detail').text());
+          }).appendTo('#filter');
+          
           $('#pilot .black.label').text($('.entry').length);
           $('#pilot .red.label').text($('.entry>.red.segment').length);
           $('#pilot .green.label').text($('.entry>.green.segment').length);
@@ -329,10 +333,12 @@
           $('#pilot .expand.button').on('click tap', function(){
             $('#list .entry .detail').slideDown();
             $('#list .entry .expand.button').not('disabled').addClass('active');
+            $('#filter').removeClass('collapsed');
           });
           $('#pilot .collapse.button').on('click tap', function(){
             $('#list .entry .detail').slideUp();
             $('#list .entry .expand.button').not('disabled').removeClass('active');
+            $('#filter').addClass('collapsed');
           });
           
           $('#pilot .sort .timestamp').on('click tap', function(){
