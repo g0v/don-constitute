@@ -21,14 +21,16 @@ block content
       nav#pilot.ui.secondary.pointing.menu
         a.item.active 全部
           .ui.black.label
-        a.item 開放報名中
-          .ui.orange.label
-        a.item 活動紀錄
+        a.item 台北
           .ui.teal.label
+        a.item 桃園
+          .ui.green.label
+        a.item 台中
+          .ui.yellow.label
       .ui.two.column.stackable.grid
         .column
           .ui.segment
-            .ui.top.attached.label.teal
+            .ui.top.attached.label.yellow
               span.float.right 2015/2/7 Sat. 台中
               | 草根論壇#11 — 哲學星期五
             h2
@@ -61,7 +63,7 @@ block content
             p 2014年4月台灣政府在死刑執行中，處決了兩位判決非常有疑慮的死刑犯，也處決了一位非常救濟程序還在進行中的死刑犯。很難過的說，台灣政府在司法判決與執行上，並不如想像中的嚴謹，而是如此的輕率。我們如何懲罰壞人？在思考死刑的替代方案時，有什麼樣的方案可以被接受？是要終身監禁不得假釋，還是高門檻的無期徒刑？或者還有其他可能？
         .column
           .ui.segment
-            .ui.top.attached.label.teal
+            .ui.top.attached.label.green
               span.float.right 2015/1/18 Sun. 桃園
               | 草根論壇#8 — 台權會
             h2
@@ -96,8 +98,9 @@ block script
   script.
 
     $('#pilot .label').text($('.segment').length);
-    $('#pilot .orange.label').text($('.segment>.orange.label').length);
     $('#pilot .teal.label').text($('.segment>.teal.label').length);
+    $('#pilot .green.label').text($('.segment>.green.label').length);
+    $('#pilot .yellow.label').text($('.segment>.yellow.label').length);
 
     //$('#pilot .item').on('click tap', function(){
     //  $('.ui.segment').slideUp();
