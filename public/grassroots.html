@@ -49,7 +49,7 @@
       </header>
       <section id="content" class="horizontal wrap">
         <nav id="pilot" class="ui secondary pointing menu"><a class="item active">全部
-            <div class="ui black label"></div></a><a class="item">台北
+            <div class="ui label"></div></a><a class="item">台北
             <div class="ui teal label"></div></a><a class="item">桃園
             <div class="ui green label"></div></a><a class="item">台中
             <div class="ui yellow label"></div></a></nav>
@@ -116,12 +116,13 @@
       $('#pilot .green.label').text($('.segment>.green.label').length);
       $('#pilot .yellow.label').text($('.segment>.yellow.label').length);
       
-      //$('#pilot .item').on('click tap', function(){
-      //  $('.ui.segment').slideUp();
-      //  $('.ui.segment>.label').hasClass($(this).children('.label').attr('class')).parent('.ui.segment').slideDown();
-      //  $('#pilot .item').removeClass('active');
-      //  $(this).addClass('active');
-      //});
+      $('#pilot .item').on('click tap', function(){
+        $('.column').hide();
+        var classes = '.' + $(this).children('.label').attr('class').split(' ').join('.');
+        $('.column').has(classes).fadeIn();
+        $('#pilot .item').removeClass('active');
+        $(this).addClass('active');
+      });
       
       $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
       
