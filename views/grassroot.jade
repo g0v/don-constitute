@@ -42,6 +42,8 @@ block content
             .ui.black.label
           a.filter.item(name="teal") 導讀
             .ui.teal.label
+          a.filter.item(name="yellow") 經驗
+            .ui.yellow.label
           a.filter.item(name="red") 問題
             .ui.red.label
           a.filter.item(name="green") 主張
@@ -148,26 +150,28 @@ block script
           var entry_content = entry['發言內容本文'] || "";
           var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
 
+          var entry_speaker = entry['發言人'] || "";
           var entry_class = entry['發言類型'] || "";
           var entry_rating = entry['同意強度'] || "";
           var entry_rating_count = 0;
-          if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成"){
+          if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成" || entry_rating == "3"){
             entry_rating_count = 3;
-          }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成"){
+          }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成" || entry_rating == "2"){
             entry_rating_count = 2;
-          }else if(entry_class == "少數贊成"){
+          }else if(entry_class == "少數贊成" || entry_rating == "1"){
             entry_rating_count = 1;
           }
-          var entry_speaker = entry['發言人'] || "";
 
           var entry_color = "";
-          if(entry_class == "問題與診斷"){
+          if(entry_class.indexOf('問題') > -1){
             entry_color = "red";
-          }else if(entry_class == "主張與方案"){
+          }else if(entry_class.indexOf('主張') > -1 || entry_class.indexOf('提案') > -1){
             entry_color = "green";
-          }else if(entry_class == "意見彙整"){
+          }else if(entry_class.indexOf('彙整') > -1 || entry_class.indexOf('總結') > -1){
             entry_color = "blue";
-          }else if(entry_class == "導讀"){
+          }else if(entry_class.indexOf('經驗') > -1){
+            entry_color = "yellow";
+          }else if(entry_class == "導讀" || entry_class.indexOf('引言') > -1){
             entry_color = "teal";
           }else if(entry_class == "主持"){
             entry_color = "";
@@ -179,7 +183,7 @@ block script
           var $entry_element = $(entry_template(context));
 
           if (entry['關鍵字'].length > 0) {
-            var entry_tags = entry['關鍵字'].split(",") || [];
+            var entry_tags = entry['關鍵字'].split(/[\s,、]+/) || [];
             $.each(entry_tags, function(tag_index, tag){
               tag = tag.trim();
               var context = {tag: tag};
