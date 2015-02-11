@@ -54,9 +54,9 @@
       <section id="content" class="horizontal wrap">
         <article class="event meta ui two column stackable divided grid">
           <div class="column">
-            <p class="item"><span class="key">主辦</span><span class="value"></span></p>
-            <p class="item"><span class="key">時間</span><span class="value"></span></p>
-            <p class="item"><span class="key">地點</span><span class="value"></span></p>
+            <p class="item"><span class="key">主辦</span><a href="https://tapcpr.wordpress.com/" target="_blank" class="value">台灣伴侶權益推動聯盟<i class="icon forward mail"></i></a></p>
+            <p class="item"><span class="key">時間</span><span class="value">2015/2/1 星期日 13:00～17:00</span></p>
+            <p class="item"><span class="key">地點</span><span class="value">幸安區民活動中心（台北市中正區濟南路二段46號3樓，捷運忠孝新生站）</span></p>
           </div>
           <div class="column">
             <p class="item"><span class="key">參加人數</span><span class="value">人</span></p>
@@ -69,7 +69,8 @@
         <article id="log">
           <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
               <div class="ui black label"></div></a><a name="teal" class="filter item">導讀
-              <div class="ui teal label"></div></a><a name="red" class="filter item">問題
+              <div class="ui teal label"></div></a><a name="yellow" class="filter item">經驗
+              <div class="ui yellow label"></div></a><a name="red" class="filter item">問題
               <div class="ui red label"></div></a><a name="green" class="filter item">主張
               <div class="ui green label"></div></a><a name="blue" class="filter item">彙整
               <div class="ui blue label"></div></a>
@@ -108,6 +109,8 @@
           <div class="ui divider"></div>
         </article>
         <section id="footer">
+          <div class="section links"><a target="_blank" href="https://docs.google.com/forms/d/1LwCB9ABd82VfMw-OsmwywB8fdhGB6npDY5MRNn2M5N8/viewform" class="ui black icon right labeled button">報名頁面存檔<i class="icon archive"></i></a>
+          </div>
           <div class="section social"><span class="text">分享活動至</span><span class="text">
               <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
               <div data-action="share" data-annotation="bubble" class="g-plus"></div></span><span class="text"><a href="https://twitter.com/share" data-hashtags="憲政草根論壇" class="twitter-share-button">Tweet</a></span></div>
@@ -119,7 +122,7 @@
         <div class="right menu"><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">公民憲政推動聯盟<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
       </div>
     </footer>
-    <script>var gsheet_url ='';</script>
+    <script>var gsheet_url ='https://docs.google.com/spreadsheets/d/1lz7aSTQXDLbKQ_u_8vQt1SDa-HbjlVl1jcIzivM_MCU/pubhtml';</script>
     <script>
       $(document).ready(function(){
       
@@ -161,26 +164,28 @@
             var entry_content = entry['發言內容本文'] || "";
             var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
             
+            var entry_speaker = entry['發言人'] || "";
             var entry_class = entry['發言類型'] || "";
             var entry_rating = entry['同意強度'] || "";
             var entry_rating_count = 0;
-            if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成"){
+            if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成" || entry_rating == "3"){
               entry_rating_count = 3;
-            }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成"){
+            }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成" || entry_rating == "2"){
               entry_rating_count = 2;
-            }else if(entry_class == "少數贊成"){
+            }else if(entry_class == "少數贊成" || entry_rating == "1"){
               entry_rating_count = 1;
             }
-            var entry_speaker = entry['發言人'] || "";
             
             var entry_color = "";
-            if(entry_class == "問題與診斷"){
+            if(entry_class.indexOf('問題') > -1){
               entry_color = "red";
-            }else if(entry_class == "主張與方案"){
+            }else if(entry_class.indexOf('主張') > -1 || entry_class.indexOf('提案') > -1){
               entry_color = "green";
-            }else if(entry_class == "意見彙整"){
+            }else if(entry_class.indexOf('彙整') > -1 || entry_class.indexOf('總結') > -1){
               entry_color = "blue";
-            }else if(entry_class == "導讀"){
+            }else if(entry_class.indexOf('經驗') > -1){
+              entry_color = "yellow";
+            }else if(entry_class == "導讀" || entry_class.indexOf('引言') > -1){
               entry_color = "teal";
             }else if(entry_class == "主持"){
               entry_color = "";
@@ -192,7 +197,7 @@
             var $entry_element = $(entry_template(context));
             
             if (entry['關鍵字'].length > 0) {
-              var entry_tags = entry['關鍵字'].split(",") || [];
+              var entry_tags = entry['關鍵字'].split(/[\s,、]+/) || [];
               $.each(entry_tags, function(tag_index, tag){
                 tag = tag.trim();
                 var context = {tag: tag};

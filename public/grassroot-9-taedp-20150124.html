@@ -55,9 +55,9 @@
       <section id="content" class="horizontal wrap">
         <article class="event meta ui two column stackable divided grid">
           <div class="column">
-            <p class="item"><span class="key">主辦</span><span class="value">廢除死刑推動聯盟</span></p>
+            <p class="item"><span class="key">主辦</span><a href="http://www.taedp.org.tw/" target="_blank" class="value">廢除死刑推動聯盟<i class="icon forward mail"></i></a></p>
             <p class="item"><span class="key">時間</span><span class="value">2015/1/24 星期六 09:30~13:30</span></p>
-            <p class="item"><span class="key">地點</span><span class="value">廢死聯盟辦公室</span></p>
+            <p class="item"><span class="key">地點</span><span class="value">廢死聯盟辦公室（10469 台北市中山區民權東路二段26號10樓之2）</span></p>
           </div>
           <div class="column">
             <p class="item"><span class="key">參加人數</span><span class="value">11（男7，女4）人</span></p>
@@ -70,7 +70,8 @@
         <article id="log">
           <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
               <div class="ui black label"></div></a><a name="teal" class="filter item">導讀
-              <div class="ui teal label"></div></a><a name="red" class="filter item">問題
+              <div class="ui teal label"></div></a><a name="yellow" class="filter item">經驗
+              <div class="ui yellow label"></div></a><a name="red" class="filter item">問題
               <div class="ui red label"></div></a><a name="green" class="filter item">主張
               <div class="ui green label"></div></a><a name="blue" class="filter item">彙整
               <div class="ui blue label"></div></a>
@@ -182,26 +183,28 @@
             var entry_content = entry['發言內容本文'] || "";
             var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
             
+            var entry_speaker = entry['發言人'] || "";
             var entry_class = entry['發言類型'] || "";
             var entry_rating = entry['同意強度'] || "";
             var entry_rating_count = 0;
-            if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成"){
+            if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成" || entry_rating == "3"){
               entry_rating_count = 3;
-            }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成"){
+            }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成" || entry_rating == "2"){
               entry_rating_count = 2;
-            }else if(entry_class == "少數贊成"){
+            }else if(entry_class == "少數贊成" || entry_rating == "1"){
               entry_rating_count = 1;
             }
-            var entry_speaker = entry['發言人'] || "";
             
             var entry_color = "";
-            if(entry_class == "問題與診斷"){
+            if(entry_class.indexOf('問題') > -1){
               entry_color = "red";
-            }else if(entry_class == "主張與方案"){
+            }else if(entry_class.indexOf('主張') > -1 || entry_class.indexOf('提案') > -1){
               entry_color = "green";
-            }else if(entry_class == "意見彙整"){
+            }else if(entry_class.indexOf('彙整') > -1 || entry_class.indexOf('總結') > -1){
               entry_color = "blue";
-            }else if(entry_class == "導讀"){
+            }else if(entry_class.indexOf('經驗') > -1){
+              entry_color = "yellow";
+            }else if(entry_class == "導讀" || entry_class.indexOf('引言') > -1){
               entry_color = "teal";
             }else if(entry_class == "主持"){
               entry_color = "";
@@ -213,7 +216,7 @@
             var $entry_element = $(entry_template(context));
             
             if (entry['關鍵字'].length > 0) {
-              var entry_tags = entry['關鍵字'].split(",") || [];
+              var entry_tags = entry['關鍵字'].split(/[\s,、]+/) || [];
               $.each(entry_tags, function(tag_index, tag){
                 tag = tag.trim();
                 var context = {tag: tag};
