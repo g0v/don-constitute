@@ -5,7 +5,7 @@ html {
 }
 
 html, body, div, nav, section, article, header, footer, h1, h2, h3, h4, p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 html, body, div, nav, section, article, header, footer, h1, h2, h3, h4 {
@@ -253,7 +253,7 @@ a, a:link {
   padding-bottom: 0.5rem;
 }
 #event #content #log #list .entry .detail .subentry {
-  margin-right: -6rem;
+  margin-right: -3rem;
 }
 #event #content #log #list .entry .detail .subentry .entry:first-child {
   margin-top: 1rem;
