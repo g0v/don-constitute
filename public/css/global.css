@@ -201,7 +201,7 @@ a, a:link {
   margin: 1rem 0;
 }
 #event #content #log #filter.collapsed {
-  height: 5rem;
+  max-height: 5rem;
   overflow-y: hidden;
 }
 #event #content #log #list .entry {
