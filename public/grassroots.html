@@ -49,13 +49,14 @@
       </header>
       <section id="content" class="horizontal wrap">
         <nav id="pilot" class="ui secondary pointing menu"><a class="item active">全部
-            <div class="ui black label"></div></a><a class="item">開放報名中
-            <div class="ui orange label"></div></a><a class="item">活動紀錄
-            <div class="ui teal label"></div></a></nav>
+            <div class="ui black label"></div></a><a class="item">台北
+            <div class="ui teal label"></div></a><a class="item">桃園
+            <div class="ui green label"></div></a><a class="item">台中
+            <div class="ui yellow label"></div></a></nav>
         <div class="ui two column stackable grid">
           <div class="column">
             <div class="ui segment">
-              <div class="ui top attached label teal"><span class="float right">2015/2/7 Sat. 台中</span>草根論壇#11 — 哲學星期五</div>
+              <div class="ui top attached label yellow"><span class="float right">2015/2/7 Sat. 台中</span>草根論壇#11 — 哲學星期五</div>
               <h2><a href="grassroot-11-5philo-20150207">許我一個良善的選舉制度
                   <div class="ui mini icon right labeled compact button float">活動紀錄<i class="icon right arrow"></i></div></a></h2>
               <p>2014年九合一大選過後，向來看似穩定的地方選舉結構，有了些許的鬆動，然而，台灣的選舉制度，從中央到地方，仍舊充滿許多問題。是什麼樣的選舉制度，讓人民無法選舉出適任的政治代理人？在過去的選舉經驗中，我們觀看、聆聽，當我們從日常生活中的經驗出發來看選舉，必定也能發現選舉細節中的魔鬼。</p>
@@ -79,7 +80,7 @@
           </div>
           <div class="column">
             <div class="ui segment">
-              <div class="ui top attached label teal"><span class="float right">2015/1/18 Sun. 桃園</span>草根論壇#8 — 台權會</div>
+              <div class="ui top attached label green"><span class="float right">2015/1/18 Sun. 桃園</span>草根論壇#8 — 台權會</div>
               <h2><a href="grassroot-8-tahr-20150118">桃園航空城聽證準備
                   <div class="ui mini icon right labeled compact button float">活動紀錄<i class="icon right arrow"></i></div></a></h2>
               <p>桃園航空城：政府沒說清楚的事情</p>
@@ -111,8 +112,9 @@
     </footer>
     <script>
       $('#pilot .label').text($('.segment').length);
-      $('#pilot .orange.label').text($('.segment>.orange.label').length);
       $('#pilot .teal.label').text($('.segment>.teal.label').length);
+      $('#pilot .green.label').text($('.segment>.green.label').length);
+      $('#pilot .yellow.label').text($('.segment>.yellow.label').length);
       
       //$('#pilot .item').on('click tap', function(){
       //  $('.ui.segment').slideUp();
