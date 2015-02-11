@@ -20,7 +20,7 @@ block content
     section#content.horizontal.wrap
       nav#pilot.ui.secondary.pointing.menu
         a.item.active 全部
-          .ui.black.label
+          .ui.label
         a.item 台北
           .ui.teal.label
         a.item 桃園
@@ -102,12 +102,13 @@ block script
     $('#pilot .green.label').text($('.segment>.green.label').length);
     $('#pilot .yellow.label').text($('.segment>.yellow.label').length);
 
-    //$('#pilot .item').on('click tap', function(){
-    //  $('.ui.segment').slideUp();
-    //  $('.ui.segment>.label').hasClass($(this).children('.label').attr('class')).parent('.ui.segment').slideDown();
-    //  $('#pilot .item').removeClass('active');
-    //  $(this).addClass('active');
-    //});
+    $('#pilot .item').on('click tap', function(){
+      $('.column').hide();
+      var classes = '.' + $(this).children('.label').attr('class').split(' ').join('.');
+      $('.column').has(classes).fadeIn();
+      $('#pilot .item').removeClass('active');
+      $(this).addClass('active');
+    });
 
     $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
 
