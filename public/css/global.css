@@ -200,6 +200,10 @@ a, a:link {
 #event #content #log #filter {
   margin: 1rem 0;
 }
+#event #content #log #filter.collapsed {
+  height: 5rem;
+  overflow-y: hidden;
+}
 #event #content #log #list .entry {
   position: relative;
   margin-left: 5rem;

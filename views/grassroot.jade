@@ -59,7 +59,7 @@ block content
               .menu
                 .item.timestamp 依發言順序
                 .item.agreement 依同意度
-        #filter.tag.ui.labels
+        #filter.tag.ui.labels.collapsed
         #list
         .ui.divider
         #sample.ui.five.column.stackable.grid
@@ -254,6 +254,10 @@ block script
           $('#filter').append($tag_element);
         });
 
+        $('#filter .label').sort(function(a,b) {
+          return parseInt($(b).find('.detail').text()) - parseInt($(a).find('.detail').text());
+        }).appendTo('#filter');
+
         $('#pilot .black.label').text($('.entry').length);
         $('#pilot .red.label').text($('.entry>.red.segment').length);
         $('#pilot .green.label').text($('.entry>.green.segment').length);
@@ -296,10 +300,12 @@ block script
         $('#pilot .expand.button').on('click tap', function(){
           $('#list .entry .detail').slideDown();
           $('#list .entry .expand.button').not('disabled').addClass('active');
+          $('#filter').removeClass('collapsed');
         });
         $('#pilot .collapse.button').on('click tap', function(){
           $('#list .entry .detail').slideUp();
           $('#list .entry .expand.button').not('disabled').removeClass('active');
+          $('#filter').addClass('collapsed');
         });
 
         $('#pilot .sort .timestamp').on('click tap', function(){
