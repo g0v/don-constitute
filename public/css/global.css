@@ -94,6 +94,11 @@ a, a:link {
   margin-right: auto;
 }
 
+#home #promote li {
+  min-height: 10rem;
+  background-color: #333333;
+}
+
 #event #header, #list #header {
   position: relative;
   background: url('/public/img/bg-grass.png?1419418593') repeat-x center bottom, #576b2e;

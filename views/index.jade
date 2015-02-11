@@ -3,12 +3,24 @@ extends level-one
 block head
   meta(name="description",content="...")
 
+  // bxslider
+  link(rel="stylesheet",type="text/css",href="assets/jquery.bxslider/jquery.bxslider.css")
+  script(type="text/javascript",src="assets/jquery.bxslider/jquery.bxslider.min.js")
+
 block title
-  | 首頁 
 
 block content
+  #home.horizontal.wrap
+    section#promote
+      ui.bxslider
+        li blah
+        li blah
+        li blah
 
 block script
   script.
-    $("#topbar a[href*='index']").addClass("active");
+    $(document).ready(function(){
+      $('.bxslider').bxSlider();
+      $("#topbar a[href*='index']").addClass("active");
+    });
 
