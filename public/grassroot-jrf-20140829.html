@@ -21,10 +21,15 @@
     <script type="text/javascript" src="js/global.js"></script>
     <!-- for mobile, responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- handlebars-->
+    <script type="text/javascript" src="assets/handlebars-v2.0.0.js"></script>
+    <!-- underscore-->
+    <script type="text/javascript" src="assets/underscore-min.js"></script>
+    <!-- csv parser-->
+    <!--script(type="text/javascript",src="assets/csv.js")-->
+    <!-- tabletop.js-->
+    <script type="text/javascript" src="assets/tabletop.js"></script>
     <meta name="description" content="..."/>
-    <!-- bxslider-->
-    <link rel="stylesheet" type="text/css" href="assets/jquery.bxslider/jquery.bxslider.css"/>
-    <script type="text/javascript" src="assets/jquery.bxslider/jquery.bxslider.min.js"></script>
     <title>草根論壇#0 政府體制與選制公民憲政推動聯盟 (憲動盟) 野生官網</title>
   </head>
   <body>
@@ -300,7 +305,7 @@
           });
           
           // step 5 mark current page
-          $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+          $("#topbar a[href*='grassroots']").addClass("active");
           
         });
         

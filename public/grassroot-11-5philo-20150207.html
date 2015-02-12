@@ -82,26 +82,30 @@
           <div id="filter" class="tag ui labels collapsed"></div>
           <div id="list"></div>
           <div class="ui divider"></div>
-          <div id="sample" class="ui five column stackable grid">
+          <div id="sample" class="ui six column stackable grid">
             <div class="equal height divided row">
               <div class="column">
                 <div class="key"><i class="icon remove red"></i></div>
-                <p class="value">有人強烈反對該項發言並提出不同見解</p>
+                <p class="value">有人強烈反對並提出不同見解</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon empty star gray"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs down orange"></i></div>
+                <p class="value">有人反對</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">無人贊同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">僅少數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">約半數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon star yellow"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i></div>
                 <p class="value">全場多數人支持認同</p>
               </div>
             </div>
@@ -122,7 +126,8 @@
           </div>
           <div class="section ui black labels"><span class="text">轉播攝影場務</span><a target="_blank" href="https://www.facebook.com/cafephilotaichung?fref=ts" class="ui label">哲學星期五＠台中</a></div>
           <div class="section links"><span class="text">參考資料</span><a target="_blank" href="https://www.youtube.com/watch?v=Urt-D-qSUeU" class="ui black icon right labeled button">請投我一票<i class="icon youtube play"></i></a><a target="_blank" href="http://whogovernstw.org/2014/05/20/fangyuchen1/" class="ui black icon right labeled button">選舉制度ABC<i class="icon file text"></i></a><a target="_blank" href="https://drive.google.com/open?id=0B4Dee6_4G1R5WjBWX0pBLVRzN1k&amp;authuser=0" class="ui black icon right labeled button">選舉制度/俊宏<i class="icon pdf file outline"></i></a><a target="_blank" href="https://drive.google.com/file/d/0ByIKbn5JwMM-R0tOSU9wWE4zWXh2X2ZMenhiUFN3Wml6OXpj/view?usp=sharing" class="ui black icon right labeled button">綠黨選舉報告/根政<i class="icon pdf file outline"></i></a></div>
-          <div class="section links"><span class="text">相關連結</span><a target="_blank" href="https://www.facebook.com/media/set/?set=a.858325020894254.1073741856.638482176211874&amp;type=1" class="ui black icon right labeled button">活動照片<i class="icon photo"></i></a><a target="_blank" href="https://www.youtube.com/playlist?list=PLm7sEt6rah-YyR5nyAq4i1xzdG3dn4Z0q" class="ui black icon right labeled button">活動影片<i class="icon youtube play"></i></a><a target="_blank" href="https://civil.hackpad.com/ep/pad/static/HwNF6af3q5Q" class="ui black icon right labeled button">現場速記<i class="icon file text"></i></a><a target="_blank" href="https://docs.google.com/forms/d/1mKGMkN5A81TNCVIIKjU_kAhUj2ljkmPSfEa5KuVbyBo/viewform" class="ui black icon right labeled button">報名頁存檔<i class="icon archive"></i></a></div>
+          <div class="section links"><span class="text">相關連結</span><a target="_blank" href="https://www.facebook.com/media/set/?set=a.858325020894254.1073741856.638482176211874&amp;type=1" class="ui black icon right labeled button">活動照片<i class="icon photo"></i></a><a target="_blank" href="https://www.youtube.com/playlist?list=PLm7sEt6rah-YyR5nyAq4i1xzdG3dn4Z0q" class="ui black icon right labeled button">活動影片<i class="icon youtube play"></i></a><a target="_blank" href="https://civil.hackpad.com/ep/pad/static/HwNF6af3q5Q" class="ui black icon right labeled button">現場速記<i class="icon file text"></i></a><a target="_blank" href="https://docs.google.com/forms/d/1mKGMkN5A81TNCVIIKjU_kAhUj2ljkmPSfEa5KuVbyBo/viewform" class="ui black icon right labeled button">報名頁存檔<i class="icon archive"></i></a>
+          </div>
           <div class="section social"><span class="text">分享活動至</span><span class="text">
               <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
               <div data-action="share" data-annotation="bubble" class="g-plus"></div></span><span class="text"><a href="https://twitter.com/share" data-hashtags="憲政草根論壇" class="twitter-share-button">Tweet</a></span></div>
@@ -150,8 +155,8 @@
         var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
         var entry_comment_template = Handlebars.compile(entry_comment_template_source);
         
-        var star_element_template = '<i class="icon star yellow"></i>';
-        var empty_star_element_template = '<i class="icon star empty gray"></i>';
+        var star_element_template = '<i class="icon thumbs up green"></i>';
+        var empty_star_element_template = '<i class="icon thumbs up gray"></i>';
         var block_element_template = '<i class="icon remove red"></i>';
         
         // step 1: get data and render projects

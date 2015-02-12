@@ -83,26 +83,30 @@
           <div id="filter" class="tag ui labels collapsed"></div>
           <div id="list"></div>
           <div class="ui divider"></div>
-          <div id="sample" class="ui five column stackable grid">
+          <div id="sample" class="ui six column stackable grid">
             <div class="equal height divided row">
               <div class="column">
                 <div class="key"><i class="icon remove red"></i></div>
-                <p class="value">有人強烈反對該項發言並提出不同見解</p>
+                <p class="value">有人強烈反對並提出不同見解</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon empty star gray"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs down orange"></i></div>
+                <p class="value">有人反對</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">無人贊同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">僅少數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">約半數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon star yellow"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i></div>
                 <p class="value">全場多數人支持認同</p>
               </div>
             </div>
@@ -128,7 +132,7 @@
             <div class="ui label">呂家華</div>
             <div class="ui label">黃怡碧</div>
           </div>
-          <div class="section links"><a target="_blank" href="https://docs.google.com/forms/d/1sPgKBDCSscQfsfAGRAX0XCg7YUtkUuOfO8CI1x0DPFs/viewform" class="ui black icon right labeled button">報名頁面存檔<i class="icon archive"></i></a>
+          <div class="section links"><a target="_blank" href="https://docs.google.com/forms/d/1sPgKBDCSscQfsfAGRAX0XCg7YUtkUuOfO8CI1x0DPFs/viewform" class="ui black icon right labeled button">報名頁面存檔<i class="icon archive"></i></a><a target="_blank" href="https://docs.google.com/spreadsheets/d/1b3FeV7ogUR0oY7vDN_lG5b1ClJBQBmJNtZnSg_0CX9g/edit#gid=0" class="ui black icon right labeled button">秘訣<i class="icon pencil"></i></a><a target="_blank" href="" class="ui black icon right labeled button">秘訣的泉源<i class="icon unhide"></i></a><a target="_blank" href="" class="ui black icon right labeled button">秘訣的泉源的泉源<i class="icon unhide"></i></a>
           </div>
           <div class="section social"><span class="text">分享活動至</span><span class="text">
               <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
@@ -157,8 +161,8 @@
         var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
         var entry_comment_template = Handlebars.compile(entry_comment_template_source);
         
-        var star_element_template = '<i class="icon star yellow"></i>';
-        var empty_star_element_template = '<i class="icon star empty gray"></i>';
+        var star_element_template = '<i class="icon thumbs up green"></i>';
+        var empty_star_element_template = '<i class="icon thumbs up gray"></i>';
         var block_element_template = '<i class="icon remove red"></i>';
         
         // step 1: get data and render projects

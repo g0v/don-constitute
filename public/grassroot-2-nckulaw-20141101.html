@@ -82,26 +82,30 @@
           <div id="filter" class="tag ui labels collapsed"></div>
           <div id="list"></div>
           <div class="ui divider"></div>
-          <div id="sample" class="ui five column stackable grid">
+          <div id="sample" class="ui six column stackable grid">
             <div class="equal height divided row">
               <div class="column">
                 <div class="key"><i class="icon remove red"></i></div>
-                <p class="value">有人強烈反對該項發言並提出不同見解</p>
+                <p class="value">有人強烈反對並提出不同見解</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon empty star gray"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs down orange"></i></div>
+                <p class="value">有人反對</p>
+              </div>
+              <div class="column">
+                <div class="key"><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">無人贊同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon empty star gray"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">僅少數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon empty star gray"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i></div>
                 <p class="value">約半數人支持認同</p>
               </div>
               <div class="column">
-                <div class="key"><i class="icon star yellow"></i><i class="icon star yellow"></i><i class="icon star yellow"></i></div>
+                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i></div>
                 <p class="value">全場多數人支持認同</p>
               </div>
             </div>
@@ -109,7 +113,7 @@
           <div class="ui divider"></div>
         </article>
         <section id="footer">
-          <div class="section links"><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphWjFNQURvRlotN1k/view?usp=sharing" class="ui black icon right labeled button">會議手冊<i class="icon file text"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphRHdSLUtobXlQeEU/view?usp=sharing" class="ui black icon right labeled button">新憲運動做什麼？<i class="icon file powerpoint outline"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphLUNoa3BSR0gyRVE/view?usp=sharing" class="ui black icon right labeled button">確保公共官僚組織成為民主的守護神<i class="icon file pdf outline"></i></a>
+          <div class="section links"><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphWjFNQURvRlotN1k/view?usp=sharing" class="ui black icon right labeled button">會議手冊<i class="icon file text"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphRHdSLUtobXlQeEU/view?usp=sharing" class="ui black icon right labeled button">新憲運動做什麼？<i class="icon file powerpoint outline"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B6DZkaZUUWphLUNoa3BSR0gyRVE/view?usp=sharing" class="ui black icon right labeled button">確保公共官僚組織成為民主的守護神<i class="icon file pdf outline"></i></a><a target="_blank" href="https://docs.google.com/spreadsheets/d/1tqn0L2tEpM8vZauA2jpRwN9nLU-1TnZz7uboYKji1DQ/edit#gid=0" class="ui black icon right labeled button">秘訣<i class="icon pencil"></i></a><a target="_blank" href="https://docs.google.com/document/d/1vjZUF9sBjqDP8ToVu42qPNZCRgnibz1fNqd6lPXw_Uw/edit?usp=sharing" class="ui black icon right labeled button">秘訣的泉源<i class="icon unhide"></i></a><a target="_blank" href="https://drive.google.com/file/d/0B4Dee6_4G1R5WnJjTEtsYkVkYnM/view?usp=sharing" class="ui black icon right labeled button">秘訣的泉源的泉源<i class="icon unhide"></i></a>
           </div>
           <div class="section social"><span class="text">分享活動至</span><span class="text">
               <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
@@ -138,8 +142,8 @@
         var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
         var entry_comment_template = Handlebars.compile(entry_comment_template_source);
         
-        var star_element_template = '<i class="icon star yellow"></i>';
-        var empty_star_element_template = '<i class="icon star empty gray"></i>';
+        var star_element_template = '<i class="icon thumbs up green"></i>';
+        var empty_star_element_template = '<i class="icon thumbs up gray"></i>';
         var block_element_template = '<i class="icon remove red"></i>';
         
         // step 1: get data and render projects
