@@ -1,6 +1,18 @@
-extends index
+extends level-one
 
-block subhead
+block head
+  // handlebars
+  script(type="text/javascript",src="assets/handlebars-v2.0.0.js")
+
+  // underscore
+  script(type="text/javascript",src="assets/underscore-min.js")
+
+  // csv parser
+  //script(type="text/javascript",src="assets/csv.js")
+
+  // tabletop.js
+  script(type="text/javascript",src="assets/tabletop.js")
+
   meta(name="description",content="...")
 
 block title
@@ -318,7 +330,7 @@ block script
         });
 
         // step 5 mark current page
-        $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+        $("#topbar a[href*='grassroots']").addClass("active");
 
       });
 
