@@ -75,35 +75,39 @@ block content
         #filter.tag.ui.labels.collapsed
         #list
         .ui.divider
-        #sample.ui.five.column.stackable.grid
+        #sample.ui.six.column.stackable.grid
           .equal.height.divided.row
             .column
               .key
                 i.icon.remove.red
-              p.value 有人強烈反對該項發言並提出不同見解
+              p.value 有人強烈反對並提出不同見解
             .column
               .key
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
+                i.icon.thumbs.down.orange
+              p.value 有人反對
+            .column
+              .key
+                i.icon.thumbs.up.gray
+                i.icon.thumbs.up.gray
+                i.icon.thumbs.up.gray
               p.value 無人贊同
             .column
               .key
-                i.icon.star.yellow
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
+                i.icon.thumbs.up.green
+                i.icon.thumbs.up.gray
+                i.icon.thumbs.up.gray
               p.value 僅少數人支持認同
             .column
               .key
-                i.icon.star.yellow
-                i.icon.star.yellow
-                i.icon.empty.star.gray
+                i.icon.thumbs.up.green
+                i.icon.thumbs.up.green
+                i.icon.thumbs.up.gray
               p.value 約半數人支持認同
             .column
               .key
-                i.icon.star.yellow
-                i.icon.star.yellow
-                i.icon.star.yellow
+                i.icon.thumbs.up.green
+                i.icon.thumbs.up.green
+                i.icon.thumbs.up.green
               p.value 全場多數人支持認同
         .ui.divider
       section#footer
@@ -137,8 +141,8 @@ block script
       var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
       var entry_comment_template = Handlebars.compile(entry_comment_template_source);
 
-      var star_element_template = '<i class="icon star yellow"></i>';
-      var empty_star_element_template = '<i class="icon star empty gray"></i>';
+      var star_element_template = '<i class="icon thumbs up green"></i>';
+      var empty_star_element_template = '<i class="icon thumbs up gray"></i>';
       var block_element_template = '<i class="icon remove red"></i>';
 
       // step 1: get data and render projects

@@ -194,11 +194,18 @@ a, a:link {
 #event #content #log .icon {
   margin: 0;
 }
+#event #content #log .icon.gray {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+}
 #event #content #log .icon.red {
   text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
 }
-#event #content #log .icon.gray {
-  color: rgba(0, 0, 0, 0.5);
+#event #content #log .icon.orange {
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+}
+#event #content #log .icon.green {
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
 }
 #event #content #log .icon.yellow {
   text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
