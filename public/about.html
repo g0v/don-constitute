@@ -22,11 +22,7 @@
     <!-- for mobile, responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="..."/>
-    <!-- bxslider-->
-    <link rel="stylesheet" type="text/css" href="assets/jquery.bxslider/jquery.bxslider.css"/>
-    <script type="text/javascript" src="assets/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <title>公民憲政推動聯盟 (憲動盟) 野生官網
-    </title>
+    <title>關於本站 | 公民憲政推動聯盟 (憲動盟) 野生官網</title>
   </head>
   <body>
     <nav id="topbar">
@@ -35,13 +31,13 @@
         </div>
       </div>
     </nav>
-    <div id="home" class="horizontal wrap">
-      <section id="promote">
-        <ui class="bxslider">
-          <li>blah</li>
-          <li>blah</li>
-          <li>blah</li>
-        </ui>
+    <div id="about" class="horizontal wrap">
+      <section id="content">
+        <h1>歡迎光臨憲動盟野生官網</h1>
+        <div class="ui divider"></div>
+        <p>架這個站是因為一個叫做動憲法的 g0v 專案，詳情見：<a target="_blank" href="https://g0v.hackpad.com/-x--ZlxnPcG1xLm" class="ui icon labeled compact button">動民主 x 公民憲政會議 = 動憲法<i class="icon file text"></i></a></p>
+        <p>本站程式碼的部分以 MIT License 釋出，詳情見：<a target="_blank" href="https://github.com/g0v/don-constitute/blob/master/LICENSE" class="ui icon labeled compact button">g0v/don-constitute<i class="icon github"></i></a></p>
+        <p>本站內容的部分以 CC BY-ND 釋出，細節請洽詢：<a target="_blank" href="https://www.facebook.com/newtw.org" class="ui icon labeled compact button">公民憲政推動聯盟<i class="icon facebook"></i></a></p>
       </section>
     </div>
     <footer id="bottombar">
@@ -51,8 +47,7 @@
     </footer>
     <script>
       $(document).ready(function(){
-        $('.bxslider').bxSlider();
-        $("#topbar a[href*='index']").addClass("active");
+        $("#bottombar a[href*='about']").addClass("active");
       });
       
     </script>

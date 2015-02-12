@@ -16,36 +16,44 @@
     <!-- semantic ui-->
     <link rel="stylesheet" type="text/css" href="assets/semantic-ui/1.4.0/semantic.min.css"/>
     <script type="text/javascript" src="assets/semantic-ui/1.4.0/semantic.min.js"></script>
-    <!-- handlebars-->
-    <script type="text/javascript" src="assets/handlebars-v2.0.0.js"></script>
-    <!-- underscore-->
-    <script type="text/javascript" src="assets/underscore-min.js"></script>
-    <!-- csv parser-->
-    <!--script(type="text/javascript",src="assets/csv.js")-->
-    <!-- tabletop.js-->
-    <script type="text/javascript" src="assets/tabletop.js"></script>
     <!-- custom-->
     <link rel="stylesheet" href="css/global.css"/>
     <script type="text/javascript" src="js/global.js"></script>
     <!-- for mobile, responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="..."/>
-    <title>首頁 公民憲政推動聯盟 (憲動盟)</title>
+    <!-- bxslider-->
+    <link rel="stylesheet" type="text/css" href="assets/jquery.bxslider/jquery.bxslider.css"/>
+    <script type="text/javascript" src="assets/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <title>公民憲政推動聯盟 (憲動盟) 野生官網
+    </title>
   </head>
   <body>
     <nav id="topbar">
-      <div class="ui borderless menu bar horizontal wrap"><a href="index" class="item"><img src="img/logo-inverted.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a>
-        <div class="right menu"><a href="" class="item"><i class="icon announcement"></i>新聞</a><a href="" class="item"><i class="icon plane"></i>目標與計畫</a><a href="grassroots" class="item"><i class="icon leaf"></i>草根論壇遍地開花</a><a href="" class="item"><i class="icon plus"></i>加入合作</a>
+      <div class="ui borderless menu bar horizontal wrap"><a href="index" class="item"><img src="img/logo-inverted.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a><a href="news" class="item"><i class="icon announcement"></i>新聞</a><a href="grassroots" class="item"><i class="icon leaf"></i>草根論壇</a><a href="grassroot-training" class="item"><i class="icon student"></i>主持培訓</a>
+        <div class="right menu"><a href="join" class="item"><i class="icon plus"></i>加入合作</a>
         </div>
       </div>
     </nav>
+    <div id="home" class="horizontal wrap">
+      <section id="promote">
+        <ui class="bxslider">
+          <li>blah</li>
+          <li>blah</li>
+          <li>blah</li>
+        </ui>
+      </section>
+    </div>
     <footer id="bottombar">
-      <div class="ui borderless menu bar horizontal wrap"><a class="item"><i class="icon info"></i>關於憲動盟</a><a target="_blank" href="https://github.com/g0v/don-constitute" class="item"><i class="icon code"></i>關於本站</a>
-        <div class="right menu"><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">公民憲政推動聯盟<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
+      <div class="ui borderless menu bar horizontal wrap"><a href="about" class="item"><i class="icon code"></i>關於本站：憲動盟野生官網</a>
+        <div class="right menu"><a target="_blank" href="http://www.new-tw.org/" class="ui button item">憲動盟官網<i class="icon globe"></i></a><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">憲動盟粉絲專頁<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
       </div>
     </footer>
     <script>
-      $("#topbar a[href*='index']").addClass("active");
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+        $("#topbar a[href*='index']").addClass("active");
+      });
       
     </script>
     <div id="fb-root"></div>
