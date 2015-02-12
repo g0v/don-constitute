@@ -22,7 +22,7 @@ block title
 
 block topbar
   .item.expand.collapse
-    .ui.icon.button.brown.active
+    .ui.icon.button.black.active
       i.icon.chevron.down
 
 block content
@@ -347,7 +347,8 @@ block script
         });
 
         // step 5 mark current page
-        $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+        $("#topbar a[href*='grassroots']").addClass("active");
+        //$('#topbar .item:contains("草根論壇")').addClass('active');
 
       }
 

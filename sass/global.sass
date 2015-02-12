@@ -45,6 +45,8 @@ a, a:link
   .ui.menu
     background-color: #AA987B
     margin-bottom: 0
+    .active.item
+      +box-shadow(#fff 0 -2px 0 inset)
     .item
       color: #fff
       font-size: 1rem
@@ -74,6 +76,14 @@ a, a:link
     li
       min-height: 10rem
       background-color: #333
+
+#about
+  #content
+    padding: 2rem 1rem
+    text-align: center
+    h1
+      font-size: 2rem
+
 #event, #list
   #header
     position: relative

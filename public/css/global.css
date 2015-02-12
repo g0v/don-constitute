@@ -57,6 +57,11 @@ a, a:link {
   background-color: #aa987b;
   margin-bottom: 0;
 }
+#topbar .ui.menu .active.item {
+  -moz-box-shadow: white 0 -2px 0 inset;
+  -webkit-box-shadow: white 0 -2px 0 inset;
+  box-shadow: white 0 -2px 0 inset;
+}
 #topbar .ui.menu .item {
   color: white;
   font-size: 1rem;
@@ -97,6 +102,14 @@ a, a:link {
 #home #promote li {
   min-height: 10rem;
   background-color: #333333;
+}
+
+#about #content {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+#about #content h1 {
+  font-size: 2rem;
 }
 
 #event #header, #list #header {

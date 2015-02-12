@@ -33,8 +33,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.yellow
-              span.float.right 2015/2/7 Sat. 台中
-              | 草根論壇#11 — 哲學星期五
+              span.float.right 2015/2/7 Sat. — 哲學星期五
+              | #11 @ 台中
             h2
               a(href="grassroot-11-5philo-20150207")
                 | 許我一個良善的選舉制度
@@ -46,8 +46,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.teal
-              span.float.right 2015/2/1 Sun. 台北
-              | 草根論壇#10 — 伴侶盟
+              span.float.right 2015/2/1 Sun. — 伴侶盟
+              | #10 @ 台北
             h2
               a(href="grassroot-10-tapcpr-20150201") 同志的美麗與哀愁
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -56,8 +56,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.teal
-              span.float.right 2015/1/24 Sat. 台北
-              | 草根論壇#9 — 廢死聯盟
+              span.float.right 2015/1/24 Sat. — 廢死聯盟
+              | #9 @ 台北
             h2
               a(href="grassroot-9-taedp-20150124") 死刑的替代方案
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -66,8 +66,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.green
-              span.float.right 2015/1/18 Sun. 桃園
-              | 草根論壇#8 — 台權會
+              span.float.right 2015/1/18 Sun. — 台權會
+              | #8 @ 桃園
             h2
               a(href="grassroot-8-tahr-20150118") 桃園航空城聽證準備
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -76,8 +76,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.teal
-              span.float.right 2014/12/19 Fri. 台北
-              | 草根論壇#5 — 地球公民基金會
+              span.float.right 2014/12/19 Fri. — 地球公民基金會
+              | #5 @ 台北
             h2
               a(href="grassroot-5-cet-20141219") 空污怎麼辦？
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -86,8 +86,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.orange
-              span.float.right 2014/11/1 Sat. 台南
-              | 草根論壇#2 — 成大法律
+              span.float.right 2014/11/1 Sat. — 成大法律
+              | #2 @ 台南
             h2
               a(href="grassroot-2-nckulaw-20141101") 公民不設限，鬥陣來實憲：人權篇
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -96,8 +96,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.teal
-              span.float.right 2014/09/27 Sat. 台北
-              | 草根論壇#1 — 台大法律
+              span.float.right 2014/09/27 Sat. — 台大法律
+              | #1 @ 台北
             h2
               a(href="grassroot-1-ntulaw-20140927") 青年憲政
                 .ui.mini.icon.right.labeled.compact.button.float 活動紀錄
@@ -106,8 +106,8 @@ block content
         .column
           .ui.segment
             .ui.top.attached.label.teal
-              span.float.right 2014/08/29 Fri. 台北
-              | 草根論壇#0 — 司改會
+              span.float.right 2014/08/29 Fri. — 司改會
+              | #0 @ 台北
             //-.ui.image.wrap
               img(src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10397046_743166745732737_6981759218115780785_o.jpg")
             h2
@@ -135,5 +135,6 @@ block script
       $(this).addClass('active');
     });
 
-    $('#topbar .item:contains("草根論壇遍地開花")').addClass('active');
+    //-$('#topbar .item:contains("草根論壇")').addClass('active');
+    $("#topbar a[href*='grassroots']").addClass("active");
 

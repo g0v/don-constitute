@@ -1,0 +1,29 @@
+extends level-one
+
+block head
+  meta(name="description",content="...")
+
+block title
+  | 關於本站 | 
+
+block content
+  #about.horizontal.wrap
+    section#content
+      h1 歡迎光臨憲動盟野生官網
+      .ui.divider
+      p 架這個站是因為一個叫做動憲法的 g0v 專案，詳情見：
+        a.ui.icon.labeled.compact.button(target='_blank',href='https://g0v.hackpad.com/-x--ZlxnPcG1xLm') 動民主 x 公民憲政會議 = 動憲法
+          i.icon.file.text
+      p 本站程式碼的部分以 MIT License 釋出，詳情見：
+        a.ui.icon.labeled.compact.button(target='_blank',href='https://github.com/g0v/don-constitute/blob/master/LICENSE') g0v/don-constitute
+          i.icon.github
+      p 本站內容的部分以 CC BY-ND 釋出，細節請洽詢：
+        a.ui.icon.labeled.compact.button(target='_blank',href='https://www.facebook.com/newtw.org') 公民憲政推動聯盟
+          i.icon.facebook
+
+block script
+  script.
+    $(document).ready(function(){
+      $("#bottombar a[href*='about']").addClass("active");
+    });
+
