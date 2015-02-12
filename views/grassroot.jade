@@ -79,8 +79,8 @@ block content
           .equal.height.divided.row
             .column
               .key
-                i.icon.remove.red
-              p.value 有人強烈反對並提出不同見解
+                i.icon.ban.red
+              p.value 有人強烈阻擋
             .column
               .key
                 i.icon.thumbs.down.orange
@@ -141,9 +141,12 @@ block script
       var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
       var entry_comment_template = Handlebars.compile(entry_comment_template_source);
 
-      var star_element_template = '<i class="icon thumbs up green"></i>';
-      var empty_star_element_template = '<i class="icon thumbs up gray"></i>';
-      var block_element_template = '<i class="icon remove red"></i>';
+      var agree_element_template = '<i class="icon thumbs up green"></i>';
+      var empty_agree_element_template = '<i class="icon thumbs up gray"></i>';
+      var disagree_element_template = '<i class="icon thumbs down orange"></i>';
+      var empty_disagree_element_template = '<i class="icon thumbs down gray"></i>';
+      var block_element_template = '<br/><i class="icon ban red"></i>';
+      var empty_block_element_template = '<br/><i class="icon ban gray"></i>';
 
       // step 1: get data and render projects
 
@@ -169,14 +172,25 @@ block script
 
           var entry_speaker = entry['發言人'] || "";
           var entry_class = entry['發言類型'] || "";
-          var entry_rating = entry['同意強度'] || "";
-          var entry_rating_count = 0;
-          if(entry_rating == "多數贊成" || entry_rating == "全場贊成" || entry_rating == "幾乎全場贊成" || entry_rating == "3"){
-            entry_rating_count = 3;
-          }else if(entry_class == "半數贊成" || entry_rating == "半數以上贊成" || entry_rating == "2"){
-            entry_rating_count = 2;
-          }else if(entry_class == "少數贊成" || entry_rating == "1"){
-            entry_rating_count = 1;
+
+          var entry_agree = entry['同意強度'] || "";
+          var entry_agree_count = 0;
+          if(entry_agree == "多數贊成" || entry_agree == "全場贊成" || entry_agree == "幾乎全場贊成" || entry_agree == "3"){
+            entry_agree_count = 3;
+          }else if(entry_agree == "半數贊成" || entry_agree == "半數以上贊成" || entry_agree == "2"){
+            entry_agree_count = 2;
+          }else if(entry_agree == "少數贊成" || entry_agree == "1"){
+            entry_agree_count = 1;
+          }
+
+          var entry_disagree = entry['反對強度'] || "";
+          var entry_disagree_count = 0;
+          if(entry_disagree == "多數反對" || entry_disagree == "全場反對" || entry_disagree == "幾乎全場反對" || entry_disagree == "3"){
+            entry_disagree_count = 3;
+          }else if(entry_disagree == "半數反對" || entry_disagree == "半數以上反對" || entry_disagree == "2"){
+            entry_disagree_count = 2;
+          }else if(entry_disagree == "少數反對" || entry_disagree == "1"){
+            entry_disagree_count = 1;
           }
 
           var entry_color = "";
@@ -196,7 +210,7 @@ block script
             entry_color = "";
           };
 
-          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry_rating_count, nickname: entry_speaker};
+          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry_agree_count, nickname: entry_speaker};
           var $entry_element = $(entry_template(context));
 
           if (entry['關鍵字'].length > 0) {
@@ -210,16 +224,27 @@ block script
           }
 
           var rating_elememt_template = '';
-          if(entry_rating.length > 0){
-            _(entry_rating_count).times(function(){
-              rating_elememt_template += star_element_template;
+
+          if(entry_agree.length > 0){
+            _(entry_agree_count).times(function(){
+              rating_elememt_template += agree_element_template;
             });
-            _(3-entry_rating_count).times(function(){
-              rating_elememt_template += empty_star_element_template;
+            _(3-entry_agree_count).times(function(){
+              rating_elememt_template += empty_agree_element_template;
             });
           }
 
-          var entry_oppose = entry['反對意見'] || "";
+          if(entry_disagree.length > 0){
+            rating_elememt_template += '<br/>'
+            _(entry_disagree_count).times(function(){
+              rating_elememt_template += disagree_element_template;
+            });
+            _(3-entry_disagree_count).times(function(){
+              rating_elememt_template += empty_disagree_element_template;
+            });
+          }
+
+          var entry_oppose = entry['阻擋'] || "";
           if(entry_oppose.length > 0){
             if(entry_oppose != "無"){
               rating_elememt_template += block_element_template;
