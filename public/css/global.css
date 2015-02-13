@@ -112,6 +112,11 @@ a, a:link {
   font-size: 2rem;
 }
 
+#news #header {
+  height: 10rem;
+  background-color: #f4f7d9;
+}
+
 #event #header, #list #header {
   position: relative;
   background: url('/public/img/bg-grass.png?1419418593') repeat-x center bottom, #576b2e;
