@@ -1,0 +1,37 @@
+extends _template
+
+block css
+  link(rel="stylesheet",href="css/clock.css")
+
+block title
+  | 憲改鐘 
+
+block body
+  #clock
+    script(type='text/javascript').
+      var year = "2015";var month = "6";var day = "1";var hour = "0";var minute = "0";var centi = "5";
+      var convert = "0";var roop = "";
+      var cnt1 = "天";var cnt2 = "小時";var cnt3 = "分";var cnt4 = "秒";
+      var baseoffset = "-8";
+      var br1 = "<br />";var br2 = "";var br3 = "";var br4 = "";
+      var com1 = "-修憲案通過倒數計時- 至本會期5/31結束還有";var com2 = "";var com3 = "";var com4 = "憲政改革全面啟動";var end = "1";
+      var width = "600";var height = "600";
+      var font = "arial";var font2 = "7seg4";var size = "60";var l_height = "90";var bold = "";var italic = "";var line = "";
+      var space = "6px 0px 0px 0px";
+      var align = "2";var img = "";
+      var color1 = "FFFFFF";var color2 = "00FF00";var color3 = "000000";
+  #cover
+    h1#title.ui.header 三一八　一週年晚會
+      br
+      | 憲改倒數
+    #start.ui.button.massive.inverted 開始倒數
+
+
+block script
+  script(type='text/javascript', src='http://countdown.reportitle.com/js/neo1.js')
+  //-a(href='http://countdown.reportitle.com/') カウントダウンタイマー
+  script(type='text/javascript', src='http://countdown.reportitle.com/js/neo2.js')
+  script(type='text/javascript').
+    $('#start').on('click tap',function(){
+      $('#cover').fadeOut();
+    });

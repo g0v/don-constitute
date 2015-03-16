@@ -1,0 +1,23 @@
+html, body {
+  background-color: black;
+  padding: 4rem 10rem;
+}
+
+#title {
+  font-size: 5rem;
+}
+
+#cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: red;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+#start {
+  font-size: 5rem;
+}
