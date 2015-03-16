@@ -21,22 +21,36 @@
     <script type="text/javascript" src="js/global.js"></script>
     <!-- for mobile, responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="css/level-one.css"/>
-    <title>公民憲政推動聯盟 (憲動盟) 野生官網
-    </title>
+    <link rel="stylesheet" href="css/clock.css"/>
+    <title>憲改鐘 公民憲政推動聯盟 (憲動盟) 野生官網</title>
   </head>
   <body>
-    <nav id="topbar">
-      <div class="ui borderless menu bar horizontal wrap"><a href="index" class="item"><img src="img/logo-inverted.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a><a href="news" class="item"><i class="icon announcement"></i>新聞</a><a href="grassroots" class="item"><i class="icon leaf"></i>草根論壇</a><a href="grassroot-training" class="item"><i class="icon student"></i>主持培訓</a>
-        <div class="right menu"><a href="join" class="item"><i class="icon plus"></i>加入合作</a>
-        </div>
-      </div>
-    </nav>
-    <footer id="bottombar">
-      <div class="ui borderless menu bar horizontal wrap"><a href="about" class="item"><i class="icon code"></i>關於本站：憲動盟野生官網</a>
-        <div class="right menu"><a target="_blank" href="http://www.new-tw.org/" class="ui button item">憲動盟官網<i class="icon globe"></i></a><a target="_blank" href="https://www.facebook.com/newtw.org" class="ui button item">憲動盟粉絲專頁<i class="icon facebook"></i></a><a target="_blank" href="https://www.facebook.com/groups/1563332767234341/" class="ui button item">草根一堆人<i class="icon facebook square"></i></a></div>
-      </div>
-    </footer>
+    <div id="clock">
+      <script type="text/javascript">
+        var year = "2015";var month = "6";var day = "1";var hour = "0";var minute = "0";var centi = "5";
+        var convert = "0";var roop = "";
+        var cnt1 = "天";var cnt2 = "小時";var cnt3 = "分";var cnt4 = "秒";
+        var baseoffset = "-8";
+        var br1 = "<br />";var br2 = "";var br3 = "";var br4 = "";
+        var com1 = "-修憲案通過倒數計時- 至本會期5/31結束還有";var com2 = "";var com3 = "";var com4 = "憲政改革全面啟動";var end = "1";
+        var width = "600";var height = "600";
+        var font = "arial";var font2 = "7seg4";var size = "60";var l_height = "90";var bold = "";var italic = "";var line = "";
+        var space = "6px 0px 0px 0px";
+        var align = "2";var img = "";
+        var color1 = "FFFFFF";var color2 = "00FF00";var color3 = "000000";
+      </script>
+    </div>
+    <div id="cover">
+      <h1 id="title" class="ui header">三一八　一週年晚會<br/>憲改倒數</h1>
+      <div id="start" class="ui button massive inverted">開始倒數</div>
+    </div>
+    <script type="text/javascript" src="http://countdown.reportitle.com/js/neo1.js"></script>
+    <script type="text/javascript" src="http://countdown.reportitle.com/js/neo2.js"></script>
+    <script type="text/javascript">
+      $('#start').on('click tap',function(){
+        $('#cover').fadeOut();
+      });
+    </script>
     <div id="fb-root"></div>
     <script>
       (function(d, s, id) {
