@@ -1,0 +1,22 @@
+extends level-one
+
+block head
+  meta(name="description",content="...")
+
+block title
+  | 新聞 | 
+
+block content
+  #news
+    section#header
+    section#content.horizontal.wrap
+      .ui.two.column.stackable.grid
+        .column
+          h2 15/02/03 聲明肯定李前總統回應憲動盟
+
+block script
+  script.
+    $(document).ready(function(){
+      $("#bottombar a[href*='news']").addClass("active");
+    });
+
