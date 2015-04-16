@@ -93,16 +93,20 @@
 #event
   #header
     .background
-      height: 15rem
+      height: 10rem
       //overflow-x: hidden
       .image
-        height: 15rem
+        height: 10rem
         display: inline
-  #content
-    .description
-      padding: 1rem
-      p
-        font-size: 1.2rem
+  #menu
+    background-color: #444
+    width: 100%
+
+  .subpage
+    display: none
+    &:active
+      display: initial
+  #overview
     .event.meta
       //padding: 0 1rem
       margin: 0
@@ -119,6 +123,32 @@
           margin-left: 1rem
           .label
             margin-left: 1em
+
+    .description
+      padding: 1rem
+      p
+        font-size: 1.2rem
+
+    #footer
+      padding: 1rem
+      background-color: rgba(#31343D,1)
+      color: #E4E8E1
+      .section
+        margin-right: 1rem
+        display: inline-block
+        min-height: 3rem
+      span.text
+        margin-right: 1rem
+      .links
+        .button
+          margin-bottom: 0.5rem
+      .social
+        padding-top: 0.8rem
+        .button
+          position: relative
+          top: -0.8rem
+
+  #records
     #log
       .icon
         margin: 0
@@ -201,22 +231,5 @@
               margin-right: -3rem
               .entry:first-child
                 margin-top: 1rem
-    #footer
-      padding: 1rem
-      background-color: rgba(#31343D,1)
-      color: #E4E8E1
-      .section
-        margin-right: 1rem
-        display: inline-block
-        min-height: 3rem
-      span.text
-        margin-right: 1rem
-      .links
-        .button
-          margin-bottom: 0.5rem
-      .social
-        padding-top: 0.8rem
-        .button
-          position: relative
-          top: -0.8rem
 
+  #photos

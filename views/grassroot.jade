@@ -21,7 +21,7 @@ block title
   |  | 
 
 block topbar
-  .item.expand.collapse
+  //-.item.expand.collapse
     .ui.icon.button.black.active
       i.icon.chevron.down
 
@@ -40,87 +40,107 @@ block content
           h1.header 草根論壇
             block header-title
 
+    nav#menu
+      .horizontal.wrap
+
+        .ui.fluid.three.item.menu.inverted
+          a.item(href='#overview') 總覽
+          a.item(href='#records') 討論紀錄
+          a.item(href='#photos') 活動照片
+
+    section#overview.subpage
+      .horizontal.wrap
+
+        article.event.meta.ui.two.column.stackable.divided.grid
+          block meta
+
+        article.description
+          block main-article
+
+        section#footer
+
+          block footer
+
+          .section.social
+            span.text 分享活動至
+            span.text
+              .fb-share-button(data-layout="button_count")
+            span.text
+              .g-plus(data-action="share",data-annotation="bubble")
+            span.text
+              a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
+
+    section#records.subpage
+      .horizontal.wrap
+
+        article#log
+          //-.ui.horizontal.divider 紀錄
+          //-#pilot.ui.menu
+          #pilot.ui.secondary.pointing.menu
+            a.filter.item(name="segment").active 所有
+              .ui.black.label
+            a.filter.item(name="teal") 導讀
+              .ui.teal.label
+            a.filter.item(name="yellow") 經驗
+              .ui.yellow.label
+            a.filter.item(name="red") 問題
+              .ui.red.label
+            a.filter.item(name="green") 主張
+              .ui.green.label
+            a.filter.item(name="blue") 彙整
+              .ui.blue.label
+            .right.menu
+              .item.ui.button.expand 全部展開
+              .item.ui.button.collapse 全部收合
+              //-.item.ui.simple.dropdown.sort
+                span.current 依發言順序
+                i.icon.dropdown
+                .menu
+                  .item.timestamp 依發言順序
+                  .item.agreement 依同意度
+          #filter.tag.ui.labels.collapsed
+          #list
+          .ui.divider
+          //-#sample.ui.six.column.stackable.grid
+          #sample.ui.stackable.grid
+            .equal.height.divided.row
+              .column
+                .key
+                  i.icon.ban.red
+                p.value 有人強烈阻擋
+              .column
+                .key
+                  i.icon.thumbs.down.orange
+                p.value 有人反對
+              .column
+                .key
+                  i.icon.thumbs.up.gray
+                  i.icon.thumbs.up.gray
+                  i.icon.thumbs.up.gray
+                p.value 無人贊同
+              .column
+                .key
+                  i.icon.thumbs.up.green
+                  i.icon.thumbs.up.gray
+                  i.icon.thumbs.up.gray
+                p.value 僅少數人支持認同
+              .column
+                .key
+                  i.icon.thumbs.up.green
+                  i.icon.thumbs.up.green
+                  i.icon.thumbs.up.gray
+                p.value 約半數人支持認同
+              .column
+                .key
+                  i.icon.thumbs.up.green
+                  i.icon.thumbs.up.green
+                  i.icon.thumbs.up.green
+                p.value 全場多數人支持認同
+
+    section#photos.subpage
+      .horizontal.wrap
+
     section#content.horizontal.wrap
-      article.event.meta.ui.two.column.stackable.divided.grid
-        block meta
-
-      article.description
-        block main-article
-
-      article#log
-        //-.ui.horizontal.divider 紀錄
-        //-#pilot.ui.menu
-        #pilot.ui.secondary.pointing.menu
-          a.filter.item(name="segment").active 所有
-            .ui.black.label
-          a.filter.item(name="teal") 導讀
-            .ui.teal.label
-          a.filter.item(name="yellow") 經驗
-            .ui.yellow.label
-          a.filter.item(name="red") 問題
-            .ui.red.label
-          a.filter.item(name="green") 主張
-            .ui.green.label
-          a.filter.item(name="blue") 彙整
-            .ui.blue.label
-          .right.menu
-            .item.ui.button.expand 全部展開
-            .item.ui.button.collapse 全部收合
-            //-.item.ui.simple.dropdown.sort
-              span.current 依發言順序
-              i.icon.dropdown
-              .menu
-                .item.timestamp 依發言順序
-                .item.agreement 依同意度
-        #filter.tag.ui.labels.collapsed
-        #list
-        .ui.divider
-        //-#sample.ui.six.column.stackable.grid
-        #sample.ui.stackable.grid
-          .equal.height.divided.row
-            .column
-              .key
-                i.icon.ban.red
-              p.value 有人強烈阻擋
-            .column
-              .key
-                i.icon.thumbs.down.orange
-              p.value 有人反對
-            .column
-              .key
-                i.icon.thumbs.up.gray
-                i.icon.thumbs.up.gray
-                i.icon.thumbs.up.gray
-              p.value 無人贊同
-            .column
-              .key
-                i.icon.thumbs.up.green
-                i.icon.thumbs.up.gray
-                i.icon.thumbs.up.gray
-              p.value 僅少數人支持認同
-            .column
-              .key
-                i.icon.thumbs.up.green
-                i.icon.thumbs.up.green
-                i.icon.thumbs.up.gray
-              p.value 約半數人支持認同
-            .column
-              .key
-                i.icon.thumbs.up.green
-                i.icon.thumbs.up.green
-                i.icon.thumbs.up.green
-              p.value 全場多數人支持認同
-        .ui.divider
-      section#footer
-        block footer
-        .section.social
-          span.text 分享活動至
-          span.text
-            .fb-share-button(data-layout="button_count")
-          span.text
-            .g-plus(data-action="share",data-annotation="bubble")
-          span.text
-            a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
 
 block script
 
@@ -366,15 +386,15 @@ block script
 
         // step 4 collapse header section for reading
 
-        $('#pilot, #filter').on('click tap', function(){
-          $('#topbar .expand.collapse .button').removeClass('active');
-          $('#event').find('#header, #content>.meta, #content>.description').slideUp();
-        });
+        //$('#pilot, #filter').on('click tap', function(){
+        //  $('#topbar .expand.collapse .button').removeClass('active');
+        //  $('#event').find('#header, #content>.meta, #content>.description').slideUp();
+        //});
 
-        $('#topbar .expand.collapse .button').on('click tap', function(){
-          $('#topbar .expand.collapse .button').toggleClass('active');
-          $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
-        });
+        //$('#topbar .expand.collapse .button').on('click tap', function(){
+        //  $('#topbar .expand.collapse .button').toggleClass('active');
+        //  $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
+        //});
 
         // step 5 mark current page
         $("#topbar a[href*='grassroots']").addClass("active");
