@@ -3,6 +3,12 @@ extends level-one
 block head
   meta(name="description",content="...")
 
+  // tabletop.js
+  script(type="text/javascript",src="assets/tabletop.js")
+      
+  // handlebars
+  script(type="text/javascript",src="assets/handlebars-v2.0.0.js")
+
   // bxslider
   link(rel="stylesheet",type="text/css",href="assets/jquery.bxslider/jquery.bxslider.css")
   script(type="text/javascript",src="assets/jquery.bxslider/jquery.bxslider.min.js")
@@ -12,15 +18,27 @@ block title
 block content
   #home.horizontal.wrap
     section#promote
-      ui.bxslider
-        li blah
-        li blah
-        li blah
+      ul.bxslider
 
 block script
   script.
-    $(document).ready(function(){
-      $('.bxslider').bxSlider();
-      $("#topbar a[href*='index']").addClass("active");
+    var gsheet_url = 'https://docs.google.com/spreadsheets/d/1RrLiqy3xId-zxhTmtsYvuTb6N5HCUgXVaEWHCeNwgr4/pubhtml',
+        slide_html = '{{#each slides}}<li><img src="{{url}}" title="{{title}}" /></li>{{/each}}',
+        slide_template = Handlebars.compile( slide_html );
+
+    Tabletop.init({
+      key: gsheet_url,
+      callback: insert_slideshow
     });
+
+    function insert_slideshow( data, tabletop ) {
+
+      $( function() {
+        var slides = tabletop.sheets('slideshows').all();
+
+        $('#home ul.bxslider')
+          .append( slide_template( {slides: slides} ) )
+          .bxSlider();
+      });
+    }
 
