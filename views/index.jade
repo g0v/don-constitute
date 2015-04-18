@@ -38,7 +38,10 @@ block script
 
         $('#home ul.bxslider')
           .append( slide_template( {slides: slides} ) )
-          .bxSlider();
+          .bxSlider({
+            captions: true,
+            adaptiveHeight: true
+          });
       });
     }
 
