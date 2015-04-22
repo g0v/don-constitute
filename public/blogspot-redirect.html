@@ -1,0 +1,58 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <!-- Favicon-->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <!-- For iOS (TODO)-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="apple-touch-icon-precomposed" href="img/app-icon/icon-60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/app-icon/icon-76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/app-icon/icon-60@2x.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/app-icon/icon-76@2x.png"/>
+    <!-- jquery-->
+    <script type="text/javascript" src="assets/jquery-2.1.3.min.js"></script>
+    <!-- semantic ui-->
+    <link rel="stylesheet" type="text/css" href="assets/semantic-ui/1.4.0/semantic.min.css"/>
+    <script type="text/javascript" src="assets/semantic-ui/1.4.0/semantic.min.js"></script>
+    <!-- custom-->
+    <link rel="stylesheet" href="css/global.css"/>
+    <script type="text/javascript" src="js/global.js"></script>
+    <!-- for mobile, responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>公民憲政推動聯盟 (憲動盟) 野生官網
+    </title>
+  </head>
+  <body>
+    <script>
+      var current_path = location.pathname.substring(1,999);
+      var map = [
+        ['#!about/cjg9','p/blog-page_20.html'], //目標與計畫
+        ['#!blog/c1j4z',''], //倡議行動
+        ['#!applyform/c3s6',''], //加入合作
+        ['#!《新憲運動宣言》記者會新聞稿/c1kz7/3DF3700D-1397-4AD6-948E-90A8FE9799BC',''], //記者會新聞稿
+        ['#!憲政草根論壇-x-司改會/c1kz7/1',''] //司改會
+      ];
+      for (var i = 0; i < map.length; i++){
+        if (current_path == map[i][0]){
+          window.location = map[i][1];
+        }
+      };
+    </script>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer">{lang: 'zh-TW'}</script>
+  </body>
+</html>

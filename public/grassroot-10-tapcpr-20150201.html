@@ -30,6 +30,8 @@
     <!--script(type="text/javascript",src="assets/csv.js")-->
     <!-- tabletop.js-->
     <script type="text/javascript" src="assets/tabletop.js"></script>
+    <!-- jquery address-->
+    <script type="text/javascript" src="assets/jquery.address.js"></script>
     <meta name="description" content="..."/>
     <title>草根論壇#10 同志的美麗與哀愁 | 公民憲政推動聯盟 (憲動盟) 野生官網</title>
   </head>
@@ -37,89 +39,117 @@
     <nav id="topbar">
       <div class="ui borderless menu bar horizontal wrap"><a href="index" class="item"><img src="img/logo-inverted.png" class="logo image"/><span class="logo text">公民憲政推動聯盟</span></a><a href="news" class="item"><i class="icon announcement"></i>新聞</a><a href="grassroots" class="item"><i class="icon leaf"></i>草根論壇</a><a href="grassroot-training" class="item"><i class="icon student"></i>主持培訓</a>
         <div class="right menu"><a href="join" class="item"><i class="icon plus"></i>加入合作</a>
-          <div class="item expand collapse">
-            <div class="ui icon button black active"><i class="icon chevron down"></i></div>
-          </div>
         </div>
       </div>
     </nav>
     <div id="event">
       <header id="header">
-        <div class="background"><img src="" class="ui image"/></div>
+        <div class="background">
+        </div>
         <div class="cover">
           <div class="title">
             <h1 class="header">草根論壇#10 同志的美麗與哀愁</h1>
           </div>
         </div>
       </header>
-      <section id="content" class="horizontal wrap">
-        <article class="event meta ui two column stackable divided grid">
-          <div class="column">
-            <p class="item"><span class="key">主辦</span><a href="https://tapcpr.wordpress.com/" target="_blank" class="value">台灣伴侶權益推動聯盟<i class="icon forward mail"></i></a></p>
-            <p class="item"><span class="key">時間</span><span class="value">2015/2/1 星期日 13:00～17:00</span></p>
-            <p class="item"><span class="key">地點</span><span class="value">幸安區民活動中心（台北市中正區濟南路二段46號3樓，捷運忠孝新生站）</span></p>
+      <nav id="menu">
+        <div class="horizontal wrap">
+          <!--.ui.fluid.four.item.menu.inverted-->
+          <div class="ui fluid three item menu inverted"><a data-tab="overview" class="item">總覽</a><a data-tab="records" class="item">紀錄</a>
+            <!--a.item(data-tab='drawings') 白板紀錄--><a data-tab="photos" class="item">活動照片</a>
           </div>
-          <div class="column">
-            <p class="item"><span class="key">參加人數</span><span class="value">人</span></p>
-            <p class="item"><span class="key">參加者組成</span><span class="value">...</span></p>
+        </div>
+      </nav>
+      <section id="records" data-tab="records" class="ui tab">
+        <div class="horizontal wrap">
+          <div class="hackpad-embedded">
           </div>
-        </article>
-        <article class="description">
-          <p>在這場草根論壇中，我們希望能夠看見每個同志在日常生活裡所面對的各種艱難處境，釐清這些艱難與法律、制度之間的關係。身為同志，我們和制度的距離並不遙遠，同志會是學生、會是子女也會有勞工身分，但更重要的是，我們同時也是公民，同志公民的處境究竟要怎麼改革，問題究竟出在哪裡？邀請您和我們一起參與，在這場民主運動裡增添同志視角與經驗。</p>
-        </article>
-        <article id="log">
-          <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
-              <div class="ui black label"></div></a><a name="teal" class="filter item">導讀
-              <div class="ui teal label"></div></a><a name="yellow" class="filter item">經驗
-              <div class="ui yellow label"></div></a><a name="red" class="filter item">問題
-              <div class="ui red label"></div></a><a name="green" class="filter item">主張
-              <div class="ui green label"></div></a><a name="blue" class="filter item">彙整
-              <div class="ui blue label"></div></a>
-            <div class="right menu">
-              <div class="item ui button expand">全部展開</div>
-              <div class="item ui button collapse">全部收合</div>
-            </div>
-          </div>
-          <div id="filter" class="tag ui labels collapsed"></div>
-          <div id="list"></div>
-          <div class="ui divider"></div>
-          <div id="sample" class="ui stackable grid">
-            <div class="equal height divided row">
-              <div class="column">
-                <div class="key"><i class="icon ban red"></i></div>
-                <p class="value">有人強烈阻擋</p>
-              </div>
-              <div class="column">
-                <div class="key"><i class="icon thumbs down orange"></i></div>
-                <p class="value">有人反對</p>
-              </div>
-              <div class="column">
-                <div class="key"><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
-                <p class="value">無人贊同</p>
-              </div>
-              <div class="column">
-                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
-                <p class="value">僅少數人支持認同</p>
-              </div>
-              <div class="column">
-                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i></div>
-                <p class="value">約半數人支持認同</p>
-              </div>
-              <div class="column">
-                <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i></div>
-                <p class="value">全場多數人支持認同</p>
+          <article id="log">
+            <div id="pilot" class="ui secondary pointing menu"><a name="segment" class="filter item active">所有
+                <div class="ui black label"></div></a><a name="teal" class="filter item">導讀
+                <div class="ui teal label"></div></a><a name="yellow" class="filter item">經驗
+                <div class="ui yellow label"></div></a><a name="red" class="filter item">問題
+                <div class="ui red label"></div></a><a name="green" class="filter item">主張
+                <div class="ui green label"></div></a><a name="blue" class="filter item">彙整
+                <div class="ui blue label"></div></a>
+              <div class="right menu">
+                <div class="item ui button expand">全部展開</div>
+                <div class="item ui button collapse">全部收合</div>
               </div>
             </div>
-          </div>
-          <div class="ui divider"></div>
-        </article>
-        <section id="footer">
-          <div class="section links"><a target="_blank" href="https://docs.google.com/forms/d/1LwCB9ABd82VfMw-OsmwywB8fdhGB6npDY5MRNn2M5N8/viewform" class="ui black icon right labeled button">報名頁面存檔<i class="icon archive"></i></a><a target="_blank" href="https://docs.google.com/spreadsheets/d/1lz7aSTQXDLbKQ_u_8vQt1SDa-HbjlVl1jcIzivM_MCU/edit#gid=0" class="ui black icon right labeled button">秘訣<i class="icon pencil"></i></a>
-          </div>
-          <div class="section social"><span class="text">分享活動至</span><span class="text">
-              <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
-              <div data-action="share" data-annotation="bubble" class="g-plus"></div></span><span class="text"><a href="https://twitter.com/share" data-hashtags="憲政草根論壇" class="twitter-share-button">Tweet</a></span></div>
-        </section>
+            <div id="filter" class="tag ui labels collapsed"></div>
+            <div id="list"></div>
+            <div class="ui divider"></div>
+            <div id="sample" class="ui stackable grid">
+              <div class="equal height divided row">
+                <div class="column">
+                  <div class="key"><i class="icon ban red"></i></div>
+                  <p class="value">有人強烈阻擋</p>
+                </div>
+                <div class="column">
+                  <div class="key"><i class="icon thumbs down orange"></i></div>
+                  <p class="value">有人反對</p>
+                </div>
+                <div class="column">
+                  <div class="key"><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
+                  <p class="value">無人贊同</p>
+                </div>
+                <div class="column">
+                  <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i><i class="icon thumbs up gray"></i></div>
+                  <p class="value">僅少數人支持認同</p>
+                </div>
+                <div class="column">
+                  <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up gray"></i></div>
+                  <p class="value">約半數人支持認同</p>
+                </div>
+                <div class="column">
+                  <div class="key"><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i><i class="icon thumbs up green"></i></div>
+                  <p class="value">全場多數人支持認同</p>
+                </div>
+              </div>
+            </div>
+            <div class="ui divider"></div>
+          </article>
+        </div>
+      </section>
+      <!--section#drawings.ui.tab(data-tab='drawings')
+      .horizontal.wrap
+      
+      -->
+      <section id="photos" data-tab="photos" class="ui tab">
+        <div class="horizontal wrap">
+          <article class="photo embedded">
+            <iframe src="http://embedsocial.com/facebook_album/album_photos/688402134590904" width="900" height="1450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+          </article>
+        </div>
+      </section>
+      <section id="overview" data-tab="overview" class="ui tab">
+        <div class="horizontal wrap">
+          <article class="event meta ui two column stackable divided grid">
+            <div class="column">
+              <p class="item"><span class="key">主辦</span><a href="https://tapcpr.wordpress.com/" target="_blank" class="value">台灣伴侶權益推動聯盟<i class="icon forward mail"></i></a></p>
+              <p class="item"><span class="key">時間</span><span class="value">2015/2/1 星期日 13:00～17:00</span></p>
+              <p class="item"><span class="key">地點</span><span class="value">幸安區民活動中心（台北市中正區濟南路二段46號3樓，捷運忠孝新生站）</span></p>
+            </div>
+            <div class="column">
+              <p class="item"><span class="key">參加人數</span><span class="value">人</span></p>
+              <p class="item"><span class="key">參加者組成</span><span class="value">...</span></p>
+            </div>
+          </article>
+          <article class="description">
+            <p>在這場草根論壇中，我們希望能夠看見每個同志在日常生活裡所面對的各種艱難處境，釐清這些艱難與法律、制度之間的關係。身為同志，我們和制度的距離並不遙遠，同志會是學生、會是子女也會有勞工身分，但更重要的是，我們同時也是公民，同志公民的處境究竟要怎麼改革，問題究竟出在哪裡？邀請您和我們一起參與，在這場民主運動裡增添同志視角與經驗。</p>
+          </article>
+          <article class="video embedded">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLqOM19aHIAddNyY4dezVFe0pgvR-cm8K2" frameborder="0" allowfullscreen=""></iframe>
+          </article>
+          <section id="footer">
+            <div class="section links"><a target="_blank" href="https://docs.google.com/forms/d/1LwCB9ABd82VfMw-OsmwywB8fdhGB6npDY5MRNn2M5N8/viewform" class="ui black icon right labeled button">報名頁面存檔<i class="icon archive"></i></a><a target="_blank" href="https://docs.google.com/spreadsheets/d/1lz7aSTQXDLbKQ_u_8vQt1SDa-HbjlVl1jcIzivM_MCU/edit#gid=0" class="ui black icon right labeled button">秘訣<i class="icon pencil"></i></a>
+            </div>
+            <div class="section social"><span class="text">分享活動至</span><span class="text">
+                <div data-layout="button_count" class="fb-share-button"></div></span><span class="text">
+                <div data-action="share" data-annotation="bubble" class="g-plus"></div></span><span class="text"><a href="https://twitter.com/share" data-hashtags="憲政草根論壇" class="twitter-share-button">Tweet</a></span></div>
+          </section>
+        </div>
       </section>
     </div>
     <footer id="bottombar">
@@ -129,6 +159,12 @@
     </footer>
     <script>var gsheet_url ='https://docs.google.com/spreadsheets/d/1lz7aSTQXDLbKQ_u_8vQt1SDa-HbjlVl1jcIzivM_MCU/pubhtml';</script>
     <script>
+      $('#menu .item')
+        .tab({
+          history: true,
+          historyType: 'hash'
+        });
+        
       $(document).ready(function(){
       
         // step 0: setup
@@ -196,15 +232,15 @@
             }
             
             var entry_color = "";
-            if(entry_class.indexOf('問題') > -1){
+            if(entry_class.match('問題')){
               entry_color = "red";
-            }else if(entry_class.indexOf('主張') > -1 || entry_class.indexOf('提案') > -1 || entry_class.indexOf('方案') > -1){
+            }else if(entry_class.match('主張') || entry_class.match('提案') || entry_class.match('方案')){
               entry_color = "green";
-            }else if(entry_class.indexOf('彙整') > -1 || entry_class.indexOf('總結') > -1 || entry_class.indexOf('結論') > -1){
+            }else if(entry_class.match('彙整') || entry_class.match('總結') || entry_class.match('結論')){
               entry_color = "blue";
-            }else if(entry_class.indexOf('經驗') > -1){
+            }else if(entry_class.match('經驗')){
               entry_color = "yellow";
-            }else if(entry_class == "導讀" || entry_class.indexOf('引言') > -1){
+            }else if(entry_class == "導讀" || entry_class.match('引言')){
               entry_color = "teal";
             }else if(entry_class == "主持"){
               entry_color = "";
@@ -367,15 +403,15 @@
           
           // step 4 collapse header section for reading
           
-          $('#pilot, #filter').on('click tap', function(){
-            $('#topbar .expand.collapse .button').removeClass('active');
-            $('#event').find('#header, #content>.meta, #content>.description').slideUp();
-          });
+          //$('#pilot, #filter').on('click tap', function(){
+          //  $('#topbar .expand.collapse .button').removeClass('active');
+          //  $('#event').find('#header, #content>.meta, #content>.description').slideUp();
+          //});
           
-          $('#topbar .expand.collapse .button').on('click tap', function(){
-            $('#topbar .expand.collapse .button').toggleClass('active');
-            $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
-          });
+          //$('#topbar .expand.collapse .button').on('click tap', function(){
+          //  $('#topbar .expand.collapse .button').toggleClass('active');
+          //  $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
+          //});
           
           // step 5 mark current page
           $("#topbar a[href*='grassroots']").addClass("active");

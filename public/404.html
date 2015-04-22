@@ -23,6 +23,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="css/level-one.css"/>
     <meta name="description" content="..."/>
+    <!-- tabletop.js-->
+    <script type="text/javascript" src="assets/tabletop.js"></script>
+    <!-- handlebars-->
+    <script type="text/javascript" src="assets/handlebars-v2.0.0.js"></script>
     <!-- bxslider-->
     <link rel="stylesheet" type="text/css" href="assets/jquery.bxslider/jquery.bxslider.css"/>
     <script type="text/javascript" src="assets/jquery.bxslider/jquery.bxslider.min.js"></script>
@@ -38,11 +42,7 @@
     </nav>
     <div id="home" class="horizontal wrap">
       <section id="promote">
-        <ui class="bxslider">
-          <li>blah</li>
-          <li>blah</li>
-          <li>blah</li>
-        </ui>
+        <ul class="bxslider"></ul>
       </section>
     </div>
     <footer id="bottombar">
@@ -51,10 +51,28 @@
       </div>
     </footer>
     <script>
-      $(document).ready(function(){
-        $('.bxslider').bxSlider();
-        $("#topbar a[href*='index']").addClass("active");
+      var gsheet_url = 'https://docs.google.com/spreadsheets/d/1RrLiqy3xId-zxhTmtsYvuTb6N5HCUgXVaEWHCeNwgr4/pubhtml',
+          slide_html = '{{#each slides}}<li><img src="{{url}}" title="{{title}}" /></li>{{/each}}',
+          slide_template = Handlebars.compile( slide_html );
+          
+      Tabletop.init({
+        key: gsheet_url,
+        callback: insert_slideshow
       });
+      
+      function insert_slideshow( data, tabletop ) {
+      
+        $( function() {
+          var slides = tabletop.sheets('slideshows').all();
+          
+          $('#home ul.bxslider')
+            .append( slide_template( {slides: slides} ) )
+            .bxSlider({
+              captions: true,
+              adaptiveHeight: true
+            });
+        });
+      }
       
     </script>
     <div id="fb-root"></div>
