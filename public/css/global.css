@@ -55,3 +55,7 @@ a, a:link {
   margin-left: auto;
   margin-right: auto;
 }
+
+#home ul.bxslider img {
+  margin: 0 auto;
+}

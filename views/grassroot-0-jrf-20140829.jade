@@ -1,338 +1,59 @@
-extends level-one
+extends grassroot
 
-block head
-  // handlebars
-  script(type="text/javascript",src="assets/handlebars-v2.0.0.js")
-
-  // underscore
-  script(type="text/javascript",src="assets/underscore-min.js")
-
-  // csv parser
-  //script(type="text/javascript",src="assets/csv.js")
-
-  // tabletop.js
-  script(type="text/javascript",src="assets/tabletop.js")
-
+block subhead
   meta(name="description",content="...")
 
-block title
-  | 草根論壇#0 政府體制與選制
+block subtitle
+  | #0 政府體制與選制
 
-block topbar
-  .item.expand.collapse
-    .ui.icon.button.brown.active
-      i.icon.chevron.down
+block header-images
 
-block content
+block header-title
+  | #0 政府體制與選制
 
-  #event
+block meta
 
-    header#header
-      .background
-        img.ui.image(src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10397046_743166745732737_6981759218115780785_o.jpg")
-        img.ui.image(src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/10298306_743166935732718_5677566081269997932_o.jpg")
-        img.ui.image(src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1801143_743167149066030_4365130757095527117_o.jpg")
-      .cover
-        .title
-          h1.header 草根論壇#0 政府體制與選制
-          //-h1.header
-            span.label 憲政草根論壇
-            span.x
-              i.icon.remove
-            span.label 司改會
-            //-span.small 2014 Augest 09 
-    section#content.horizontal.wrap
-      article.event.meta.ui.two.column.stackable.divided.grid
-        .column
-          p.item
-            span.key 主辦
-            span.value 民間司法改革基金會
-          p.item
-            span.key 時間
-            span.value 2014/08/29 星期五 13:00~17:00
-          p.item
-            span.key 地點
-            span.value 司改會辦公室 (台北市中山區松江路90巷3號7樓)
-        .column
-          p.item
-            span.key 參加人數
-            span.value 18人
-          p.item
-            span.key 參加者組成
-            span.value 多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。
-      article.description
-        p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
-      article#log
-        //-.ui.horizontal.divider 紀錄
-        //-#pilot.ui.menu
-        #pilot.ui.secondary.pointing.menu
-          a.filter.item(name="segment").active 所有
-            .ui.black.label
-          a.filter.item(name="red") 問題
-            .ui.red.label
-          a.filter.item(name="green") 主張
-            .ui.green.label
-          .right.menu
-            .item.ui.button.expand 全部展開
-            .item.ui.button.collapse 全部收合
-            .item.ui.simple.dropdown.sort
-              span.current 依發言順序
-              i.icon.dropdown
-              .menu
-                .item.timestamp 依發言順序
-                //-.item 依重要性
-                .item.agreement 依同意度
-        //-#filter.ui.secondary.menu
-          a.item 憲法
-            .ui.small.label 10
-          a.item 法制
-            .ui.small.label 10
-        #filter.tag.ui.labels
-        #list
-          //include entry
-        .ui.divider
-        #sample.ui.five.column.stackable.grid
-          .equal.height.divided.row
-            .column
-              .key
-                i.icon.remove.red
-              p.value 有人強烈反對該項發言並提出不同見解
-            .column
-              .key
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
-              p.value 無人贊同
-            .column
-              .key
-                i.icon.star.yellow
-                i.icon.empty.star.gray
-                i.icon.empty.star.gray
-              p.value 僅少數人支持認同
-            .column
-              .key
-                i.icon.star.yellow
-                i.icon.star.yellow
-                i.icon.empty.star.gray
-              p.value 約半數人支持認同
-            .column
-              .key
-                i.icon.star.yellow
-                i.icon.star.yellow
-                i.icon.star.yellow
-              p.value 全場多數人支持認同
-        .ui.divider
+  .column
+    p.item
+      span.key 主辦
+      span.value 民間司法改革基金會
+    p.item
+      span.key 時間
+      span.value 2014/08/29 星期五 13:00~17:00
+    p.item
+      span.key 地點
+      span.value 司改會辦公室 (台北市中山區松江路90巷3號7樓)
+  .column
+    p.item
+      span.key 參加人數
+      span.value 18人
+    p.item
+      span.key 參加者組成
+      span.value 多為當時暑假在司改會實習的各大專院校學生，及其轉邀的朋友，年齡多為19歲~23歲，其中半數為大台北地區學生。
 
-      section#footer
-        //-.section.ui.black.labels
-          span.text 草根生長地點
-          a.ui.label 台北市
-        //-.section.ui.tag.black.labels
-          span.text 討論內容
-          a.ui.label 憲政體制
-          a.ui.label 選舉制度
-        .section
-          span.text 工作團隊
-          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
-          img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
-        .section.links
-          a.ui.black.icon.right.labeled.button(target="_blank",href="https://www.facebook.com/media/set/?set=oa.1566445763589708&type=1") 活動照片
-            i.icon.share
-          a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphTS1HTDZEZ0hKRnc/view?usp=sharing") 會議手冊
-            i.icon.file.text
-        //-.related 類似的場次：
-        .section.social
-          span.text 分享活動至
-          span.text
-            .fb-share-button(data-layout="button_count")
-          span.text
-            .g-plus(data-action="share",data-annotation="bubble")
-          span.text
-            a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
+block main-article
 
-block script
+  p 今年八月間，同為「公民憲政推動聯盟」一員的司改會，響應正在籌備規劃中的草根論壇，決定試辦第一場公民憲政會議草根論壇，邀請當時在司改會實習的大學生，及其轉邀請的朋友，進行一場三個多小時的草根論壇，暢談青年學子們對台灣憲政問題的不滿，並提出許多對政府體制改革的不同想像。
+
+block footer
+  .section
+    span.text 工作團隊
+    img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c53.0.320.320/p320x320/198741_10150267165356026_4254897_n.jpg?oh=57fec31a1c3c6a4c4e5638070e48f759&oe=54FBFCEB&__gda__=1426250864_861e3e113937a55f7a4bc526b34d86f0")
+    img.ui.avatar.image(src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c0.0.320.320/p320x320/602374_516039635112117_2075101542_n.jpg?oh=f57b542550dfa2421f0b4d452332349a&oe=54FC4AD5&__gda__=1429168255_eccafdca31623af9c5f80e5eed7eb234")
+  .section.links
+    a.ui.black.icon.right.labeled.button(target="_blank",href="https://www.facebook.com/media/set/?set=oa.1566445763589708&type=1") 活動照片
+      i.icon.share
+    a.ui.black.icon.right.labeled.button(target="_blank",href="https://drive.google.com/file/d/0B6DZkaZUUWphTS1HTDZEZ0hKRnc/view?usp=sharing") 會議手冊
+      i.icon.file.text
+    a.ui.black.icon.right.labeled.button(target="_blank",href="https://docs.google.com/spreadsheets/d/1OfQ6PE-3q5fN8Wi_Og-DJbZBfvoc3Pvoza_cIHe21-8/edit?usp=sharing") 秘訣
+      i.icon.pencil
+
+block photo
+  iframe(src='http://embedsocial.com/facebook_album/album_photos/688402134590904', width='900', height='1450', frameborder='0', scrolling='no', marginheight='0', marginwidth='0')
+
+block video
+  iframe(width='560', height='315', src='https://www.youtube.com/embed/videoseries?list=PLqOM19aHIAdduzOaj0rjTesy2cqSBWNT6', frameborder='0', allowfullscreen='')
+
+block subscript
   script.
-
-    $(document).ready(function(){
-
-      // step 0: setup
-
-      //-var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div><a href="{{source}}" target="_blank" class="ui icon small button"><i class="icon right arrow"></i></a></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
-      var entry_template_source ='<div data-id="{{id}}" data-parent="{{parent}}" data-agreement="{{agreement}}" class="entry"><div class="ui segment {{color}}"><div class="rating"></div><div class="tag ui labels"></div><p class="content">{{content}}</p><div class="action"><div class="ui icon small button expand disabled"><i class="icon chevron down"></i></div></div></div><div class="detail"><div class="comment ui divided list"></div><div class="subentry"></div></div></div>';
-      var entry_template = Handlebars.compile(entry_template_source);
-
-      var entry_tag_template_source ='<div class="ui label">{{tag}}</div>';
-      var entry_tag_template = Handlebars.compile(entry_tag_template_source);
-
-      var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
-      var entry_comment_template = Handlebars.compile(entry_comment_template_source);
-
-      var star_element_template = '<i class="icon star yellow"></i>';
-      var empty_star_element_template = '<i class="icon star empty gray"></i>';
-      var block_element_template = '<i class="icon remove red"></i>';
-
-      // step 1: get data and render projects
-
-      $.getJSON("json/entry-list.json", function(entries){
-
-        $.each(entries, function(entry_index, entry){
-
-          var entry_id = entry.id || "";
-          var entry_content = entry.content || "";
-          var entry_parent = entry.parent[0] || "";
-
-          var entry_class = entry.class[0] || "";
-          var entry_color = "";
-          if(entry_class == "問題"){
-            entry_color = "red";
-          }else if(entry_class == "主張"){
-            entry_color = "green";
-          };
-
-          var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry.rating[0]};
-          var $entry_element = $(entry_template(context));
-
-          var entry_tags = entry.tag || [];
-          $.each(entry_tags, function(tag_index, tag){
-            var context = {tag: tag};
-            var $tag_element = $(entry_tag_template(context));
-            $entry_element.find('.tag').append($tag_element);
-          });
-
-          var entry_ratings = entry.rating || [];
-          $.each(entry_ratings, function(rating_index, rating){
-            var rating_count = parseInt(rating);
-            var rating_elememt_template = '';
-            if(rating_count >= 0){
-              _(rating_count).times(function(){
-                rating_elememt_template += star_element_template;
-              });
-              _(3-rating_count).times(function(){
-                rating_elememt_template += empty_star_element_template;
-              });
-            }else if(rating_count == -1){
-              rating_elememt_template = block_element_template;
-            };
-            var $rating_elememt = $(rating_elememt_template);
-            $entry_element.find('.rating').append($rating_elememt);
-          });
-
-          var comment_icon_settings = {agree: "thumbs up outline", disagree: "thumbs down outline", block: "remove red", info: "info"}
-          $.each([ "info", "agree", "disagree", "block" ], function( index, value ){
-            $.each(entry[value], function(comment_index, comment){
-              var context = {type: value, icon: comment_icon_settings[value], description: comment};
-              var $comment_element = $(entry_comment_template(context));
-              $entry_element.find('.comment').append($comment_element);
-            });
-          });
-
-          $('#list').append($entry_element);
-
-        });
-      }).done(function(){
-
-        // step 2: build parent-child relationship
-
-        var children_entries = $('#list .entry').filter(function(index){
-          return $(this).attr('data-parent').length > 0;
-        });
-        $.each(children_entries, function(index, entry){
-          var parent_id = $(this).attr('data-parent');
-          $(this).appendTo('[data-id="'+parent_id+'"]>.detail>.subentry');
-        });
-
-        // step 3-1: build filters
-
-        var filter_tag_template_source = '<a class="ui label">{{tag}}<div class="detail">{{count}}</div></a>';
-        var filter_tag_template = Handlebars.compile(filter_tag_template_source);
-        var tag_list = {};
-        $.each($('.entry .tag .label'), function(){
-          if(!tag_list[$(this).text()]){
-            tag_list[$(this).text()] = 1;
-          }else{
-            tag_list[$(this).text()] += 1;
-          }
-        });
-        $.each(tag_list, function(key, value){
-          var context = {tag: key, count: value};
-          var $tag_element = $(filter_tag_template(context));
-          $('#filter').append($tag_element);
-        });
-
-        $('#pilot .black.label').text($('.entry').length);
-        $('#pilot .red.label').text($('.entry>.red.segment').length);
-        $('#pilot .green.label').text($('.entry>.green.segment').length);
-
-        // step 3-2: add interactions
-
-        var tag_filter = "";
-        $('#filter .label').on('click tap', function(){
-          tag_filter = $(this).contents().filter(function() {
-            return this.nodeType == 3;
-          }).text();
-          $('#list .entry').slideUp();
-          $('#list .entry').has('.tag .label:contains("'+tag_filter+'")').slideDown();
-          $('#filter .label').removeClass('black');
-          $(this).addClass('black');
-          $('#pilot .item').removeClass('active');
-          $('#list .entry .tag .label').removeClass("black");
-          $('#list .entry .tag .label:contains("'+tag_filter+'")').addClass("black");
-        });
-
-        var class_filter = "";
-        $('#pilot .filter.item').on('click tap', function(){
-          class_filter = $(this).attr('name');
-          $('#list .entry').slideUp();
-          $('#list .entry').has('.ui.'+class_filter).slideDown();
-          $('#pilot .item').removeClass('active');
-          $(this).addClass('active');
-          $('#filter .label').removeClass('black');
-          $('.entry .tag .label').removeClass("black");
-        });
-
-        $('#list .entry').has('.comment .item, .subentry .entry').children('.segment').children('.action').children('.expand.button').removeClass('disabled').addClass('active');
-        $('#list .entry .expand.button').on('click tap', function(){
-          $(this).closest('.entry').find('.detail').slideToggle();
-          $(this).toggleClass('active');
-        });
-        $('#pilot .expand.button').on('click tap', function(){
-          $('#list .entry .detail').slideDown();
-          $('#list .entry .expand.button').not('disabled').addClass('active');
-        });
-        $('#pilot .collapse.button').on('click tap', function(){
-          $('#list .entry .detail').slideUp();
-          $('#list .entry .expand.button').not('disabled').removeClass('active');
-        });
-
-        $('#pilot .sort .timestamp').on('click tap', function(){
-          $('#list>.entry').sort(function(a,b) {
-            return parseInt($(a).data('id')) - parseInt($(b).data('id'));
-          }).appendTo('#list');
-          $('#pilot .sort .current').text($(this).text());
-        });
-        $('#pilot .sort .agreement').on('click tap', function(){
-          $('#list>.entry').sort(function(a,b) {
-            return parseInt($(b).data('agreement')) - parseInt($(a).data('agreement'));
-          }).appendTo('#list');
-          $('#pilot .sort .current').text($(this).text());
-        });
-
-        // step 4 collapse header section for reading
-
-        $('#pilot, #filter').on('click tap', function(){
-          $('#topbar .expand.collapse .button').removeClass('active');
-          $('#event').find('#header, #content>.meta, #content>.description').slideUp();
-        });
-
-        $('#topbar .expand.collapse .button').on('click tap', function(){
-          $('#topbar .expand.collapse .button').toggleClass('active');
-          $('#event').find('#header, #content>.meta, #content>.description').slideToggle();
-        });
-
-        // step 5 mark current page
-        $("#topbar a[href*='grassroots']").addClass("active");
-
-      });
-
-    });
-
+    var gsheet_url ='https://docs.google.com/spreadsheets/d/1OfQ6PE-3q5fN8Wi_Og-DJbZBfvoc3Pvoza_cIHe21-8/pubhtml';
