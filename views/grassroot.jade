@@ -44,11 +44,11 @@ block content
       .horizontal.wrap
 
         .ui.fluid.three.item.menu.inverted
-          a.item(href='#overview') 總覽
-          a.item(href='#records') 討論紀錄
-          a.item(href='#photos') 活動照片
+          a.active.item(data-tab='overview') 總覽
+          a.item(data-tab='records') 討論紀錄
+          a.item(data-tab='photos') 活動照片
 
-    section#overview.subpage
+    section#overview.ui.active.tab(data-tab='overview')
       .horizontal.wrap
 
         article.event.meta.ui.two.column.stackable.divided.grid
@@ -56,6 +56,10 @@ block content
 
         article.description
           block main-article
+
+        article.video
+          block video
+          iframe(width='560', height='315', src='https://www.youtube.com/embed/videoseries?list=PLqOM19aHIAdcUbspkI-VUgzzveNV-HUqN', frameborder='0', allowfullscreen='')
 
         section#footer
 
@@ -70,7 +74,7 @@ block content
             span.text
               a(href="https://twitter.com/share",class="twitter-share-button",data-hashtags="憲政草根論壇") Tweet
 
-    section#records.subpage
+    section#records.ui.tab(data-tab='records')
       .horizontal.wrap
 
         article#log
@@ -137,8 +141,8 @@ block content
                   i.icon.thumbs.up.green
                 p.value 全場多數人支持認同
 
-    section#photos.subpage
-      .horizontal.wrap
+    section#photos.ui.tab(data-tab='photos')
+      .horizontal.wrap blah
 
     section#content.horizontal.wrap
 
@@ -147,6 +151,12 @@ block script
   block subscript
 
   script.
+
+    $('#menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash'
+      });
 
     $(document).ready(function(){
 

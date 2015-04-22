@@ -41,8 +41,13 @@
   border-radius: 0;
 }
 
+#home ul.bxslider {
+  margin: 0;
+}
+#home ul.bxslider img {
+  margin: 0 auto;
+}
 #home #promote li {
-  min-height: 10rem;
   background-color: #333333;
 }
 
@@ -122,11 +127,11 @@
   background-color: #444444;
   width: 100%;
 }
-#event .subpage {
-  display: none;
-}
-#event .subpage:active {
-  display: initial;
+#event #overview .video {
+  width: 100%;
+  background-color: #cccccc;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 #event #overview .event.meta {
   margin: 0;
