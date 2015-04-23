@@ -185,6 +185,8 @@ block script
       var entry_comment_template_source = '<div class="{{type}} item"><i class="icon {{icon}}"></i>{{description}}</div>';
       var entry_comment_template = Handlebars.compile(entry_comment_template_source);
 
+      // template for ratings
+
       var agree_element_template = '<i class="icon thumbs up green"></i>';
       var empty_agree_element_template = '<i class="icon thumbs up gray"></i>';
       var disagree_element_template = '<i class="icon thumbs down orange"></i>';
@@ -194,8 +196,6 @@ block script
 
       // step 1: get data and render projects
 
-      //var gsheet_id = '1GD2B3sC8TvkVaU4RZwiNeqtxvawqfcKaNAmshQXmPz4';
-      //var csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+gsheet_id+'&exportFormat=csv&gid=0';
       var tabletop;
       var log;
 
@@ -211,11 +211,11 @@ block script
           }
 
           var entry_id = entry_index || "";
-          var entry_content = entry['發言內容本文'] || "";
+          var entry_comment = entry['回應性質'] || '';
           var entry_parent = parseInt(entry_index) - parseInt(entry['格數']) || "";
-
-          var entry_speaker = entry['發言人'] || "";
           var entry_class = entry['發言類型'] || "";
+          var entry_speaker = entry['發言人'] || "";
+          var entry_content = entry['發言內容本文'] || "";
 
           var entry_agree = entry['同意強度'] || "";
           var entry_agree_count = 0;
@@ -252,6 +252,21 @@ block script
             entry_color = "";
           }else if(entry_class == "自我介紹"){
             entry_color = "";
+          };
+
+          var entry_comment_icon = '';
+          if(entry_comment.match('推')){
+            entry_comment_icon = "";
+          }else if(entry_comment.match('噓')){
+            entry_comment_icon = "";
+          }else if(entry_comment.match('反')){
+            entry_comment_icon = "";
+          }else if(entry_comment.match('追問')){
+            entry_comment_icon = "";
+          }else if(entry_comment.match('回覆')){
+            entry_comment_icon = "";
+          }else if(entry_comment.match('補充')){
+            entry_comment_icon = "";
           };
 
           var context = {id: entry_id, content: entry_content, color: entry_color, parent: entry_parent, agreement: entry_agree_count, nickname: entry_speaker};
